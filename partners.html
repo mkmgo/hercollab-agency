@@ -1,0 +1,1781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>h·e·r collab — Partner Profile Portfolio</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png?v=2"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Strict Semantic Design Token Framework Mapping both System Preferences & Custom States */
+      :root {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --subheadline-color: #b22222;
+        --brand-red: #b22222;
+        --subtitle-grey: #7b7f86;
+        /* Crimson Brick Accent */
+        --border-color: rgba(0, 0, 0, 0.1);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --tile-bg: rgba(255, 255, 255, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.03);
+        --active-tab-bg: rgba(0, 0, 0, 0.05);
+      }
+
+      /* Enforce Dark Theme tokens under system prefers-color-scheme rule default */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-color: #121212;
+          --text-color: #f8f9fa;
+          --text-strong: #ffffff;
+          --text-muted: #a7a9be;
+          --brand-color: #ffffff;
+          --subheadline-color: #e44d4d;
+          --brand-red: #e44d4d;
+          --subtitle-grey: #b6bac2;
+          --border-color: rgba(255, 255, 255, 0.1);
+          --bg-overlay: rgba(18, 18, 18, 0.75);
+          --tile-bg: rgba(26, 26, 26, 0.85);
+          --tile-shadow: rgba(0, 0, 0, 0.2);
+          --active-tab-bg: rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      /* Explict Overrides when explicit manual toggle modifications are executed */
+      body[data-theme="light"] {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --subheadline-color: #b22222;
+        --brand-red: #b22222;
+        --subtitle-grey: #7b7f86;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --tile-bg: rgba(255, 255, 255, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.03);
+        --active-tab-bg: rgba(0, 0, 0, 0.05);
+      }
+
+      body[data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #f8f9fa;
+        --text-strong: #ffffff;
+        --text-muted: #a7a9be;
+        --brand-color: #ffffff;
+        --subheadline-color: #e44d4d;
+        --brand-red: #e44d4d;
+        --subtitle-grey: #b6bac2;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --bg-overlay: rgba(18, 18, 18, 0.75);
+        --tile-bg: rgba(26, 26, 26, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.2);
+        --active-tab-bg: rgba(255, 255, 255, 0.08);
+      }
+
+      html {
+        scrollbar-width: none;
+      }
+
+      html::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        font-family:
+          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition:
+          background-color 0.1s ease,
+          color 0.1s ease;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* Ambient Dynamic Profile Slideshow */
+      .bg-slideshow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      .bg-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transform: scale(1.03);
+        animation: crossfade 18s infinite ease-in-out;
+      }
+
+      .bg-slide:nth-child(1) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/q_auto/f_auto/v1776286873/Neo_Segola_tvcbhe.jpg");
+        animation-delay: 0s;
+      }
+
+      .bg-slide:nth-child(2) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png");
+        animation-delay: 6s;
+      }
+
+      .bg-slide:nth-child(3) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png");
+        animation-delay: 12s;
+      }
+
+      @keyframes crossfade {
+        0% {
+          opacity: 0;
+          transform: scale(1.03);
+        }
+
+        10% {
+          opacity: 0.32;
+          transform: scale(1.06);
+        }
+
+        33% {
+          opacity: 0.32;
+          transform: scale(1.11);
+        }
+
+        43% {
+          opacity: 0;
+          transform: scale(1.14);
+        }
+
+        100% {
+          opacity: 0;
+          transform: scale(1.03);
+        }
+      }
+
+      .bg-overlay-tint {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-overlay);
+        z-index: -1;
+        transition: background 0.1s ease;
+      }
+
+      /* Directional ambient sweep — holds at outer edge, then cuts instantly */
+      /* Corner Ambient Control Linkage */
+      .theme-toggle,
+      .nav-toggle,
+      .nav-toggle-about {
+        position: fixed;
+        top: 0.85rem;
+        z-index: 11;
+        width: 2.35rem;
+        height: 2.35rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--text-color);
+        cursor: pointer;
+        opacity: 0.72;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      }
+
+      .theme-toggle {
+        right: 0.85rem;
+      }
+      .nav-toggle {
+        right: 3.7rem;
+      }
+      .nav-toggle-about {
+        right: 6.55rem;
+      }
+
+      .theme-toggle:hover,
+      .nav-toggle:hover,
+      .nav-toggle-about:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      body[data-theme="dark"] .theme-toggle,
+      body[data-theme="dark"] .nav-toggle,
+      body[data-theme="dark"] .nav-toggle-about {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: #f8f9fa;
+      }
+
+      .theme-toggle svg,
+      .nav-toggle svg,
+      .nav-toggle-about svg {
+        width: 1rem;
+        height: 1rem;
+        stroke-width: 1.8;
+        fill: none;
+        stroke: currentColor;
+        color: rgba(33, 37, 41, 0.46);
+        filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
+        opacity: 0.78;
+        pointer-events: none;
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease,
+          filter 0.2s ease;
+      }
+
+      body[data-theme="dark"] .theme-toggle svg,
+      body[data-theme="dark"] .nav-toggle svg,
+      body[data-theme="dark"] .nav-toggle-about svg {
+        color: rgba(255, 255, 255, 0.64);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+        opacity: 0.82;
+      }
+
+      .frame-nav-btn svg {
+        width: 1rem;
+        height: 1rem;
+        stroke-width: 1.8;
+        opacity: 0.82;
+        color: currentColor;
+        pointer-events: none;
+        transition: transform 0.08s ease;
+      }
+
+      .switcher-prev:active svg,
+      .prev-block-btn:active svg {
+        transform: translateX(-3px);
+      }
+
+      .switcher-next:active svg,
+      .next-block-btn:active svg {
+        transform: translateX(3px);
+      }
+
+      /* Showcase Interface Core Framework */
+      .showcase-tile {
+        background: var(--tile-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--border-color);
+        box-shadow: 0 20px 40px var(--tile-shadow);
+        border-radius: 4px;
+        padding: 3rem;
+        max-width: 860px;
+        width: 100%;
+        min-width: 0;
+        margin: auto;
+        position: relative;
+        transition:
+          background-color 0.1s ease,
+          border-color 0.1s ease;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          align-items: center;
+        }
+
+        .container,
+        .row,
+        .col-12 {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .showcase-tile {
+          width: calc(100vw - 1.5rem);
+          max-width: calc(100vw - 1.5rem);
+          padding: 2rem 1rem;
+          margin: 1.5rem auto;
+          overflow: hidden;
+        }
+
+        .brand-header,
+        .partner-content,
+        .profile-intro,
+        .bio-slider-container {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+        }
+
+        .partner-switcher {
+          width: 100%;
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      /* Top Horizontal Multi-Partner Tab Track */
+      .partner-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .partner-switcher {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin-bottom: 1.35rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        padding: 0.35rem;
+      }
+
+      .partner-switcher .frame-nav-btn {
+        flex-shrink: 0;
+      }
+
+      .partner-switcher button svg {
+        width: 1.15rem;
+        height: 1.15rem;
+      }
+
+      .partner-rail-wrap {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .partner-rail {
+        display: flex;
+        align-items: center;
+        width: 300%;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+      }
+
+      .partner-rail-item {
+        flex: 0 0 33.333333%;
+        box-sizing: border-box;
+        padding: 0.25rem 0.9rem;
+        text-align: center;
+        white-space: nowrap;
+        font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 500;
+        color: var(--text-muted);
+        background: color-mix(in srgb, var(--text-strong) 6%, transparent);
+        border-radius: 2px;
+      }
+
+      /* Level 2 Block Switcher Rail */
+      .bio-block-switcher {
+        justify-content: flex-start !important;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        margin-top: 0.75rem;
+        margin-bottom: 0 !important;
+      }
+
+      .bio-block-switcher .frame-nav-menu {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .block-rail-wrap {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .block-rail {
+        display: flex;
+        align-items: center;
+        width: 300%;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+      }
+
+      .block-rail-item {
+        flex: 0 0 33.333333%;
+        box-sizing: border-box;
+        padding: 0.15rem 0.65rem;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        font-weight: bold;
+        color: var(--subheadline-color);
+        background: color-mix(in srgb, var(--text-strong) 6%, transparent);
+        border-radius: 2px;
+      }
+
+      .partner-content {
+        display: none;
+      }
+
+      .partner-content.active {
+        display: block;
+      }
+
+      /* Typography Mapping Framework */
+      .brand-header {
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
+      }
+
+      .logo {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: calc(1.75rem + 1.1vw);
+        color: var(--brand-color);
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        font-style: italic;
+        color: var(--subheadline-color);
+        font-size: calc(1.15rem + 0.2vw);
+        letter-spacing: 0.05em;
+        margin-top: 0.4rem;
+        margin-bottom: 0;
+        font-weight: 400;
+      }
+
+      .profile-intro {
+        display: grid;
+        grid-template-columns: clamp(120px, 15vw, 170px) minmax(0, 1fr);
+        gap: clamp(1.5rem, 3vw, 2rem);
+        align-items: start;
+        min-width: 0;
+      }
+
+      .profile-intro > * {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .profile-image-col {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .profile-portrait {
+        aspect-ratio: 4 / 5;
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--active-tab-bg);
+        box-shadow: 0 8px 24px var(--tile-shadow);
+        border: 1px solid var(--border-color);
+        margin-top: 0;
+      }
+
+      .profile-portrait img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center top;
+        filter: saturate(0.4) contrast(0.8) brightness(1.18);
+        transform: scale(1);
+        transition:
+          transform 0.45s ease,
+          filter 0.35s ease;
+      }
+
+      .profile-portrait:hover img {
+        transform: scale(1.04);
+      }
+
+      body[data-theme="dark"] .profile-portrait img {
+        filter: saturate(0.32) brightness(0.72) contrast(1.3);
+      }
+
+      @media (max-width: 768px) {
+        .profile-intro {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          justify-items: center;
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .profile-intro > * {
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .profile-image-col {
+          width: 100%;
+          align-items: center;
+        }
+
+        .profile-portrait {
+          width: 100%;
+        }
+
+        .partner-meta {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .partner-name,
+        .partner-title,
+        .partner-quote,
+        .lead-text {
+          max-width: 100%;
+          overflow-wrap: anywhere;
+        }
+
+        .tech-tags {
+          max-width: 100%;
+          justify-content: flex-start;
+          overflow: hidden;
+        }
+
+        .bio-block-switcher {
+          justify-content: center !important;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .bio-block-switcher .frame-nav-menu {
+          width: 100%;
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .partner-meta {
+        margin-top: 0;
+      }
+
+      .partner-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-strong);
+        letter-spacing: 0.02em;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+      }
+
+      .partner-title {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--subheadline-color);
+        font-weight: 600;
+        margin-bottom: 0.45rem;
+      }
+
+      .partner-quote {
+        color: var(--text-strong) !important;
+        font-size: 0.95rem;
+        font-style: italic;
+        font-weight: 700;
+        opacity: 0.92;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 0.5rem 0 0.75rem;
+      }
+
+      .profile-intro + hr {
+        margin-top: 0.25rem;
+      }
+
+      .profile-intro:has(.bio-block-switcher) {
+        padding-bottom: 0 !important;
+      }
+
+      .profile-intro:has(.bio-block-switcher) + hr {
+        margin-top: 0.45rem;
+        margin-bottom: 0.85rem !important;
+      }
+
+      .tag {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border: 0.5px solid var(--border-color);
+        padding: 0.2rem 0.45rem;
+        color: var(--text-strong);
+        font-weight: 700;
+        opacity: 0.86;
+        border-radius: 4px;
+        white-space: nowrap;
+      }
+
+      body[data-theme="dark"] .tag {
+        color: rgba(255, 255, 255, 0.92);
+        border-color: rgba(255, 255, 255, 0.28);
+      }
+
+      /* Multi-Block Carousel Node Engine Container */
+      .bio-slider-container {
+        position: relative;
+        min-height: 180px;
+        margin-bottom: 1.5rem;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      @media (max-width: 576px) {
+        .bio-slider-container {
+          min-height: 290px;
+        }
+      }
+
+      .bio-block {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1;
+      }
+
+      /* Surgical Precision Brand Rule: Instant Hard Cut */
+      .bio-block.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+        animation: surgicalCut 0.05s steps(2, end);
+      }
+
+      @keyframes surgicalCut {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .block-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--subheadline-color);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .bio-block .block-label {
+        display: none;
+      }
+
+      .lead-text {
+        font-size: calc(0.9rem + 0.15vw);
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      .lead-text strong {
+        font-weight: 700;
+        color: var(--text-strong);
+      }
+
+      /* Frame Integrated Navigation and System Swapper Control Base */
+      .frame-nav-menu {
+        display: inline-flex;
+        align-items: stretch;
+        box-sizing: border-box;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 0.25rem;
+        background: var(--tile-bg);
+        gap: 0.25rem;
+        transition:
+          background-color 0.1s ease,
+          border-color 0.1s ease;
+      }
+
+      @media (max-width: 576px) {
+        .partner-switcher,
+        .bio-block-switcher .frame-nav-menu {
+          width: min(100%, 21rem);
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .partner-switcher {
+          padding: 0.25rem;
+        }
+
+        .frame-nav-btn {
+          width: 1.85rem;
+          min-width: 1.85rem;
+        }
+
+        .partner-rail-item,
+        .block-rail-item {
+          overflow: hidden;
+          text-overflow: clip;
+        }
+
+        .partner-rail-item {
+          padding: 0.25rem 0.45rem;
+          font-size: 0.76rem;
+          letter-spacing: 0.07em;
+        }
+
+        .block-rail-item {
+          padding: 0.15rem 0.4rem;
+          font-size: 0.68rem;
+          letter-spacing: 0.04em;
+        }
+      }
+
+      .frame-nav-btn {
+        background: none;
+        border: none;
+        width: 2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-color);
+        cursor: pointer;
+        border-radius: 2px;
+        text-decoration: none;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .frame-nav-btn:hover {
+        background-color: var(--active-tab-bg);
+        color: var(--text-strong);
+      }
+
+      .frame-nav-indicator {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        padding: 0 0.65rem;
+        color: var(--text-muted);
+        font-weight: bold;
+        min-width: 8.75rem;
+        text-align: center;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .block-indicator {
+        color: var(--subheadline-color);
+        background: color-mix(in srgb, var(--text-strong) 6%, transparent);
+        border-radius: 2px;
+        padding: 0.15rem 0.65rem;
+      }
+
+      .frame-theme-divider {
+        width: 1px;
+        height: 1.25rem;
+        background-color: var(--border-color);
+        margin: 0 0.25rem;
+        transition: background-color 0.1s ease;
+      }
+
+      hr {
+        border-top: 1px solid var(--border-color);
+        opacity: 1;
+        transition: border-color 0.1s ease;
+      }
+
+      .caps-sentiment {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        font-size: 0.85rem;
+      }
+
+      .tile-footer {
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <button
+      class="theme-toggle"
+      id="theme-toggle"
+      type="button"
+      aria-label="Toggle system interface mode"
+      title="Toggle System Mode"
+    ></button>
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Home"
+      title="Home"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+        />
+      </svg>
+    </button>
+    <button
+      class="nav-toggle-about"
+      id="nav-toggle-about"
+      type="button"
+      aria-label="Agency Profile"
+      title="Agency Profile"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <path d="M8 8h8" />
+        <path d="M8 12h8" />
+        <path d="M8 16h8" />
+      </svg>
+    </button>
+
+    <div class="bg-slideshow">
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+    </div>
+    <div class="bg-overlay-tint"></div>
+
+    <div class="container my-auto py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 px-3">
+          <article class="showcase-tile">
+            <header class="brand-header text-start">
+              <span class="logo d-block">h·e·r collab</span>
+              <h3 class="subtitle">
+                Creative Brilliance &middot; Surgical Precision
+              </h3>
+            </header>
+
+            <nav
+              class="partner-switcher frame-nav-menu"
+              aria-label="Partner selector"
+            >
+              <button
+                class="switcher-prev frame-nav-btn"
+                type="button"
+                aria-label="Previous partner"
+                title="Previous Partner"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m12 19-7-7 7-7"></path>
+                  <path d="M19 12H5"></path>
+                </svg>
+              </button>
+              <div class="partner-rail-wrap">
+                <div class="partner-rail" id="partner-rail"></div>
+              </div>
+              <button
+                class="switcher-next frame-nav-btn"
+                type="button"
+                aria-label="Next partner"
+                title="Next Partner"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+            </nav>
+
+            <div class="partner-content active" data-partner="neo">
+              <section
+                class="profile-intro text-start pb-2"
+                aria-label="Partner profile introduction"
+              >
+                <div class="profile-image-col">
+                  <figure class="profile-portrait mb-0">
+                    <img
+                      src="https://res.cloudinary.com/dp455m4rk/image/upload/q_auto,f_auto,e_saturation:-18,e_contrast:-8,e_brightness:4/v1782392983/neo_segola_yrrlpc.jpg"
+                      alt="Neo Segola portrait"
+                    />
+                  </figure>
+                </div>
+
+                <div>
+                  <div class="partner-meta">
+                    <p class="partner-name">Neo Segola</p>
+                    <div class="partner-title">
+                      Co-Founder & Chief Creative Officer
+                    </div>
+                    <p class="lead-text partner-quote mb-3">
+                      "Shaping the future of brand storytelling with 20+ years
+                      of elite judging pedigree and global creative excellence."
+                    </p>
+                    <div class="tech-tags">
+                      <span class="tag">Vanguard</span>
+                      <span class="tag">Oracle</span>
+                      <span class="tag">Aesthetic</span>
+                      <span class="tag">Synthesis</span>
+                      <span class="tag">Frontier</span>
+                    </div>
+                    <div
+                      class="bio-block-switcher d-flex justify-content-start align-items-center mb-4"
+                    >
+                      <div class="frame-nav-menu">
+                        <button
+                          class="frame-nav-btn prev-block-btn"
+                          type="button"
+                          aria-label="Previous text entry block"
+                          title="Previous Block"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m12 19-7-7 7-7"></path>
+
+                            <path d="M19 12H5"></path>
+                          </svg>
+                        </button>
+
+                        <span class="frame-nav-indicator block-indicator"
+                          >01 // Authority</span
+                        >
+
+                        <button
+                          class="frame-nav-btn next-block-btn"
+                          type="button"
+                          aria-label="Next text entry block"
+                          title="Next Block"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M5 12h14"></path>
+
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr class="mb-4" />
+
+              <main class="bio-slider-container">
+                <div class="bio-block active">
+                  <span class="block-label">01 // Authority</span>
+                  <p class="lead-text">
+                    Neo has spent over 20 years in creative leadership, working
+                    with some of the world's most recognised brands. She's
+                    served as <strong>D&AD Jury President</strong>, been on the
+                    <strong>Cannes Lions Film Jury twice</strong>, and judged at
+                    the Clios, London International Awards, and the Cresta
+                    Awards. What those experiences have shaped in her is a love
+                    for work that truly connects and ideas that stay with people
+                    long after the campaign ends.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">02 // Ambition</span>
+                  <p class="lead-text">
+                    When Neo co-founded h·e·r Collab, the goal was never to
+                    build just another agency. She's interested in work that
+                    shapes culture, as well as with campaigns that become part
+                    of the conversations people are already having. She's
+                    passionate about
+                    <strong>mentoring emerging talent</strong> and developing
+                    creative IP, because she believes the best work comes from
+                    teams that are supported and challenged in equal measure.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">03 // Achievement</span>
+                  <p class="lead-text">
+                    Neo has worked across a wide range of marquee spaces. From
+                    <strong
+                      >South African Tourism, Brand South Africa, Standard Bank,
+                      BMW, and Telkom</strong
+                    >; to global names like
+                    <strong>Microsoft, MTN, and Unilever</strong>. What she
+                    values most isn't the scale of the brand or the work, but
+                    the quality of the collaborations behind it. She's at her
+                    best when bringing different people together to make
+                    something better than any one of them could alone.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">04 // Core Expertise</span>
+                  <p class="lead-text">
+                    <strong>· Creative direction and brand storytelling</strong
+                    ><br />
+                    <strong>· Conceptual thinking across channels</strong><br />
+                    <strong>· Building and leading elite creative teams</strong
+                    ><br />
+                    <strong
+                      >· Work deeply rooted in culture and human insight</strong
+                    >
+                  </p>
+                </div>
+              </main>
+            </div>
+
+            <div class="partner-content" data-partner="chaz">
+              <section
+                class="profile-intro text-start pb-2"
+                aria-label="Partner profile introduction"
+              >
+                <div class="profile-image-col">
+                  <figure class="profile-portrait mb-0">
+                    <img
+                      src="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png"
+                      alt="Chaz Pigou portrait"
+                    />
+                  </figure>
+                </div>
+
+                <div>
+                  <div class="partner-meta">
+                    <p class="partner-name">Chaz Pigou</p>
+                    <div class="partner-title">
+                      Co-Founder & Chief Growth Officer
+                    </div>
+                    <p class="lead-text partner-quote mb-3">
+                      "A strategic visionary bridging global corporate scale
+                      with authentic, purpose-driven brand transformation."
+                    </p>
+                    <div class="tech-tags">
+                      <span class="tag">Blue-Chip</span>
+                      <span class="tag">Equity</span>
+                      <span class="tag">Scale</span>
+                      <span class="tag">Nexus</span>
+                      <span class="tag">Transformation</span>
+                    </div>
+                    <div
+                      class="bio-block-switcher d-flex justify-content-start align-items-center mb-4"
+                    >
+                      <div class="frame-nav-menu">
+                        <button
+                          class="frame-nav-btn prev-block-btn"
+                          type="button"
+                          aria-label="Previous text entry block"
+                          title="Previous Block"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m12 19-7-7 7-7"></path>
+
+                            <path d="M19 12H5"></path>
+                          </svg>
+                        </button>
+
+                        <span class="frame-nav-indicator block-indicator"
+                          >01 // Authority</span
+                        >
+
+                        <button
+                          class="frame-nav-btn next-block-btn"
+                          type="button"
+                          aria-label="Next text entry block"
+                          title="Next Block"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M5 12h14"></path>
+
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr class="mb-4" />
+
+              <main class="bio-slider-container">
+                <div class="bio-block active">
+                  <span class="block-label">01 // Authority</span>
+                  <p class="lead-text">
+                    With nearly two decades of expertise, Chaz bridges the
+                    divide between massive global brands and the people they
+                    serve through high-impact, human-centric marketing
+                    strategies. It is anchored in academic excellence, holding a
+                    Postgraduate Diploma in Business Management (Stellenbosch)
+                    and a Management Development Programme in Agency Leadership
+                    (Red & Yellow). From building marketing departments from the
+                    ground up to managing diverse portfolios across FMCG,
+                    Finance, Telecoms, and Automotive, she has become a trusted
+                    advisor for many of the world's most recognised brands.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">02 // Ambition</span>
+                  <p class="lead-text">
+                    Chaz has consistently delivered business growth for global
+                    powerhouses such as Microsoft and Coca-Cola, while
+                    maintaining a rare ability to navigate purpose-driven
+                    storytelling for organisations such as Absa Islamic Banking.
+                    Her partnership list reads like a blue-chip index, including
+                    AB InBev, Nedbank, PepsiCo, and Tiger Brands. Notably, she
+                    has built entire marketing infrastructures and delivered
+                    award-winning campaigns that emphasise authentic, genuine
+                    communication as a driver for lasting commercial impact.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">03 // Achievement</span>
+                  <p class="lead-text">
+                    As Chief Growth Officer, Chaz is the Guardian of Growth. Her
+                    mission is to redefine the client-agency relationship as a
+                    partnership of innovation. She is committed to transforming
+                    brands through excellence that produces meaningful,
+                    measurable business results. By aligning client objectives
+                    with strategic storytelling, she ensures h·e·r Collab
+                    doesn't just "service" accounts, but actively scales the
+                    market share and brand equity of every partner in the
+                    portfolio.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">04 // Core Expertise</span>
+                  <p class="lead-text">
+                    <strong>· Integrated Marketing & Brand Strategy</strong
+                    ><br />
+                    <strong>· Strategic Account Farming & LTV Expansion</strong
+                    ><br />
+                    <strong
+                      >· Commercial Negotiation & Partnership Innovation</strong
+                    ><br />
+                    <strong
+                      >· Purpose-driven Storytelling & Brand
+                      Transformation</strong
+                    >
+                  </p>
+                </div>
+              </main>
+            </div>
+
+            <div class="partner-content" data-partner="tsholo">
+              <section
+                class="profile-intro text-start pb-2"
+                aria-label="Partner profile introduction"
+              >
+                <div class="profile-image-col">
+                  <figure class="profile-portrait mb-0">
+                    <img
+                      src="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png"
+                      alt="Tsholofelo Müller portrait"
+                    />
+                  </figure>
+                </div>
+
+                <div>
+                  <div class="partner-meta">
+                    <p class="partner-name">Tsholofelo Müller</p>
+                    <div class="partner-title">
+                      Co-Founder & Chief Operating Officer
+                    </div>
+                    <p class="lead-text partner-quote mb-3">
+                      "Tsholofelo transforms over 20 years of agency leadership
+                      into a high-efficiency engine that bridges world-class
+                      creativity with elite financial governance."
+                    </p>
+                    <div class="tech-tags">
+                      <span class="tag">Velocity</span>
+                      <span class="tag">Governance</span>
+                      <span class="tag">Pipeline</span>
+                      <span class="tag">Efficiency</span>
+                      <span class="tag">EBITDA</span>
+                    </div>
+                    <div
+                      class="bio-block-switcher d-flex justify-content-start align-items-center mb-4"
+                    >
+                      <div class="frame-nav-menu">
+                        <button
+                          class="frame-nav-btn prev-block-btn"
+                          type="button"
+                          aria-label="Previous text entry block"
+                          title="Previous Block"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m12 19-7-7 7-7"></path>
+
+                            <path d="M19 12H5"></path>
+                          </svg>
+                        </button>
+
+                        <span class="frame-nav-indicator block-indicator"
+                          >01 // Authority</span
+                        >
+
+                        <button
+                          class="frame-nav-btn next-block-btn"
+                          type="button"
+                          aria-label="Next text entry block"
+                          title="Next Block"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M5 12h14"></path>
+
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr class="mb-4" />
+
+              <main class="bio-slider-container">
+                <div class="bio-block active">
+                  <span class="block-label">01 // Authority</span>
+                  <p class="lead-text">
+                    Tsholofelo is a powerhouse in the African broadcast and
+                    advertising landscape, bringing over 20 years of high-level
+                    production experience to h·e·r Collab. Her career is a
+                    roadmap of South Africa's most iconic agencies, including
+                    Joe Public, Ogilvy, M&C Saatchi Abel and Wunderman Thompson.
+                    As a former Head of Broadcast Production, she has been the
+                    engine behind award-winning campaigns for giants such as
+                    Standard Bank, Pepsi, MTN, MINI, Kellogg's, and Nando's. Her
+                    expertise spans the full spectrum of modern media pipelines.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">02 // Ambition</span>
+                  <p class="lead-text">
+                    Tsholofelo has successfully managed multimillion-rand
+                    production budgets, ensuring absolute financial governance
+                    without compromising creative integrity. Her track record
+                    includes leading cross-functional teams through
+                    high-pressure delivery cycles for brands like FNB, Lexus,
+                    and Unilever. She is an expert in workflow optimisation,
+                    having scaled production departments to handle massive
+                    content volumes while maintaining strict cost control and
+                    navigating complex vendor negotiations.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">03 // Achievement</span>
+                  <p class="lead-text">
+                    As Head of Production and Co-Founder, Tsholofelo is the
+                    "Guardian of the Margin". Her mission is to build the
+                    industry's most efficient and scalable production machine.
+                    She is focused on bridging the gap between visionary
+                    creativity and profitable delivery. By implementing
+                    proprietary production workflows and leveraging her
+                    extensive vendor network, she ensures h·e·r Collab delivers
+                    world-class content with a commercial efficiency that
+                    directly fuels the agency's EBITDA.
+                  </p>
+                </div>
+
+                <div class="bio-block">
+                  <span class="block-label">04 // Core Expertise</span>
+                  <p class="lead-text">
+                    <strong
+                      >· Integrated Campaign Delivery (TV, Digital,
+                      Social)</strong
+                    ><br />
+                    <strong
+                      >· Multimillion-Rand Budget Management & Cost
+                      Control</strong
+                    ><br />
+                    <strong>· Production Workflow Design & Scaling</strong
+                    ><br />
+                    <strong
+                      >· High-Level Stakeholder & Vendor Negotiation</strong
+                    >
+                  </p>
+                </div>
+              </main>
+            </div>
+
+            <hr class="mt-4 mb-3" />
+
+            <footer
+              class="text-start tile-footer caps-sentiment"
+              style="font-size: 0.7rem"
+            >
+              <span
+                >&copy; 2026 h·e·r collab. Strategic Architecture & Venture
+                Development. | The Founding Partners
+              </span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function haptic() {
+        if (navigator.vibrate) navigator.vibrate(10);
+      }
+
+      // 1. Partner Switcher
+      const partnerData = [
+        { id: "neo", label: "The Visionary" },
+        { id: "chaz", label: "The Multiplier" },
+        { id: "tsholo", label: "The Engine" },
+      ];
+      let currentPartner = 0;
+      const allContents = document.querySelectorAll(".partner-content");
+      const partnerRail = document.getElementById("partner-rail");
+      const labels = partnerData.map((d) => d.label);
+      const RAIL_N = 3;
+      // translateX to center index 1 (middle) of 3 items at 100% each: -(1*100)/300*100 = -33.33%
+      const RAIL_CENTER = -((1 * 100) / (RAIL_N * 100)) * 100;
+      const RAIL_TX = [0, -33.333333, -66.666667]; // center index 0,1,2
+
+      function rebuildRail(centerIdx, labelArr) {
+        const frag = [];
+        for (let i = -1; i <= 1; i++) {
+          const idx = (centerIdx + i + labelArr.length) % labelArr.length;
+          const span = document.createElement("span");
+          span.className = "partner-rail-item";
+          span.textContent = labelArr[idx];
+          frag.push(span);
+        }
+        partnerRail.replaceChildren(...frag);
+      }
+
+      function showPartner(index) {
+        allContents.forEach((c) => c.classList.remove("active"));
+        const target = document.querySelector(
+          `.partner-content[data-partner="${partnerData[index].id}"]`,
+        );
+        if (target) target.classList.add("active");
+        if (target && target._resetBlocks) target._resetBlocks();
+
+        const old = currentPartner;
+        if (old !== index) {
+          const dir = index === (old + 1) % partnerData.length ? 1 : -1;
+          const targetIdx = 1 + dir; // 0 for prev, 2 for next
+          partnerRail.style.transition =
+            "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+          partnerRail.style.transform =
+            "translateX(" + RAIL_TX[targetIdx] + "%)";
+          const onEnd = function () {
+            partnerRail.removeEventListener("transitionend", onEnd);
+            rebuildRail(index, labels);
+            partnerRail.style.transition = "none";
+            partnerRail.style.transform = "translateX(" + RAIL_CENTER + "%)";
+            void partnerRail.offsetHeight;
+            partnerRail.style.transition = "";
+          };
+          partnerRail.addEventListener("transitionend", onEnd);
+        } else {
+          rebuildRail(index, labels);
+          partnerRail.style.transition = "none";
+          partnerRail.style.transform = "translateX(" + RAIL_CENTER + "%)";
+          void partnerRail.offsetHeight;
+          partnerRail.style.transition = "";
+        }
+
+        currentPartner = index;
+      }
+
+      document.querySelector(".switcher-prev").addEventListener("click", () => {
+        haptic();
+        const prev =
+          (currentPartner - 1 + partnerData.length) % partnerData.length;
+        showPartner(prev);
+      });
+
+      document.querySelector(".switcher-next").addEventListener("click", () => {
+        haptic();
+        const next = (currentPartner + 1) % partnerData.length;
+        showPartner(next);
+      });
+
+      // 2. Scoped Bio Block Carousel per Partner
+      document.querySelectorAll(".partner-content").forEach((content) => {
+        const container = content.querySelector(".bio-slider-container");
+        if (!container) return;
+        const blocks = container.querySelectorAll(".bio-block");
+        const total = blocks.length;
+        const prevBtn = content.querySelector(".prev-block-btn");
+        const nextBtn = content.querySelector(".next-block-btn");
+        let current = 1;
+
+        // Build switching rail from block labels
+        const oldIndicator = content.querySelector(".block-indicator");
+        const blockRailWrap = document.createElement("div");
+        blockRailWrap.className = "block-rail-wrap";
+        const blockRail = document.createElement("div");
+        blockRail.className = "block-rail";
+        const blockLabels = [];
+        blocks.forEach((b) => {
+          const lbl =
+            b.querySelector(".block-label")?.textContent?.trim() || "";
+          blockLabels.push(lbl);
+        });
+        // Create exactly 3 items for the slide rail
+        for (let i = 0; i < 3; i++) {
+          const span = document.createElement("span");
+          span.className = "block-rail-item";
+          blockRail.appendChild(span);
+        }
+        blockRailWrap.appendChild(blockRail);
+        if (oldIndicator) oldIndicator.replaceWith(blockRailWrap);
+
+        const railItems = blockRail.children;
+        // translateX to center index 1 of 3 items at 100%: -33.33%
+        const B_CTR = -33.333333;
+        const B_TX = [0, B_CTR, -66.666667];
+
+        function rebuildBlockRail(currIdx) {
+          const prevIdx = currIdx === 0 ? total - 1 : currIdx - 1;
+          const nextIdx = currIdx === total - 1 ? 0 : currIdx + 1;
+          const order = [prevIdx, currIdx, nextIdx];
+          for (let i = 0; i < 3; i++) {
+            railItems[i].textContent = blockLabels[order[i]];
+          }
+        }
+
+        function updateBlock(target) {
+          container
+            .querySelector(".bio-block.active")
+            ?.classList.remove("active");
+          const oldIdx = current - 1;
+          const newIdx = target - 1;
+          current = target;
+          blocks[newIdx].classList.add("active");
+
+          if (oldIdx !== newIdx) {
+            const dir = newIdx === (oldIdx + 1) % total ? 1 : -1;
+            const tgt = 1 + dir;
+            blockRail.style.transition =
+              "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+            blockRail.style.transform = "translateX(" + B_TX[tgt] + "%)";
+            const onEnd = function () {
+              blockRail.removeEventListener("transitionend", onEnd);
+              rebuildBlockRail(newIdx);
+              blockRail.style.transition = "none";
+              blockRail.style.transform = "translateX(" + B_CTR + "%)";
+              void blockRail.offsetHeight;
+              blockRail.style.transition = "";
+            };
+            blockRail.addEventListener("transitionend", onEnd);
+          }
+        }
+
+        // Expose reset so Level 1 can reset when switching partners
+        content._resetBlocks = function () {
+          container
+            .querySelector(".bio-block.active")
+            ?.classList.remove("active");
+          blocks[0].classList.add("active");
+          current = 1;
+          rebuildBlockRail(0);
+          blockRail.style.transition = "none";
+          blockRail.style.transform = "translateX(" + B_CTR + "%)";
+          void blockRail.offsetHeight;
+          blockRail.style.transition = "";
+        };
+
+        // Initial: build and set without animation
+        content._resetBlocks();
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", () => {
+            haptic();
+            let target = current - 1;
+            if (target < 1) target = total;
+            updateBlock(target);
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener("click", () => {
+            haptic();
+            let target = current + 1;
+            if (target > total) target = 1;
+            updateBlock(target);
+          });
+        }
+      });
+
+      // Initial: show first partner (after Level 1 + Level 2 setup)
+      showPartner(0);
+
+      // 3. Swipe Detection for Touch Devices
+      function enableSwipe(container, prevBtn, nextBtn, threshold) {
+        threshold = threshold || 30;
+        let startX = 0;
+        container.addEventListener(
+          "touchstart",
+          function (e) {
+            startX = e.touches[0].clientX;
+          },
+          { passive: true },
+        );
+        container.addEventListener(
+          "touchend",
+          function (e) {
+            const endX = e.changedTouches[0].clientX;
+            const delta = startX - endX;
+            if (delta > threshold) {
+              haptic();
+              if (nextBtn) nextBtn.click();
+            } else if (delta < -threshold) {
+              haptic();
+              if (prevBtn) prevBtn.click();
+            }
+          },
+          { passive: true },
+        );
+      }
+
+      // Level 1 swipe
+      enableSwipe(
+        document.querySelector(".partner-switcher"),
+        document.querySelector(".switcher-prev"),
+        document.querySelector(".switcher-next"),
+      );
+
+      // Level 2 swipe (one per partner content)
+      document
+        .querySelectorAll(".bio-block-switcher .frame-nav-menu")
+        .forEach(function (menu) {
+          const prev = menu.querySelector(".prev-block-btn");
+          const next = menu.querySelector(".next-block-btn");
+          enableSwipe(menu, prev, next);
+        });
+
+      // 4. Bidirectional System Preference + Switch UI State Routing Sync Engine
+      const globalThemeToggle = document.getElementById("theme-toggle");
+      const themeKey = "theme-preference";
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const vectorIcons = {
+        moon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>',
+        sun: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>',
+      };
+
+      function updateInterfaceControls(resolvedTheme) {
+        const isTargetDark = resolvedTheme === "dark";
+
+        globalThemeToggle.innerHTML = isTargetDark
+          ? vectorIcons.sun
+          : vectorIcons.moon;
+        globalThemeToggle.setAttribute(
+          "aria-label",
+          isTargetDark ? "Activate light mode" : "Activate dark mode",
+        );
+        globalThemeToggle.setAttribute(
+          "title",
+          isTargetDark ? "Activate light mode" : "Activate dark mode",
+        );
+      }
+
+      function applyTheme(targetTheme, persistConfig = false) {
+        document.body.dataset.theme = targetTheme;
+        updateInterfaceControls(targetTheme);
+        if (persistConfig) {
+          localStorage.setItem(themeKey, targetTheme);
+        }
+      }
+
+      function handleStateToggleTransition() {
+        const activeStateMode =
+          document.body.dataset.theme || resolveSystemDefaultState();
+        const alternateStateMode =
+          activeStateMode === "dark" ? "light" : "dark";
+        applyTheme(alternateStateMode, true);
+      }
+
+      function resolveSystemDefaultState() {
+        return prefersDark.matches ? "dark" : "light";
+      }
+
+      function resolveInitialStateRules() {
+        const explicitUserPreference = localStorage.getItem(themeKey);
+        if (
+          explicitUserPreference === "light" ||
+          explicitUserPreference === "dark"
+        ) {
+          return explicitUserPreference;
+        }
+        return resolveSystemDefaultState();
+      }
+
+      applyTheme(resolveInitialStateRules());
+
+      globalThemeToggle.addEventListener("click", handleStateToggleTransition);
+
+      // Smooth page navigation
+      document.getElementById("nav-toggle").addEventListener("click", () => {
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 250);
+      });
+
+      document
+        .getElementById("nav-toggle-about")
+        .addEventListener("click", () => {
+          document.body.style.transition = "opacity 0.25s ease";
+          document.body.style.opacity = "0";
+          setTimeout(() => {
+            window.location.href = "about.html";
+          }, 250);
+        });
+
+      prefersDark.addEventListener("change", (event) => {
+        if (!localStorage.getItem(themeKey)) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

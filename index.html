@@ -1,311 +1,557 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Karl Mueller - CV & Profile</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>h·e·r collab</title>
+    <meta
+      name="description"
+      content="h.e.r collab: Creative Brilliance. Surgical Precision. Strategic architecture and venture development for Black women-led entrepreneurship."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_ZA" />
+    <meta property="og:site_name" content="h.e.r collab" />
+    <meta property="og:title" content="h.e.r collab | We build Brands." />
+    <meta
+      property="og:description"
+      content="Creative Brilliance. Surgical Precision."
+    />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dmkhsyfzf/image/upload/c_pad,b_white,w_1200,h_630,q_auto:good,f_jpg/v1781358154/her_favicon_2_ckbdpd.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://res.cloudinary.com/dmkhsyfzf/image/upload/c_pad,b_white,w_1200,h_630,q_auto:good,f_jpg/v1781358154/her_favicon_2_ckbdpd.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="h.e.r collab brand statement preview"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="h.e.r collab | Creative Brilliance. Surgical Precision."
+    />
+    <meta
+      name="twitter:description"
+      content="Creative Brilliance. Surgical Precision. Strategic architecture and venture development for Black women-led entrepreneurship."
+    />
+    <meta
+      name="twitter:image"
+      content="https://res.cloudinary.com/dmkhsyfzf/image/upload/c_pad,b_white,w_1200,h_630,q_auto:good,f_jpg/v1781358154/her_favicon_2_ckbdpd.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="h.e.r collab brand statement preview"
+    />
+    <meta
+      name="theme-color"
+      content="#fcfcfc"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#121212"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png?v=2"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png.png?v=2"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png?v=2"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        /* =================================================================
-           1. DARK/LIGHT MODE (Automatic: No switch needed) better
-           ================================================================= */
+      /* Color variables supporting Light and Dark modes */
+      :root {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --subheadline-color: #b22222;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --tile-bg: rgba(255, 255, 255, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.03);
+      }
+
+      @media (prefers-color-scheme: dark) {
         :root {
-            /* Light Mode Defaults */
-            --color-primary-bg: #ffffff;
-            --color-secondary-bg: #f5f5f5;
-            --color-primary-text: #333333;
-            --color-secondary-text: #555555;
-            --color-accent: #007acc; /* Blue for links/titles */
-            --color-border: #cccccc;
-            --color-hr: #e0e0e0;
+          --bg-color: #121212;
+          --text-color: #f8f9fa;
+          --text-strong: #ffffff;
+          --text-muted: #a7a9be;
+          --brand-color: #ffffff;
+          --subheadline-color: #e44d4d;
+          --border-color: rgba(255, 255, 255, 0.1);
+          --bg-overlay: rgba(18, 18, 18, 0.75);
+          --tile-bg: rgba(26, 26, 26, 0.85);
+          --tile-shadow: rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      body[data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #f8f9fa;
+        --text-strong: #ffffff;
+        --text-muted: #a7a9be;
+        --brand-color: #ffffff;
+        --subheadline-color: #e44d4d;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --bg-overlay: rgba(18, 18, 18, 0.75);
+        --tile-bg: rgba(26, 26, 26, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.2);
+      }
+
+      body[data-theme="light"] {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --subheadline-color: #b22222;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --tile-bg: rgba(255, 255, 255, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.03);
+      }
+
+      /* Shared Utility Class for Sleek Controls Styling */
+      .control-btn {
+        position: fixed;
+        top: 0.85rem;
+        z-index: 11;
+        width: 2.35rem;
+        height: 2.35rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--text-color);
+        cursor: pointer;
+        opacity: 0.72;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      }
+
+      .theme-toggle {
+        right: 0.85rem;
+      }
+
+      .nav-toggle {
+        right: 3.7rem;
+      }
+
+      .nav-toggle-about {
+        right: 6.55rem;
+      }
+
+      body[data-theme="dark"] .control-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: #f8f9fa;
+      }
+
+      .control-btn:hover,
+      .control-btn:focus-visible {
+        opacity: 1;
+        transform: scale(1.05);
+        outline: none;
+      }
+
+      .control-btn svg {
+        width: 1rem;
+        height: 1rem;
+        stroke-width: 1.8;
+        fill: none;
+        stroke: currentColor;
+        color: rgba(33, 37, 41, 0.46);
+        filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
+        opacity: 0.78;
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease,
+          filter 0.2s ease;
+      }
+
+      body[data-theme="dark"] .control-btn svg {
+        color: rgba(255, 255, 255, 0.64);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+        opacity: 0.82;
+      }
+
+      body {
+        font-family:
+          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: font-size 0.2s ease;
+      }
+
+      /* Smooth Background Slideshow */
+      .bg-slideshow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      .bg-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transform: scale(1.03);
+        animation: crossfade 18s infinite ease-in-out;
+      }
+
+      .bg-slide:nth-child(1) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/q_auto/f_auto/v1776286873/Neo_Segola_tvcbhe.jpg");
+        animation-delay: 0s;
+      }
+
+      .bg-slide:nth-child(2) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png");
+        animation-delay: 6s;
+      }
+
+      .bg-slide:nth-child(3) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png");
+        animation-delay: 12s;
+      }
+
+      @keyframes crossfade {
+        0% {
+          opacity: 0;
+          transform: scale(1.03);
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                /* Dark Mode Overrides */
-                --color-primary-bg: #1e1e1e;
-                --color-secondary-bg: #2d2d30;
-                --color-primary-text: #cccccc;
-                --color-secondary-text: #aaaaaa;
-                --color-accent: #5e96c3; /* Lighter blue for visibility */
-                --color-border: #444444;
-                --color-hr: #3a3a3a;
-            }
+        10% {
+          opacity: 0.35;
+          transform: scale(1.06);
         }
 
-        /* =================================================================
-           2. GENERAL & RESPONSIVE STYLES
-           ================================================================= */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--color-primary-bg);
-            color: var(--color-primary-text);
-            line-height: 1.6;
-            margin: 0;
-            transition: background-color 0.3s, color 0.3s;
-            scroll-behavior: smooth;
+        33% {
+          opacity: 0.35;
+          transform: scale(1.12);
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        43% {
+          opacity: 0;
+          transform: scale(1.15);
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--color-secondary-bg);
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        100% {
+          opacity: 0;
+          transform: scale(1.03);
         }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        /* Navigation Links */
-        .nav-link {
-            color: var(--color-primary-text);
-            text-decoration: none;
-            padding: 8px 15px;
-            margin-right: 10px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-        }
-        .nav-link:hover {
-            background-color: var(--color-accent);
-            color: var(--color-primary-bg);
-        }
+      }
 
-        /* Download Buttons */
-        .download-links {
-            display: flex;
-            gap: 10px;
-        }
+      .bg-overlay-tint {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-overlay);
+        z-index: -1;
+      }
 
-        .download-btn {
-            background-color: var(--color-accent);
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-        .download-btn:hover {
-            background-color: var(--color-secondary-text);
-        }
+      .showcase-tile {
+        background: var(--tile-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--border-color);
+        box-shadow: 0 20px 40px var(--tile-shadow);
+        border-radius: 4px;
+        padding: 3rem;
+        max-width: 860px;
+        width: 100%;
+        margin: auto;
+        transition: all 0.3s ease;
+      }
 
-        /* Content Sections */
-        .content-section {
-            padding: 40px 0;
-            border-bottom: 1px solid var(--color-hr);
+      @media (max-width: 768px) {
+        .showcase-tile {
+          padding: 2rem 1.5rem;
+          margin: 1.5rem auto;
         }
-        .content-section:last-child {
-            border-bottom: none;
-        }
+      }
 
-        h1, h2, h3, h4 {
-            color: var(--color-accent);
-            margin-top: 0;
-        }
-        
-        hr {
-            border: none;
-            height: 1px;
-            background-color: var(--color-hr);
-            margin: 20px 0;
-        }
+      .logo {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: calc(1.75rem + 1.1vw);
+        color: var(--brand-color);
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+      }
 
-        /* Blockquotes for Experience/Education */
-        blockquote {
-            border-left: 5px solid var(--color-accent);
-            padding-left: 15px;
-            margin: 15px 0;
-            background-color: var(--color-secondary-bg);
-            padding: 15px;
-        }
+      .subtitle {
+        font-family:
+          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-style: italic;
+        color: var(--subheadline-color);
+        font-size: calc(1.25rem + 0.3vw);
+        letter-spacing: 0.05em;
+        margin-top: 0.4rem;
+        margin-bottom: 0;
+        font-weight: 400;
+      }
 
-        /* Tables for Competence Profile */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 0.95em;
-        }
-        th, td {
-            border: 1px solid var(--color-border);
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: var(--color-secondary-bg);
-            color: var(--color-primary-text);
-        }
+      .caps-sentiment {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        font-size: 0.85rem;
+        line-height: 1.7;
+      }
 
-        /* Internal Links */
-        .internal-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--color-accent);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .internal-link:hover {
-            text-decoration: underline;
-        }
+      .lead-text {
+        font-size: calc(0.9rem + 0.25vw);
+        font-weight: 300;
+        letter-spacing: 0.14em;
+        line-height: 1.8;
+        margin-bottom: 0;
+      }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .nav-link {
-                margin: 0 5px;
-            }
-            .download-links {
-                flex-direction: column;
-                gap: 5px;
-                width: 100%;
-            }
-            .download-btn {
-                text-align: center;
-            }
-            th, td {
-                padding: 8px; /* Smaller padding on mobile */
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            th {
-                text-align: center;
-            }
-            tbody tr {
-                margin-bottom: 15px;
-                display: block;
-                border: 1px solid var(--color-border);
-            }
-        }
+      .lead-text strong {
+        font-weight: 700;
+        color: var(--text-strong);
+        letter-spacing: 0.12em;
+      }
+
+      hr {
+        border-top: 1px solid var(--border-color);
+        opacity: 1;
+      }
+
+      .tile-footer {
+        color: var(--text-muted);
+      }
     </style>
-</head>
-<body>
-    <header>
-        <nav class="container">
-            <a href="#cv" class="nav-link">CV</a>
-            <a href="#competence" class="nav-link">Competence Profile</a>
-            
-            <div class="download-links">
-                <a href="CV_mkm.html" download="CV_mkm.html" class="download-btn">Download CV (HTML)</a>
-                <a href="Competence Profile.html" download="Competence Profile.html" class="download-btn">Download Profile (HTML)</a>
-            </div>
-        </nav>
-    </header>
+  </head>
 
-    <main class="container">
-        <section id="cv" class="content-section">
-            <h1 id="cv-title">Michael Karl Mueller</h1>
-            <h2 id="cv-subtitle">Investment Advisor / Project Consultant</h2>
+  <body>
+    <button
+      class="control-btn theme-toggle"
+      id="theme-toggle"
+      type="button"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+    ></button>
 
-            <hr>
-            <h3>Personal Information</h3>
-            <p><strong>Birthday:</strong> 15.01.1972, Single</p>
+    <button
+      class="control-btn nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="View partners"
+      title="View Partners"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 21a8 8 0 0 0-16 0" />
+        <circle cx="10" cy="8" r="5" />
+        <path d="M22 20c0-3.37-2-6.5-4-8" />
+        <path d="M16 5.13A4 4 0 0 1 18 9c0 1.42-.78 2.57-1.88 3.17" />
+      </svg>
+    </button>
 
-            <hr>
-            <h3>Work Experience</h3>
-            <blockquote>
-                <p>03.2017-12.2024<br> <strong>Senior Relationship Manager</strong><br> <em>Universal Investment/Deutsche Bank/DWS, Frankfurt, Germany</em><br> Responsible for fund mandates, relationship management, oversight, and operational risk monitoring. Focus on financial regulatory topics (MiFID II, PRIIPs).</p>
-            </blockquote>
-            <blockquote>
-                <p>01.2016-02.2017<br> <strong>Manager & Project Consultant</strong><br> <em>LGT Group, Vaduz, Liechtenstein</em><br> Project responsibility for the implementation of an eDocument Management System.</p>
-            </blockquote>
-            <blockquote>
-                <p>03.2013-12.2015<br> <strong>Head Document Management</strong><br> <em>DWS, Frankfurt, Germany</em><br> Direct responsibility for process optimization, document management, and managing outsourcing providers.</p>
-            </blockquote>
-            <blockquote>
-                <p>11.2008-02.2013<br> <strong>Head of Unit Operations & Regulatory Reporting</strong><br> <em>Commerzbank, Frankfurt, Germany</em><br> Leadership role responsible for fund administration tasks and regulatory reporting (MiFID, EMIR, FATCA).</p>
-            </blockquote>
-            <blockquote>
-                <p>10.2004-10.2008<br> <strong>Head of Regulatory Reporting</strong><br> <em>DWS, Frankfurt, Germany</em><br> Responsibility for regulatory reporting, fund statistics, and data quality.</p>
-            </blockquote>
-            <blockquote>
-                <p>07.2000-09.2003<br> <strong>Financial Analyst / Fund Manager</strong><br> <em>Allianz Global Investors, Frankfurt, Germany</em><br> Fund manager for an equity fund and analyst for financial services stocks.</p>
-            </blockquote>
-            
-            <hr>
-            <h3>Education</h3>
-            <blockquote>
-                <p>10.2003 – 09.2004<br> <strong>European Management MBA (Full Time)</strong><br> <em>European Institute for Advanced Behavioural Management, Saarbrucken, Germany</em><br> International MBA programme with modules in business, economics and law. Thesis: The Market of Television Broadcasting in India</p>
-            </blockquote>
-            <blockquote>
-                <p>10.1991 – 08.2000<br> <strong>Diploma/Master in Economics</strong><br> <em>Johannes Gutenberg-University, Mainz, Germany</em><br> Focus on macroeconomics, national and international finance, budgeting of the EU, taxation in Germany. Thesis: Consideration of Municipal Taxes within the German Income Taxation</p>
-            </blockquote>
+    <button
+      class="control-btn nav-toggle-about"
+      id="nav-toggle-about"
+      type="button"
+      aria-label="Agency Profile"
+      title="Agency Profile"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <path d="M8 8h8" />
+        <path d="M8 12h8" />
+        <path d="M8 16h8" />
+      </svg>
+    </button>
 
-            <hr>
-            <h3>Languages</h3>
-            <p>German (native), English (fluent), French (basic)</p>
+    <div class="bg-slideshow">
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+    </div>
+    <div class="bg-overlay-tint"></div>
 
-            <hr>
-            <h3>Computer literacy and tools</h3>
-            <p>MS Excel, Word, PowerPoint, Access, Airtable, Notion, Setup interfaces with Data Providers, LLMs, Prompt Engineering, Workflow Automation</p>
+    <div class="container my-auto py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 px-3">
+          <article class="showcase-tile">
+            <header class="text-start mb-4 pb-2">
+              <span class="logo d-block">h·e·r collab</span>
+              <h3 class="subtitle">Creative Brilliance · Surgical Precision</h3>
+            </header>
 
-            <hr>
-            <h3>Activities</h3>
-            <p>Travelling, reading, cooking, running (half-marathon, etc.)</p>
+            <hr class="mb-4" />
 
-            <a href="#competence" class="internal-link">View Detailed Competence Profile &raquo;</a>
-        </section>
+            <main>
+              <p class="lead-text caps-sentiment text-start">
+                Driving the future of Black women’s entrepreneurship. Backed by
+                decades of major South African agency experience and masterful
+                execution.<br />
+                <strong
+                  >We shape the industry. We process genuine emotion. We build
+                  brands.</strong
+                >
+              </p>
+            </main>
 
-        <section id="competence" class="content-section">
-            <h1 id="cp-title">Complete Five-Layer Character and Competence Profile</h1>
+            <hr class="mt-4 mb-3" />
 
-            <hr>
-            <h2>1. My Core Expertises: Knowledge Proof</h2>
-            <p>This section validates your knowledge domains with specific evidence from your education and roles.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Competence</th>
-                        <th>Broad-Eyes Analysis (The Skill)</th>
-                        <th>Detailed Substantiation (Your Proof/Result)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Tutoring</strong></td>
-                        <td><em>Ability to diagnose learning gaps, adapt teaching methods, and provide constructive feedback.</em></td>
-                        <td>Delivered <strong>preparatory courses in economics and taxation</strong> for university students over a five-year period. Acted as a <strong>facilitator</strong> in executive business trainings with financial business simulations.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Formulate Text/Content</strong></td>
-                        <td><em>Proven ability to craft text that is sound, coherent, and audience-tailored.</em></td>
-                        <td>Responsible for <strong>reporting &amp; fact sheets</strong> for fund-based mandates. Produced several <strong>academic papers</strong> and a <strong>Master's Thesis</strong> in Economics.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Public Speaking</strong></td>
-                        <td><em>Capacity to present complex information clearly and engage an audience.</em></td>
-                        <td>Served as a <strong>Facilitator</strong> for executive business trainings (UBS, HP, Etisalat). Held responsibility for <strong>relationship management</strong> with Swiss and international fund providers.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Creative / Artistic</strong></td>
-                        <td><em>Focus on novel solutions and aesthetic presentation.</em></td>
-                        <td>Implied through <strong>Visualise Curricula</strong> competence.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Educational Transformation</strong></td>
-                        <td><em>Modernizing methods, integrating tech, shifting mindsets.</em></td>
-                        <td>Worked as a developer and facilitator for <strong>executive business trainings utilizing financial business simulations</strong>, a modern, high-impact teaching method.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <footer
+              class="text-start tile-footer caps-sentiment"
+              style="font-size: 0.7rem"
+            >
+              <span
+                >&copy; 2026 h·e·r collab. Strategic Architecture & Venture
+                Development. | Brand Statement #1</span
+              >
+            </footer>
+          </article>
+        </div>
+      </div>
+    </div>
 
-            <a href="#cv" class="internal-link">View CV Summary &raquo;</a>
-        </section>
-    </main>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const navToggle = document.getElementById("nav-toggle");
+      const navToggleAbout = document.getElementById("nav-toggle-about");
+      const themeKey = "theme-preference";
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const themeIcons = {
+        moon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>',
+        sun: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>',
+      };
+
+      function renderToggleIcon(theme) {
+        const iconName = theme === "dark" ? "sun" : "moon";
+        themeToggle.innerHTML = themeIcons[iconName];
+        themeToggle.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Activate light mode" : "Activate dark mode",
+        );
+        themeToggle.setAttribute(
+          "title",
+          theme === "dark" ? "Activate light mode" : "Activate dark mode",
+        );
+      }
+
+      function applyTheme(theme, persist = false) {
+        document.body.dataset.theme = theme;
+        renderToggleIcon(theme);
+        if (persist) {
+          localStorage.setItem(themeKey, theme);
+        }
+      }
+
+      function resolveInitialTheme() {
+        const saved = localStorage.getItem(themeKey);
+        if (saved === "light" || saved === "dark") {
+          return saved;
+        }
+        return prefersDark.matches ? "dark" : "light";
+      }
+
+      // Initialize themes immediately
+      applyTheme(resolveInitialTheme());
+
+      // Event Listeners for Theme
+      themeToggle.addEventListener("click", () => {
+        const nextTheme =
+          document.body.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme, true);
+      });
+
+      prefersDark.addEventListener("change", (event) => {
+        if (!localStorage.getItem(themeKey)) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      // Smooth page navigation
+      navToggle.addEventListener("click", () => {
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "partners.html";
+        }, 250);
+      });
+
+      navToggleAbout.addEventListener("click", () => {
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "about.html";
+        }, 250);
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
