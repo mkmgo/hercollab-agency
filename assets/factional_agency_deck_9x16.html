@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fractional Agency Partnership Model - Mobile Sales Deck v2.1</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              serif: ['"Cormorant Garamond"', "serif"],
+            },
+            colors: {
+              brand: {
+                dark: "#0a0a0a",
+                panel: "#111111",
+                card: "rgba(20, 20, 20, 0.95)",
+                border: "rgba(255, 255, 255, 0.08)",
+                accent: "#e44d4d",
+                muted: "#a7a9be",
+                highlight: "#10b981",
+                gold: "#d4af37",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #f8f9fa;
+      }
+      .glow-overlay {
+        background:
+          radial-gradient(
+            circle at 50% 15%,
+            rgba(228, 77, 77, 0.15) 0%,
+            rgba(0, 0, 0, 0) 70%
+          ),
+          radial-gradient(
+            circle at 50% 85%,
+            rgba(16, 185, 129, 0.06) 0%,
+            rgba(0, 0, 0, 0) 70%
+          );
+      }
+      /* Mobile-first 9:16 Portrait Lock */
+      .slide-frame-portrait {
+        width: 100%;
+        max-width: 390px;
+        height: 844px;
+        aspect-ratio: 9 / 16;
+      }
+      /* Suppress scrollbar for WebKit browsers (Chrome, Safari, newer Edge) */
+      #slide-content-area::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Suppress scrollbar for Firefox and IE/Legacy Edge */
+      #slide-content-area {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      /* Suppress page-level scrollbar (appears when zoomed) */
+      html::-webkit-scrollbar, body::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      @media (max-height: 850px) {
+        .slide-frame-portrait {
+          height: 92vh;
+        }
+      }
+      .dot-active {
+        width: 20px;
+        background-color: #e44d4d !important;
+        border-radius: 2px;
+      }
+      .advantage-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.04) 0%,
+          rgba(255, 255, 255, 0.01) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans antialiased flex flex-col justify-center items-center min-h-screen p-2 select-none"
+  >
+    <!-- Top Branding Anchor -->
+    <div
+      class="w-full max-w-[390px] mb-2 flex justify-between items-center px-2 text-[10px] tracking-widest text-brand-muted uppercase font-medium"
+    >
+      <div class="flex items-center gap-1.5">
+        <span
+          class="inline-block w-1.5 h-1.5 bg-brand-accent rounded-full"
+        ></span>
+        <span>h·e·r collab &bull; Mobile Pitch</span>
+      </div>
+      <div class="text-brand-highlight font-semibold">v2.1 (9:16)</div>
+    </div>
+
+    <!-- Main Presentation Container (9:16 Premium Portrait Frame) -->
+    <div
+      class="slide-frame-portrait bg-brand-dark border border-brand-border rounded-2xl shadow-2xl relative overflow-hidden flex flex-col justify-between p-6 glow-overlay"
+    >
+      <!-- Header Ribbon -->
+      <div
+        class="flex justify-between items-center border-b border-white/10 pb-3"
+      >
+        <div>
+          <div
+            class="font-serif text-2xl tracking-tight text-white font-medium"
+            id="slide-logo"
+          >
+            h·e·r collab
+          </div>
+          <div
+            class="text-[9px] text-brand-accent italic tracking-wider font-light"
+          >
+            Creative Brilliance &bull; Surgical Precision
+          </div>
+        </div>
+        <div>
+          <span
+            class="text-[8px] tracking-widest uppercase bg-brand-accent/10 border border-brand-accent/30 px-2 py-0.5 text-brand-accent font-bold rounded-full"
+            id="slide-eyebrow"
+          >
+            PARTNERSHIP
+          </span>
+        </div>
+      </div>
+
+      <!-- Dynamic Content Engine Stage -->
+      <div
+        class="my-auto py-3 flex-grow flex flex-col justify-center overflow-y-auto"
+        id="slide-content-area"
+      >
+        <!-- Populated dynamically by JS -->
+      </div>
+
+      <!-- Footer Ribbon -->
+      <div class="border-t border-white/10 pt-3 flex flex-col gap-2">
+        <!-- Universal Flagship Driver Banner inside footer area -->
+        <div
+          id="driver-container"
+          class="p-2.5 rounded-lg border border-white/5 bg-brand-panel/40 flex items-start gap-2"
+        >
+          <span class="flex h-1.5 w-1.5 mt-1 relative flex-shrink-0">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-highlight opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-highlight"
+            ></span>
+          </span>
+          <div class="text-[9px] text-brand-muted leading-tight font-medium">
+            <span class="text-white font-bold uppercase tracking-wider"
+              >Lever:</span
+            >
+            <span id="slide-driver-text">Loading...</span>
+          </div>
+        </div>
+
+        <div
+          class="flex justify-between items-center text-[9px] tracking-widest text-brand-muted uppercase font-semibold"
+        >
+          <div>&copy; 2026 h·e·r collab</div>
+          <div id="slide-index-label">01 / 11</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presentation Control Matrix -->
+    <div
+      class="w-full max-w-[390px] mt-3 flex justify-between items-center gap-2 px-2"
+    >
+      <button
+        onclick="prevSlide()"
+        class="p-2 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
+      >
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Navigation Indicator Dots -->
+      <div class="flex items-center gap-1" id="navigation-dots"></div>
+
+      <button
+        onclick="nextSlide()"
+        class="p-2 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
+      >
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </button>
+
+      <button
+        id="copy-btn"
+        onclick="copySlideText()"
+        class="p-2 bg-brand-panel border border-brand-border hover:border-brand-highlight rounded-lg transition"
+        title="Copy Text Asset"
+      >
+        <svg
+          class="w-3.5 h-3.5 text-brand-highlight"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      const slidesData = [
+        {
+          eyebrow: "STRATEGIC INITIATION",
+          title: "Fractional Agency Partnership Model",
+          subtitle: "Unlocking Value Arbitrage & Eliminating Delivery Risk",
+          type: "premium-title",
+          body: "A high-performance commercial alliance engineered exclusively for premier agencies to instantly capture un-monetised revenue streams, absorb market conflict, and inject native cultural intelligence with surgical operational precision.",
+          driver:
+            "A flexible infrastructure designed to scale or pivot based on direct negotiation parameters.",
+        },
+        {
+          eyebrow: "FOUNDING CREDENTIALS",
+          title: "Unrivalled Senior Competence",
+          subtitle:
+            "Native intelligence instead of costly structural approximations",
+          type: "credentials-grid",
+          body: "Three of South Africa's most highly accomplished creative pioneers combined 60 years of industrial mastery to form an elite tactical unit. We do not hire for diversity; native cultural fluency is the core baseline of our leadership structure.",
+          driver:
+            "Instant access to a senior execution pipeline without matching fixed overhead structures.",
+        },
+        {
+          eyebrow: "MARKET INEFFICIENCY",
+          title: "Monetising Your Blind Spot",
+          subtitle: "Turning un-represented market sectors into active assets",
+          type: "split-infographic",
+          body: "The most powerful purchasing segment in South Africa remains profoundly underrepresented in the rooms where critical board-level brand decisions are finalised. This is not simply a representation challenge; it is an active commercial loss pattern that h·e·r collab systematically rectifies.",
+          driver:
+            "Stop guessing or approximating cultural dynamics. Protect the brand via native insight.",
+        },
+        {
+          eyebrow: "THE REVENUE FRAMEWORK",
+          title: "The Fractional Advantage",
+          subtitle: "Shifting from finite capacity limits to continuous scale",
+          type: "advantages-grid",
+          cards: [
+            {
+              title: "Opportunity Arbitrage",
+              desc: "Instantly capture, convert, and profit from high-margin overflow or previously rejected lead categories.",
+            },
+            {
+              title: "The Sovereign Safety Net",
+              desc: "Act as your high-level strategic safeguard, providing executive oversight and risk insulation.",
+            },
+            {
+              title: "The Operational Machine",
+              desc: "Leverage our unified execution pipeline at low marginal cost. You secure the asset; we de-risk delivery.",
+            },
+          ],
+          driver:
+            "We don't sell hours; we buy you a premium secondary revenue asset class.",
+        },
+        {
+          eyebrow: "COMMERCIAL MECHANICS",
+          title: "The Overflow Engine",
+          subtitle:
+            "A highly isolated corporate bubble to process conflict accounts",
+          type: "metrics-display",
+          metrics: [
+            {
+              label: "NET REVENUE ALLOCATION",
+              value: "85% / 15%",
+              sub: "85% h·e·r / 15% Partner split",
+            },
+            {
+              label: "SUNSET TIMELINE",
+              value: "12 Months",
+              sub: "Transitions to 5% maintenance trail",
+            },
+            {
+              label: "CASH-FLOW PROTOCOL",
+              value: "Pay-when-Paid",
+              sub: "Absolute zero balance sheet exposure",
+            },
+          ],
+          driver:
+            "Absolute operational flexibility: monetising every market opportunity that does not suit your current scale.",
+        },
+        {
+          eyebrow: "NEGOTIATION FLEXIBILITY",
+          title: "Absolute Structural Scalability",
+          subtitle: "Completely customizable parameters built for negotiation",
+          type: "scalability-blocks",
+          body: "Every single parameter within this document is inherently modular and dynamically adjustable during our strategic alignment phase. We tailor pricing, delivery structures, and resource mapping directly to match your unique operational demands.",
+          blocks: [
+            {
+              lead: "Lead & Capture",
+              text: "We manage complete client workflow from pitch through execution lines.",
+            },
+            {
+              lead: "Point-Inject Expertise",
+              text: "Targeted executive consulting injected purely on high-stakes briefs.",
+            },
+            {
+              lead: "Co-Branded Scale",
+              text: "Joint-venture frameworks designed to confidently capture massive tier-1 contracts.",
+            },
+          ],
+          driver:
+            "Nothing is rigid. We morph to protect your operational baseline and expand top-line margin.",
+        },
+        {
+          eyebrow: "CAPABILITY DEVELOPMENT",
+          title: "Specialised Institutional Academy",
+          subtitle:
+            "Injecting operational power directly into your enterprise team",
+          type: "training-grid",
+          cards: [
+            {
+              tier: "Leadership Level",
+              rate: "R13,500 / day",
+              target: "Strategy, Finance, Creative, & Production Masters",
+            },
+            {
+              tier: "Specialist Level",
+              rate: "R8,500 / day",
+              target: "Middle-management Production & Agile Operations",
+            },
+            {
+              tier: "Junior / Incubation",
+              rate: "R4,500 / day",
+              target: "Future Talent Development & SETA-Aligned Track",
+            },
+          ],
+          driver:
+            "Optimise the Skills Development Levy (SDL) to fund transformational team capabilities.",
+        },
+        {
+          eyebrow: "LIQUIDITY & RISK CONTROL",
+          title: "The Core Operational Airlock",
+          subtitle: "Robust corporate safeguards protecting both institutions",
+          type: "airlock-grid",
+          items: [
+            {
+              icon: "🛡️",
+              title: "Capacity Reservation",
+              desc: "R35,000 baseline retainer secures immediate, unconditional priority access to our elite tier leadership.",
+            },
+            {
+              icon: "⚡",
+              title: "Priority Creditor Guard",
+              desc: "h·e·r accounts are settled cleanly before partner internal administrative expense distributions.",
+            },
+            {
+              icon: "🛑",
+              title: "Surgical Suspension Clause",
+              desc: "Immediate work pause protocols if undisputed billing balances exceed 5 business days past due.",
+            },
+            {
+              icon: "🎯",
+              title: "Direct Client Step-In",
+              desc: "Direct billing activation at 10 days past due to guarantee unbroken project delivery momentum.",
+            },
+          ],
+          driver:
+            "Ironclad financial mechanics designed to secure delivery predictability and liquidity peace of mind.",
+        },
+        {
+          eyebrow: "GOVERNANCE BOUNDARIES",
+          title: "Strategic Guardrails",
+          subtitle:
+            "Ensuring structured execution and absolute operational peace",
+          type: "advantages-grid",
+          cards: [
+            {
+              title: "Boundary Lock",
+              desc: "Communication exclusively bound to professional business hours. Zero late-night delivery noise.",
+            },
+            {
+              title: "Asset Protection Covenants",
+              desc: "Rigid mutual non-solicitation parameters to completely protect core corporate human capital.",
+            },
+            {
+              title: "Data Portability Paradigm",
+              desc: "Formalised onboarding and hand-backs utilising lean, clean Markdown/JSON infrastructure packages.",
+            },
+          ],
+          driver:
+            "Work is executed under our high-signal brand identity to organically scale shared market equity.",
+        },
+        {
+          eyebrow: "COMPLIANCE & LEGALITY",
+          title: "The Risk Neutralisation Airlock",
+          subtitle: "Friction-free framework built for rapid implementation",
+          type: "split-infographic",
+          body: "Our entire engagement operates within an entity-to-entity (B2B) framework to completely avoid standard employment liabilities. Evaluated through a safe 6-month trial window ending October 2026, backed by structural POPIA/GDPR data layers and read-only financial tracking transparency.",
+          driver:
+            "A clean legal sandbox that can be easily modified to fit standard master service agreements.",
+        },
+        {
+          eyebrow: "THE PARADIGM SHIFT",
+          title: "High-Signal, Low-Noise Strategy",
+          subtitle: "The Elite Corporate Co-Efficiency Model",
+          type: "premium-title",
+          body: "Let us turn your operational overhead into a lean profit center. We represent the creative scale you have been spending heavily to approximate. Let us align, configure the parameters to your exact terms, and unlock market dominance.",
+          driver:
+            "Nothing is borrowed. Nothing is approximated. Nothing is filtered.",
+        },
+      ];
+
+      let currentIndex = 0;
+
+      function renderSlide(index) {
+        const slide = slidesData[index];
+        const area = document.getElementById("slide-content-area");
+        const eyebrow = document.getElementById("slide-eyebrow");
+        const label = document.getElementById("slide-index-label");
+        const driverText = document.getElementById("slide-driver-text");
+
+        eyebrow.innerText = slide.eyebrow;
+        label.innerText = `${String(index + 1).padStart(2, "0")} / ${String(slidesData.length).padStart(2, "0")}`;
+        driverText.innerText = slide.driver;
+
+        let html = "";
+
+        if (slide.type === "premium-title") {
+          html = `
+                    <div class="text-center space-y-4 py-2">
+                        <h1 class="text-2xl font-extrabold tracking-tight text-white uppercase leading-tight">${slide.title}</h1>
+                        <p class="text-base font-serif italic text-brand-accent font-medium tracking-wide leading-snug px-1">${slide.subtitle}</p>
+                        <div class="w-10 h-0.5 bg-brand-accent mx-auto"></div>
+                        <p class="text-brand-muted text-[11px] leading-relaxed font-light px-2">${slide.body}</p>
+                    </div>
+                `;
+        } else if (slide.type === "credentials-grid") {
+          html = `
+                    <div class="space-y-3">
+                        <h2 class="text-xl font-bold tracking-tight text-white uppercase leading-tight">${slide.title}</h2>
+                        <p class="text-xs font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        <p class="text-brand-muted text-[11px] leading-relaxed font-light">${slide.body}</p>
+                        
+                        <div class="bg-gradient-to-br from-brand-panel to-black border border-white/10 p-4 rounded-xl relative overflow-hidden mt-1">
+                            <div class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-0.5">Aggregated Footprint</div>
+                            <div class="text-3xl font-black text-white">60 YEARS</div>
+                            <p class="text-[10px] text-brand-muted mt-1 leading-tight font-light">Of top-tier enterprise industry command deployed dynamically to your brand briefs.</p>
+                        </div>
+                    </div>
+                `;
+        } else if (slide.type === "split-infographic") {
+          html = `
+                    <div class="space-y-3">
+                        <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                        <p class="text-xs font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        <p class="text-brand-muted text-[11px] leading-relaxed font-light mb-1">${slide.body}</p>
+                        
+                        <div class="space-y-2">
+                            <div class="bg-brand-panel/80 border-l-3 border-brand-accent border border-white/5 p-2.5 rounded-r">
+                                <div class="text-[10px] font-bold uppercase text-white">The Market Loss</div>
+                                <div class="text-[10px] text-brand-muted leading-tight font-light">Agencies waste immense capital trying to study culture from the outer margins.</div>
+                            </div>
+                            <div class="bg-brand-panel/80 border-l-3 border-brand-highlight border border-white/5 p-2.5 rounded-r">
+                                <div class="text-[10px] font-bold uppercase text-white">The Native Fix</div>
+                                <div class="text-[10px] text-brand-muted leading-tight font-light">We live directly inside the cultural matrix. Operational data design removes errors.</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        } else if (slide.type === "advantages-grid") {
+          let cardsHtml = slide.cards
+            .map(
+              (c) => `
+                    <div class="advantage-card p-2.5 rounded-lg space-y-0.5">
+                        <div class="text-[10px] font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+                            <span class="w-1 h-1 rounded-full bg-brand-accent"></span>${c.title}
+                        </div>
+                        <div class="text-[10px] text-brand-muted leading-tight font-light">${c.desc}</div>
+                    </div>
+                `,
+            )
+            .join("");
+          html = `
+                    <div class="space-y-2.5">
+                        <div>
+                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2">
+                            ${cardsHtml}
+                        </div>
+                    </div>
+                `;
+        } else if (slide.type === "metrics-display") {
+          let metricsHtml = slide.metrics
+            .map(
+              (m) => `
+                    <div class="bg-brand-panel border border-white/10 p-2.5 rounded-lg text-center shadow-sm">
+                        <div class="text-[8px] tracking-wider text-brand-muted uppercase font-bold">${m.label}</div>
+                        <div class="text-xl font-black text-white my-0.5">${m.value}</div>
+                        <div class="text-[9px] font-serif italic text-brand-accent leading-none">${m.sub}</div>
+                    </div>
+                `,
+            )
+            .join("");
+          html = `
+                    <div class="space-y-3">
+                        <div class="text-center">
+                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug mt-0.5">${slide.subtitle}</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 pt-1">
+                            ${metricsHtml}
+                        </div>
+                    </div>
+                `;
+        } else if (slide.type === "scalability-blocks") {
+          let blocksHtml = slide.blocks
+            .map(
+              (b) => `
+                    <div class="border border-white/10 bg-brand-panel/50 p-2 rounded-md">
+                        <div class="text-[10px] font-bold uppercase text-brand-highlight flex items-center gap-1">
+                            <span>&bull;</span> ${b.lead}
+                        </div>
+                        <div class="text-[9.5px] text-brand-muted leading-tight font-light mt-0.5">${b.text}</div>
+                    </div>
+                `,
+            )
+            .join("");
+          html = `
+                    <div class="space-y-2.5">
+                        <div>
+                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2">
+                            ${blocksHtml}
+                        </div>
+                    </div>
+                `;
+        } else if (slide.type === "training-grid") {
+          let cardsHtml = slide.cards
+            .map(
+              (c) => `
+                    <div class="bg-brand-panel border border-white/10 p-2.5 rounded-lg flex justify-between items-center">
+                        <div>
+                            <div class="text-[8px] font-bold tracking-wider text-brand-muted uppercase">${c.tier}</div>
+                            <div class="text-[10px] text-brand-muted font-light mt-0.5 leading-tight max-w-[180px]">${c.target}</div>
+                        </div>
+                        <div class="text-xs font-black text-white bg-white/5 px-2 py-1 rounded text-right whitespace-nowrap">${c.rate}</div>
+                    </div>
+                `,
+            )
+            .join("");
+          html = `
+                    <div class="space-y-2.5">
+                        <div>
+                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2">
+                            ${cardsHtml}
+                        </div>
+                    </div>
+                `;
+        } else if (slide.type === "airlock-grid") {
+          let itemsHtml = slide.items
+            .map(
+              (item) => `
+                    <div class="bg-white/[0.01] border border-white/5 p-2 rounded-md flex gap-2 items-center">
+                        <div class="text-xs bg-white/5 p-1 rounded">${item.icon}</div>
+                        <div>
+                            <div class="text-[10px] font-bold text-white uppercase">${item.title}</div>
+                            <div class="text-[9px] text-brand-muted leading-tight font-light">${item.desc}</div>
+                        </div>
+                    </div>
+                `,
+            )
+            .join("");
+          html = `
+                    <div class="space-y-2.5">
+                        <div>
+                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-1.5">
+                            ${itemsHtml}
+                        </div>
+                    </div>
+                `;
+        }
+
+        area.innerHTML = html;
+        updateDots();
+      }
+
+      function updateDots() {
+        const dotsContainer = document.getElementById("navigation-dots");
+        dotsContainer.innerHTML = slidesData
+          .map(
+            (_, i) => `
+                <button onclick="goToSlide(${i})" class="h-1 w-1 rounded-full bg-white/20 hover:bg-white/50 transition-all duration-200 ${i === currentIndex ? "dot-active" : ""}"></button>
+            `,
+          )
+          .join("");
+      }
+
+      function nextSlide() {
+        if (currentIndex < slidesData.length - 1) {
+          currentIndex++;
+          renderSlide(currentIndex);
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderSlide(currentIndex);
+        }
+      }
+
+      function goToSlide(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+      }
+
+      function copySlideText() {
+        const slide = slidesData[currentIndex];
+        const textToCopy = `[${slide.eyebrow}] ${slide.title} - ${slide.subtitle}
+
+${slide.body || ""}
+
+Lever: ${slide.driver}`;
+        navigator.clipboard.writeText(textToCopy);
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") nextSlide();
+        if (e.key === "ArrowLeft") prevSlide();
+      });
+
+      renderSlide(currentIndex);
+    </script>
+  </body>
+</html>
