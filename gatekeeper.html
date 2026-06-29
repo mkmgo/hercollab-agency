@@ -278,7 +278,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            padding: 2.5rem 2.5rem 2rem;
+            padding: 2.5rem;
             max-width: 480px;
             width: 90%;
             box-shadow: 0 24px 48px var(--tile-shadow);
@@ -295,21 +295,30 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
+        .modal-picker-icon {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto 1rem;
+            color: var(--accent-color);
+            opacity: 0.8;
+            display: block;
+        }
+
         .modal-picker h2 {
             font-family: Georgia, serif;
             font-weight: 400;
             font-size: 1.4rem;
             color: var(--text-strong);
             letter-spacing: -0.3px;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.4rem;
         }
 
         .picker-tag {
-            font-style: italic;
             font-size: 0.85rem;
-            color: var(--accent-color);
-            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
             margin-bottom: 0.15rem;
+            line-height: 1.6;
         }
 
         .picker-desc {
@@ -321,13 +330,15 @@
         }
 
         .asset-slot {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             text-decoration: none;
             color: inherit;
             background: var(--input-bg);
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            padding: 1rem 1.25rem;
+            padding: 0.85rem 1.25rem;
             margin-bottom: 0.85rem;
             text-align: left;
             cursor: pointer;
@@ -351,13 +362,6 @@
             letter-spacing: 0.02em;
         }
 
-        .asset-slot-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 0.2rem;
-        }
-
         .asset-slot-sub {
             font-size: 0.82rem;
             color: var(--text-muted);
@@ -365,30 +369,40 @@
         }
 
         .asset-slot-badge {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: #2e7d32;
-            background: rgba(46, 125, 50, 0.1);
-            border: 1px solid rgba(46, 125, 50, 0.25);
+            color: rgba(80, 130, 80, 0.8);
+            background: rgba(80, 130, 80, 0.08);
+            border: 1px solid rgba(80, 130, 80, 0.18);
             border-radius: 3px;
-            padding: 0.15rem 0.6rem;
+            padding: 0.15rem 0.55rem;
+            line-height: 1.4;
+            white-space: nowrap;
             transition: background 0.2s ease;
+            flex-shrink: 0;
         }
 
         body[data-theme="dark"] .asset-slot-badge {
-            color: #66bb6a;
-            background: rgba(102, 187, 106, 0.1);
-            border-color: rgba(102, 187, 106, 0.25);
+            color: rgba(120, 180, 120, 0.75);
+            background: rgba(120, 180, 120, 0.08);
+            border-color: rgba(120, 180, 120, 0.18);
         }
 
         .asset-slot:hover .asset-slot-badge {
-            background: rgba(46, 125, 50, 0.18);
+            background: rgba(80, 130, 80, 0.14);
         }
 
         body[data-theme="dark"] .asset-slot:hover .asset-slot-badge {
-            background: rgba(102, 187, 106, 0.18);
+            background: rgba(120, 180, 120, 0.14);
+        }
+
+        .picker-actions {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-top: 1.25rem;
         }
 
         .picker-footer {
@@ -402,7 +416,7 @@
 
         @media (max-width: 480px) {
             .modal,
-            .modal-picker { padding: 1.75rem 1.5rem; }
+            .modal-picker { padding: 1.75rem; }
         }
     </style>
 </head>
@@ -440,25 +454,36 @@
 <!-- ── Asset Picker (second modal) ── -->
 <div class="modal-picker" id="picker">
 
+    <svg class="modal-picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="8" height="8" rx="1"/>
+        <rect x="14" y="3" width="8" height="8" rx="1"/>
+        <rect x="2" y="13" width="8" height="8" rx="1"/>
+        <rect x="14" y="13" width="8" height="8" rx="1"/>
+    </svg>
+
     <h2>Asset Airlock</h2>
     <p class="picker-tag">Interactive Growth Decks</p>
     <p class="picker-desc">Strategic Partnerships</p>
 
     <a class="asset-slot" href="assets/fractional_agency_deck_16x9.html">
-        <div class="asset-slot-title">The Fractional Agency</div>
-        <div class="asset-slot-meta">
+        <div>
+            <div class="asset-slot-title">The Fractional Agency</div>
             <span class="asset-slot-sub">16 x 9 Deck</span>
-            <span class="asset-slot-badge">Available</span>
         </div>
+        <span class="asset-slot-badge">Available</span>
     </a>
 
     <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
-        <div class="asset-slot-title">The Fractional Agency</div>
-        <div class="asset-slot-meta">
+        <div>
+            <div class="asset-slot-title">The Fractional Agency</div>
             <span class="asset-slot-sub">9 x 16 Deck</span>
-            <span class="asset-slot-badge">Available</span>
         </div>
+        <span class="asset-slot-badge">Available</span>
     </a>
+
+    <div class="picker-actions">
+        <button class="modal-btn modal-btn-secondary" id="picker-cancel">Cancel</button>
+    </div>
 
     <div class="picker-footer">&copy; 2026 h·e·r collab</div>
 </div>
@@ -487,6 +512,14 @@
 
         document.getElementById("passKey").addEventListener("keydown", function(e) {
             if (e.key === "Enter") checkAccess();
+        });
+
+        document.getElementById("picker-cancel").addEventListener("click", function() {
+            document.body.style.transition = "opacity 0.25s ease";
+            document.body.style.opacity = "0";
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 250);
         });
 
         document.getElementById("cancel-btn").addEventListener("click", function() {
