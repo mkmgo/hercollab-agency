@@ -75,7 +75,8 @@
       }
 
       /* Suppress page-level scrollbar (appears when zoomed) */
-      html::-webkit-scrollbar, body::-webkit-scrollbar {
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
         display: none;
       }
       html {
@@ -141,7 +142,7 @@
         </div>
         <div>
           <span
-            class="text-[8px] tracking-widest uppercase bg-brand-accent/10 border border-brand-accent/30 px-2 py-0.5 text-brand-accent font-bold rounded-full"
+            class="text-[6px] tracking-widest uppercase bg-brand-accent/10 border border-brand-accent/30 px-1.5 py-0.5 text-brand-accent font-bold rounded-full leading-none"
             id="slide-eyebrow"
           >
             PARTNERSHIP
@@ -687,16 +688,24 @@ Lever: ${slide.driver}`;
 
       // Touch swipe: right-to-left → next, left-to-right → prev
       let touchStartX = 0;
-      document.addEventListener("touchstart", (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-      document.addEventListener("touchend", (e) => {
-        const diff = touchStartX - e.changedTouches[0].screenX;
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) nextSlide();
-          else prevSlide();
-        }
-      }, { passive: true });
+      document.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true },
+      );
+      document.addEventListener(
+        "touchend",
+        (e) => {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+          }
+        },
+        { passive: true },
+      );
 
       renderSlide(currentIndex);
     </script>
