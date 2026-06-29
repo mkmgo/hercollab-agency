@@ -394,7 +394,8 @@
 
         function checkAccess() {
             var key = document.getElementById("passKey").value;
-            if (key === "AgencyGrowth2026") {
+            var valid = ["AgencyGrowth2026", "joey_cco", "chaz_cgo", "tsholo_coo", "mkm_cfo"];
+            if (valid.indexOf(key) !== -1) {
                 panelLogin.classList.add("panel-hidden");
                 panelPicker.classList.remove("panel-hidden");
                 error.style.display = "none";
