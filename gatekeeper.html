@@ -83,6 +83,7 @@
             background: var(--bg-color);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
@@ -152,20 +153,6 @@
             backdrop-filter: blur(1px);
             -webkit-backdrop-filter: blur(1px);
             z-index: 1;
-        }
-
-        /* Fixed wrapper prevents layout shift when swapping modals */
-        .modal-wrapper {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .modal-wrapper > * {
-            pointer-events: auto;
         }
 
         /* Modal card — styled like a popup over index */
@@ -295,7 +282,6 @@
         /* ── Asset Picker (second modal) extras ── */
         .modal-picker {
             display: none;
-            max-width: 440px;
             animation: fadeIn 0.35s ease;
         }
 
@@ -448,7 +434,6 @@
 
 <div class="overlay"></div>
 
-<div class="modal-wrapper">
 <div class="modal">
     <svg class="modal-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
@@ -505,7 +490,6 @@
     </div>
 
     <div class="picker-footer">&copy; 2026 h·e·r collab</div>
-</div>
 </div>
 
 <script>
