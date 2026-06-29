@@ -211,21 +211,35 @@
             box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.2);
         }
 
-        .modal-btn {
-            display: inline-block;
+        .modal-actions {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
             margin-top: 0.75rem;
-            padding: 0.65rem 2rem;
+        }
+
+        .modal-btn {
+            padding: 0.65rem 1.5rem;
             font-family: inherit;
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #ffffff;
-            background: var(--accent-color);
             border: none;
             border-radius: 3px;
             cursor: pointer;
             transition: opacity 0.2s ease, transform 0.15s ease;
+        }
+
+        .modal-btn-primary {
+            color: #ffffff;
+            background: var(--accent-color);
+        }
+
+        .modal-btn-secondary {
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border-color);
         }
 
         .modal-btn:hover {
@@ -280,7 +294,10 @@
     <p class="modal-desc">Enter the access key to view the presentation deck.</p>
 
     <input class="modal-input" type="password" id="passKey" placeholder="Access key" autocomplete="off" />
-    <button class="modal-btn" onclick="checkAccess()">Enter</button>
+    <div class="modal-actions">
+        <button class="modal-btn modal-btn-primary" onclick="checkAccess()">Enter</button>
+        <button class="modal-btn modal-btn-secondary" id="cancel-btn">Cancel</button>
+    </div>
 
     <p class="modal-error" id="error">Invalid access key</p>
 
@@ -312,6 +329,14 @@
 
         document.getElementById("passKey").addEventListener("keydown", function(e) {
             if (e.key === "Enter") checkAccess();
+        });
+
+        document.getElementById("cancel-btn").addEventListener("click", function() {
+            document.body.style.transition = "opacity 0.25s ease";
+            document.body.style.opacity = "0";
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 250);
         });
 
         document.getElementById("passKey").focus();
