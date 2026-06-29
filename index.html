@@ -184,6 +184,25 @@
         top: auto;
       }
 
+      /* Ensure visibility on light/mobile backgrounds */
+      body[data-theme="light"] .asset-toggle {
+        background: rgba(0, 0, 0, 0.07);
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+      body[data-theme="light"] .asset-toggle svg {
+        color: rgba(33, 37, 41, 0.7);
+        opacity: 0.9;
+      }
+      @media (max-width: 768px) {
+        .asset-toggle {
+          width: 2.5rem;
+          height: 2.5rem;
+          opacity: 0.85;
+          bottom: 1rem;
+          right: 1rem;
+        }
+      }
+
       body[data-theme="dark"] .control-btn {
         background: rgba(255, 255, 255, 0.08);
         border-color: rgba(255, 255, 255, 0.14);
