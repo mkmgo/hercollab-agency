@@ -199,10 +199,10 @@
     >
       <button
         onclick="prevSlide()"
-        class="p-2 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
+        class="p-1.5 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
       >
         <svg
-          class="w-3.5 h-3.5"
+          class="w-3 h-3"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -221,10 +221,10 @@
 
       <button
         onclick="nextSlide()"
-        class="p-2 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
+        class="p-1.5 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
       >
         <svg
-          class="w-3.5 h-3.5"
+          class="w-3 h-3"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -241,11 +241,11 @@
       <button
         id="copy-btn"
         onclick="copySlideText()"
-        class="p-2 bg-brand-panel border border-brand-border hover:border-brand-highlight rounded-lg transition"
+        class="p-1.5 bg-brand-panel border border-brand-border hover:border-brand-highlight rounded-lg transition"
         title="Copy Text Asset"
       >
         <svg
-          class="w-3.5 h-3.5 text-brand-highlight"
+          class="w-3 h-3 text-brand-highlight"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -479,7 +479,7 @@
           html = `
                     <div class="text-center space-y-4 py-2">
                         <h1 class="text-2xl font-extrabold tracking-tight text-white uppercase leading-tight">${slide.title}</h1>
-                        <p class="text-base font-serif italic text-brand-accent font-medium tracking-wide leading-snug px-1">${slide.subtitle}</p>
+                        <p class="text-lg font-serif italic text-brand-accent font-medium tracking-wide leading-snug px-1">${slide.subtitle}</p>
                         <div class="w-10 h-0.5 bg-brand-accent mx-auto"></div>
                         <p class="text-brand-muted text-[11px] leading-relaxed font-light px-2">${slide.body}</p>
                     </div>
