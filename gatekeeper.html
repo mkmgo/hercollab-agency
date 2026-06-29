@@ -578,7 +578,7 @@
           }
         }
         updateRotateBadge();
-        window.matchMedia("(orientation: portrait)").addListener(updateRotateBadge);
+        window.addEventListener("orientationchange", updateRotateBadge);
       })();
     </script>
   </body>
