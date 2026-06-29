@@ -292,7 +292,7 @@
 
       /* Picker panel */
       .picker-tag {
-        font-size: 1.15rem;
+        font-size: 1rem;
         color: var(--text-muted);
         letter-spacing: 0.04em;
         margin-bottom: 1.5rem;
@@ -578,7 +578,7 @@
           }
         }
         updateRotateBadge();
-        window.addEventListener("orientationchange", updateRotateBadge);
+        window.matchMedia("(orientation: portrait)").addListener(updateRotateBadge);
       })();
     </script>
   </body>
