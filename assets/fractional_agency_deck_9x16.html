@@ -117,7 +117,7 @@
         <span
           class="inline-block w-1.5 h-1.5 bg-brand-accent rounded-full"
         ></span>
-        <span>h·e·r collab &bull; Partnership Proposition</span>
+        <span>h·e·r collab &bull; Partnership Deck</span>
       </div>
       <div class="text-brand-highlight font-semibold">v2.1 (9:16)</div>
     </div>
@@ -691,9 +691,13 @@ Lever: ${slide.driver}`;
 
       // Block pinch-zoom gestures
       document.addEventListener("gesturestart", (e) => e.preventDefault());
-      document.addEventListener("touchmove", (e) => {
-        if (e.touches.length > 1) e.preventDefault();
-      }, { passive: false });
+      document.addEventListener(
+        "touchmove",
+        (e) => {
+          if (e.touches.length > 1) e.preventDefault();
+        },
+        { passive: false },
+      );
 
       // Touch swipe: right-to-left → next, left-to-right → prev
       let touchStartX = 0;
