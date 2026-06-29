@@ -224,7 +224,7 @@
 
         /* Picker panel */
         .picker-tag {
-            font-size: 1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             letter-spacing: 0.04em;
             margin-bottom: 1.5rem;
@@ -268,11 +268,12 @@
         }
         .asset-slot-framework {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 600;
             color: var(--text-muted);
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            opacity: 0.6;
+            opacity: 0.75;
             margin-top: 0.15rem;
         }
         .asset-slot-badge {
@@ -297,6 +298,26 @@
         }
         .asset-slot:hover .asset-slot-badge { background: rgba(80, 130, 80, 0.14); }
         body[data-theme="dark"] .asset-slot:hover .asset-slot-badge { background: rgba(120, 180, 120, 0.14); }
+        .asset-slot-badge-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            flex-shrink: 0;
+        }
+        .asset-slot-badge-rotate {
+            display: none;
+            color: rgba(180, 150, 30, 0.9);
+            background: rgba(180, 150, 30, 0.1);
+            border-color: rgba(180, 150, 30, 0.25);
+        }
+        body[data-theme="dark"] .asset-slot-badge-rotate {
+            color: rgba(220, 190, 50, 0.85);
+            background: rgba(220, 190, 50, 0.1);
+            border-color: rgba(220, 190, 50, 0.2);
+        }
+        .asset-slot-badge-container.show-rotate .asset-slot-badge-rotate { display: inline-block; }
         .picker-actions {
             display: flex; gap: 0.6rem;
             justify-content: center;
@@ -335,7 +356,7 @@
             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
         </svg>
         <h2>Restricted Access</h2>
-        <p class="modal-desc">Enter the access key to view the presentation deck.</p>
+        <p class="modal-desc">Enter your access key to clear the Asset Airlock</p>
         <input class="modal-input" type="password" id="passKey" placeholder="Access key" autocomplete="off" />
         <div class="modal-actions">
             <button class="modal-btn modal-btn-primary" id="enter-btn">Enter</button>
@@ -354,21 +375,24 @@
             <rect x="14" y="13" width="8" height="8" rx="1"/>
         </svg>
         <h2>Asset Airlock</h2>
-        <p class="picker-tag">Interactive Growth Decks</p>
+        <p class="picker-tag">h·e·r Collab Interactive Growth Decks</p>
 
         <a class="asset-slot" href="assets/fractional_agency_deck_16x9.html">
             <div>
                 <div class="asset-slot-title">The Fractional Agency</div>
+                <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
                 <span class="asset-slot-sub">16 x 9 Deck</span>
-                <span class="asset-slot-framework">Partnership Framework</span>
             </div>
-            <span class="asset-slot-badge">Available</span>
+            <div class="asset-slot-badge-container">
+                <span class="asset-slot-badge">Available</span>
+                <span class="asset-slot-badge asset-slot-badge-rotate">Rotate Screen</span>
+            </div>
         </a>
         <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
             <div>
                 <div class="asset-slot-title">The Fractional Agency</div>
+                <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
                 <span class="asset-slot-sub">9 x 16 Deck</span>
-                <span class="asset-slot-framework">Partnership Framework</span>
             </div>
             <span class="asset-slot-badge">Available</span>
         </a>
@@ -418,6 +442,12 @@
         document.getElementById("cancel-btn").addEventListener("click", goHome);
         document.getElementById("picker-cancel").addEventListener("click", goHome);
         document.getElementById("passKey").focus();
+
+        var isMobile = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            var container = document.querySelector(".asset-slot-badge-container");
+            if (container) container.classList.add("show-rotate");
+        }
     })();
 </script>
 </body>
