@@ -339,7 +339,7 @@
       }
       .asset-slot-framework {
         display: block;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         font-weight: 600;
         color: var(--text-muted);
         letter-spacing: 0.06em;
@@ -490,10 +490,8 @@
             <span class="asset-slot-sub">16 x 9 Deck</span>
           </div>
           <div class="asset-slot-badge-container">
+            <span class="asset-slot-badge asset-slot-badge-rotate">Rotate</span>
             <span class="asset-slot-badge">Available</span>
-            <span class="asset-slot-badge asset-slot-badge-rotate"
-              >Rotate Screen</span
-            >
           </div>
         </a>
         <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
@@ -571,11 +569,16 @@
           .addEventListener("click", goHome);
         document.getElementById("passKey").focus();
 
-        var isMobile = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
+        function updateRotateBadge() {
+          var isMobile = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
+          var isPortrait = window.matchMedia("(orientation: portrait)").matches;
           var container = document.querySelector(".asset-slot-badge-container");
-          if (container) container.classList.add("show-rotate");
+          if (container) {
+            container.classList.toggle("show-rotate", isMobile && isPortrait);
+          }
         }
+        updateRotateBadge();
+        window.addEventListener("orientationchange", updateRotateBadge);
       })();
     </script>
   </body>
