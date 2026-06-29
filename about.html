@@ -406,8 +406,8 @@
       class="nav-toggle"
       id="nav-toggle"
       type="button"
-      aria-label="View Partners"
-      title="View Partners"
+      aria-label="Partners"
+      title="Partners"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -657,6 +657,14 @@
       function renderToggleIcon(theme) {
         themeToggle.innerHTML =
           theme === "dark" ? themeIcons.sun : themeIcons.moon;
+        themeToggle.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Light Mode" : "Dark Mode",
+        );
+        themeToggle.setAttribute(
+          "title",
+          theme === "dark" ? "Light Mode" : "Dark Mode",
+        );
       }
 
       function applyTheme(theme, persist = false) {
