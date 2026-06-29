@@ -82,11 +82,11 @@
             color: var(--text-color);
             background: var(--bg-color);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             position: relative;
+        }
+
+        html, body {
+            height: 100%;
         }
 
         /* Smooth Background Slideshow */
@@ -155,10 +155,13 @@
             z-index: 1;
         }
 
-        /* Modal card — styled like a popup over index */
+        /* Modal card — popup centered in viewport */
         .modal,
         .modal-picker {
-            position: relative;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 2;
             background: var(--tile-bg);
             backdrop-filter: blur(12px);
@@ -168,6 +171,8 @@
             padding: 2.5rem;
             max-width: 400px;
             width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
             box-shadow: 0 24px 48px var(--tile-shadow);
             text-align: center;
         }
