@@ -68,6 +68,15 @@
             --input-bg: rgba(0, 0, 0, 0.04);
         }
 
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        html {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         body {
             font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
             color: var(--text-color);
@@ -146,8 +155,11 @@
         }
 
         /* Modal card — styled like a popup over index */
-        .modal {
-            position: relative;
+        .modal,
+        .modal-picker {
+            position: fixed;
+            inset: 0;
+            margin: auto;
             z-index: 2;
             background: var(--tile-bg);
             backdrop-filter: blur(12px);
@@ -155,8 +167,10 @@
             border: 1px solid var(--border-color);
             border-radius: 4px;
             padding: 2.5rem;
-            max-width: 400px;
+            max-width: 440px;
             width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
             box-shadow: 0 24px 48px var(--tile-shadow);
             text-align: center;
         }
@@ -265,24 +279,11 @@
             color: var(--text-muted);
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            opacity: 0.45;
         }
 
-        /* ── Asset Picker (second modal) ── */
+        /* ── Asset Picker (second modal) extras ── */
         .modal-picker {
             display: none;
-            position: relative;
-            z-index: 2;
-            background: var(--tile-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 2.5rem;
-            max-width: 480px;
-            width: 90%;
-            box-shadow: 0 24px 48px var(--tile-shadow);
-            text-align: center;
             animation: fadeIn 0.35s ease;
         }
 
@@ -415,7 +416,6 @@
             color: var(--text-muted);
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            opacity: 0.45;
         }
 
         @media (max-width: 480px) {
