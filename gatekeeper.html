@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h·e·r collab · Restricted Access</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #212529;
+            --text-strong: #000000;
+            --text-muted: #6c757d;
+            --brand-color: #000000;
+            --accent-color: #b22222;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --tile-bg: rgba(255, 255, 255, 0.92);
+            --tile-shadow: rgba(0, 0, 0, 0.06);
+            --overlay-color: rgba(255, 255, 255, 0.55);
+            --input-bg: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #f8f9fa;
+                --text-strong: #ffffff;
+                --text-muted: #a7a9be;
+                --brand-color: #ffffff;
+                --accent-color: #e44d4d;
+                --border-color: rgba(255, 255, 255, 0.1);
+                --tile-bg: rgba(26, 26, 26, 0.92);
+                --tile-shadow: rgba(0, 0, 0, 0.3);
+                --overlay-color: rgba(0, 0, 0, 0.55);
+                --input-bg: rgba(255, 255, 255, 0.06);
+            }
+        }
+
+        body[data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f8f9fa;
+            --text-strong: #ffffff;
+            --text-muted: #a7a9be;
+            --brand-color: #ffffff;
+            --accent-color: #e44d4d;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --tile-bg: rgba(26, 26, 26, 0.92);
+            --tile-shadow: rgba(0, 0, 0, 0.3);
+            --overlay-color: rgba(0, 0, 0, 0.55);
+            --input-bg: rgba(255, 255, 255, 0.06);
+        }
+
+        body[data-theme="light"] {
+            --bg-color: #fcfcfc;
+            --text-color: #212529;
+            --text-strong: #000000;
+            --text-muted: #6c757d;
+            --brand-color: #000000;
+            --accent-color: #b22222;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --tile-bg: rgba(255, 255, 255, 0.92);
+            --tile-shadow: rgba(0, 0, 0, 0.06);
+            --overlay-color: rgba(255, 255, 255, 0.55);
+            --input-bg: rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+            color: var(--text-color);
+            background: var(--bg-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Background hint — mimics index page content, blurred */
+        .bg-hint {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            filter: blur(8px);
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-hint-logo {
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            color: var(--brand-color);
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .bg-hint-tagline {
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            margin-top: 0.3rem;
+        }
+
+        /* Dimming overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--overlay-color);
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            z-index: 1;
+        }
+
+        /* Modal card — styled like a popup over index */
+        .modal {
+            position: relative;
+            z-index: 2;
+            background: var(--tile-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 2.5rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 24px 48px var(--tile-shadow);
+            text-align: center;
+        }
+
+        .modal-lock {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto 1rem;
+            color: var(--accent-color);
+            opacity: 0.8;
+            display: block;
+        }
+
+        .modal h2 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            font-size: 1.4rem;
+            color: var(--text-strong);
+            letter-spacing: -0.3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .modal-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
+        .modal-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(180, 34, 34, 0.15);
+        }
+
+        body[data-theme="dark"] .modal-input:focus {
+            box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.2);
+        }
+
+        .modal-btn {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.65rem 2rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+        }
+
+        .modal-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .modal-btn:active {
+            transform: translateY(0);
+        }
+
+        .modal-error {
+            color: var(--accent-color);
+            font-size: 0.78rem;
+            margin-top: 0.75rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        .modal-footer {
+            margin-top: 1.25rem;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.45;
+        }
+
+        @media (max-width: 480px) {
+            .modal { padding: 1.75rem; }
+            .bg-hint-logo { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-hint">
+    <div class="bg-hint-logo">h·e·r collab</div>
+    <div class="bg-hint-tagline">Creative Brilliance · Surgical Precision</div>
+</div>
+
+<div class="overlay"></div>
+
+<div class="modal">
+    <svg class="modal-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+
+    <h2>Restricted Access</h2>
+    <p class="modal-desc">Enter the access key to view the presentation deck.</p>
+
+    <input class="modal-input" type="password" id="passKey" placeholder="Access key" autocomplete="off" />
+    <button class="modal-btn" onclick="checkAccess()">Enter</button>
+
+    <p class="modal-error" id="error">Invalid access key</p>
+
+    <div class="modal-footer">&copy; 2026 h·e·r collab</div>
+</div>
+
+<script>
+    (function() {
+        // Match index.html theme
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+        var saved = localStorage.getItem("theme-preference");
+        var theme = saved === "light" || saved === "dark" ? saved : (prefersDark.matches ? "dark" : "light");
+        document.body.dataset.theme = theme;
+
+        function checkAccess() {
+            var key = document.getElementById("passKey").value;
+            if (key === "AgencyGrowth2026") {
+                document.body.style.transition = "opacity 0.25s ease";
+                document.body.style.opacity = "0";
+                setTimeout(function() {
+                    window.location.href = "presentations/pitch-deck.html";
+                }, 250);
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+
+        document.querySelector(".modal-btn").addEventListener("click", checkAccess);
+
+        document.getElementById("passKey").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") checkAccess();
+        });
+
+        document.getElementById("passKey").focus();
+    })();
+</script>
+</body>
+</html>

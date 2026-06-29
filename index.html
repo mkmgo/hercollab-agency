@@ -178,6 +178,37 @@
         right: 6.55rem;
       }
 
+      /* Bottom-right asset toggle (label + button) */
+      .asset-toggle-wrapper {
+        position: fixed;
+        bottom: 0.85rem;
+        right: 0.85rem;
+        z-index: 11;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .asset-toggle-label {
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        opacity: 0.55;
+        letter-spacing: 0.08em;
+        user-select: none;
+        white-space: nowrap;
+        font-weight: 400;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+      }
+      .asset-toggle-wrapper:hover .asset-toggle-label {
+        opacity: 1;
+      }
+      .asset-toggle-btn {
+        position: relative !important;
+        top: auto !important;
+        margin: 0;
+        flex-shrink: 0;
+      }
+
       body[data-theme="dark"] .control-btn {
         background: rgba(255, 255, 255, 0.08);
         border-color: rgba(255, 255, 255, 0.14);
@@ -431,6 +462,19 @@
       </svg>
     </button>
 
+    <div class="asset-toggle-wrapper">
+      <span class="asset-toggle-label">Assets (restricted)</span>
+      <button class="control-btn asset-toggle-btn" id="asset-toggle" type="button" aria-label="View restricted assets" title="Assets (restricted)">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 7v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/>
+          <path d="M21 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7"/>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          <rect x="2" y="7" width="20" height="4" rx="1"/>
+          <rect x="2" y="13" width="20" height="4" rx="1"/>
+        </svg>
+      </button>
+    </div>
+
     <div class="bg-slideshow">
       <div class="bg-slide"></div>
       <div class="bg-slide"></div>
@@ -549,6 +593,15 @@
         document.body.style.opacity = "0";
         setTimeout(() => {
           window.location.href = "about.html";
+        }, 250);
+      });
+
+      // Asset toggle -> gatekeeper
+      document.getElementById("asset-toggle").addEventListener("click", () => {
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "gatekeeper.html";
         }, 250);
       });
     </script>
