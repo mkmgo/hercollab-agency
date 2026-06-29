@@ -549,7 +549,7 @@
                     <div class="bg-gradient-to-b from-brand-panel to-black border border-white/10 p-5 rounded-xl text-center space-y-1 shadow-md relative group hover:border-brand-accent transition-all duration-300">
                         <div class="text-[10px] tracking-widest text-brand-muted uppercase font-bold">${m.label}</div>
                         <div class="text-2xl md:text-3xl font-black text-white group-hover:text-brand-accent transition-colors">${m.value}</div>
-                        <div class="text-xs font-serif italic text-brand-accent">${m.sub}</div>
+                        <div class="text-sm font-serif italic text-brand-accent">${m.sub}</div>
                     </div>
                 `,
             )
@@ -600,11 +600,10 @@
             .map(
               (c) => `
                     <div class="bg-gradient-to-br from-brand-panel to-black border border-white/10 p-4 rounded-xl flex flex-col shadow-lg relative overflow-hidden group hover:border-brand-highlight transition-all">
-                        <div class="space-y-1">
+                        <div class="space-y-1 mb-3">
                             <div class="text-[10px] font-bold tracking-widest text-brand-muted uppercase">${c.tier}</div>
                             <div class="text-xl font-extrabold text-white tracking-tight group-hover:text-brand-highlight transition-colors">${c.rate}</div>
                         </div>
-                        <div class="flex-1 min-h-[0.5rem]"></div>
                         <div class="text-[11px] text-brand-muted font-light leading-relaxed border-t border-white/5 pt-2">${c.target}</div>
                     </div>
                 `,
