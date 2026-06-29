@@ -268,8 +268,141 @@
             opacity: 0.45;
         }
 
+        /* ── Asset Picker (second modal) ── */
+        .modal-picker {
+            display: none;
+            position: relative;
+            z-index: 2;
+            background: var(--tile-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 2.5rem 2.5rem 2rem;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 24px 48px var(--tile-shadow);
+            text-align: center;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .modal-picker.visible {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-picker h2 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            font-size: 1.4rem;
+            color: var(--text-strong);
+            letter-spacing: -0.3px;
+            margin-bottom: 0.2rem;
+        }
+
+        .picker-tag {
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.15rem;
+        }
+
+        .picker-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .asset-slot {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.85rem;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .asset-slot:hover {
+            background: var(--tile-bg);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(180, 34, 34, 0.1);
+        }
+
+        body[data-theme="dark"] .asset-slot:hover {
+            box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.15);
+        }
+
+        .asset-slot-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-strong);
+            letter-spacing: 0.02em;
+        }
+
+        .asset-slot-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.2rem;
+        }
+
+        .asset-slot-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .asset-slot-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #2e7d32;
+            background: rgba(46, 125, 50, 0.1);
+            border: 1px solid rgba(46, 125, 50, 0.25);
+            border-radius: 3px;
+            padding: 0.15rem 0.6rem;
+            transition: background 0.2s ease;
+        }
+
+        body[data-theme="dark"] .asset-slot-badge {
+            color: #66bb6a;
+            background: rgba(102, 187, 106, 0.1);
+            border-color: rgba(102, 187, 106, 0.25);
+        }
+
+        .asset-slot:hover .asset-slot-badge {
+            background: rgba(46, 125, 50, 0.18);
+        }
+
+        body[data-theme="dark"] .asset-slot:hover .asset-slot-badge {
+            background: rgba(102, 187, 106, 0.18);
+        }
+
+        .picker-footer {
+            margin-top: 1.25rem;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.45;
+        }
+
         @media (max-width: 480px) {
-            .modal { padding: 1.75rem; }
+            .modal,
+            .modal-picker { padding: 1.75rem 1.5rem; }
         }
     </style>
 </head>
@@ -295,13 +428,39 @@
 
     <input class="modal-input" type="password" id="passKey" placeholder="Access key" autocomplete="off" />
     <div class="modal-actions">
-        <button class="modal-btn modal-btn-primary" onclick="checkAccess()">Enter</button>
+        <button class="modal-btn modal-btn-primary" id="enter-btn">Enter</button>
         <button class="modal-btn modal-btn-secondary" id="cancel-btn">Cancel</button>
     </div>
 
     <p class="modal-error" id="error">Invalid access key</p>
 
     <div class="modal-footer">&copy; 2026 h·e·r collab</div>
+</div>
+
+<!-- ── Asset Picker (second modal) ── -->
+<div class="modal-picker" id="picker">
+
+    <h2>Asset Airlock</h2>
+    <p class="picker-tag">Interactive Growth Decks</p>
+    <p class="picker-desc">Strategic Partnerships</p>
+
+    <a class="asset-slot" href="assets/fractional_agency_deck_16x9.html">
+        <div class="asset-slot-title">The Fractional Agency</div>
+        <div class="asset-slot-meta">
+            <span class="asset-slot-sub">16 x 9 Deck</span>
+            <span class="asset-slot-badge">Available</span>
+        </div>
+    </a>
+
+    <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
+        <div class="asset-slot-title">The Fractional Agency</div>
+        <div class="asset-slot-meta">
+            <span class="asset-slot-sub">9 x 16 Deck</span>
+            <span class="asset-slot-badge">Available</span>
+        </div>
+    </a>
+
+    <div class="picker-footer">&copy; 2026 h·e·r collab</div>
 </div>
 
 <script>
@@ -315,17 +474,16 @@
         function checkAccess() {
             var key = document.getElementById("passKey").value;
             if (key === "AgencyGrowth2026") {
-                document.body.style.transition = "opacity 0.25s ease";
-                document.body.style.opacity = "0";
-                setTimeout(function() {
-                    window.location.href = "assets/fractional_agency_deck_16x9.html";
-                }, 250);
+                // Hide password modal, show asset picker
+                document.querySelector(".modal").style.display = "none";
+                document.getElementById("picker").classList.add("visible");
+                document.getElementById("error").style.display = "none";
             } else {
                 document.getElementById("error").style.display = "block";
             }
         }
 
-        document.querySelector(".modal-btn").addEventListener("click", checkAccess);
+        document.getElementById("enter-btn").addEventListener("click", checkAccess);
 
         document.getElementById("passKey").addEventListener("keydown", function(e) {
             if (e.key === "Enter") checkAccess();
