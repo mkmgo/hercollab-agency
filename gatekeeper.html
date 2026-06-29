@@ -1,415 +1,529 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>h·e·r collab · Restricted Access</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
+      :root {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --accent-color: #b22222;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --tile-bg: rgba(255, 255, 255, 0.92);
+        --tile-shadow: rgba(0, 0, 0, 0.06);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --overlay-color: rgba(255, 255, 255, 0.55);
+        --input-bg: rgba(0, 0, 0, 0.04);
+      }
+
+      @media (prefers-color-scheme: dark) {
         :root {
-            --bg-color: #fcfcfc;
-            --text-color: #212529;
-            --text-strong: #000000;
-            --text-muted: #6c757d;
-            --brand-color: #000000;
-            --accent-color: #b22222;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --tile-bg: rgba(255, 255, 255, 0.92);
-            --tile-shadow: rgba(0, 0, 0, 0.06);
-            --bg-overlay: rgba(252, 252, 252, 0.75);
-            --overlay-color: rgba(255, 255, 255, 0.55);
-            --input-bg: rgba(0, 0, 0, 0.04);
+          --bg-color: #121212;
+          --text-color: #f8f9fa;
+          --text-strong: #ffffff;
+          --text-muted: #a7a9be;
+          --brand-color: #ffffff;
+          --accent-color: #e44d4d;
+          --border-color: rgba(255, 255, 255, 0.1);
+          --tile-bg: rgba(26, 26, 26, 0.92);
+          --tile-shadow: rgba(0, 0, 0, 0.3);
+          --bg-overlay: rgba(18, 18, 18, 0.75);
+          --overlay-color: rgba(0, 0, 0, 0.55);
+          --input-bg: rgba(255, 255, 255, 0.06);
         }
+      }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #121212;
-                --text-color: #f8f9fa;
-                --text-strong: #ffffff;
-                --text-muted: #a7a9be;
-                --brand-color: #ffffff;
-                --accent-color: #e44d4d;
-                --border-color: rgba(255, 255, 255, 0.1);
-                --tile-bg: rgba(26, 26, 26, 0.92);
-                --tile-shadow: rgba(0, 0, 0, 0.3);
-                --bg-overlay: rgba(18, 18, 18, 0.75);
-                --overlay-color: rgba(0, 0, 0, 0.55);
-                --input-bg: rgba(255, 255, 255, 0.06);
-            }
-        }
+      body[data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #f8f9fa;
+        --text-strong: #ffffff;
+        --text-muted: #a7a9be;
+        --brand-color: #ffffff;
+        --accent-color: #e44d4d;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --tile-bg: rgba(26, 26, 26, 0.92);
+        --tile-shadow: rgba(0, 0, 0, 0.3);
+        --bg-overlay: rgba(18, 18, 18, 0.75);
+        --overlay-color: rgba(0, 0, 0, 0.55);
+        --input-bg: rgba(255, 255, 255, 0.06);
+      }
 
-        body[data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #f8f9fa;
-            --text-strong: #ffffff;
-            --text-muted: #a7a9be;
-            --brand-color: #ffffff;
-            --accent-color: #e44d4d;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --tile-bg: rgba(26, 26, 26, 0.92);
-            --tile-shadow: rgba(0, 0, 0, 0.3);
-            --bg-overlay: rgba(18, 18, 18, 0.75);
-            --overlay-color: rgba(0, 0, 0, 0.55);
-            --input-bg: rgba(255, 255, 255, 0.06);
-        }
+      body[data-theme="light"] {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --accent-color: #b22222;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --tile-bg: rgba(255, 255, 255, 0.92);
+        --tile-shadow: rgba(0, 0, 0, 0.06);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --overlay-color: rgba(255, 255, 255, 0.55);
+        --input-bg: rgba(0, 0, 0, 0.04);
+      }
 
-        body[data-theme="light"] {
-            --bg-color: #fcfcfc;
-            --text-color: #212529;
-            --text-strong: #000000;
-            --text-muted: #6c757d;
-            --brand-color: #000000;
-            --accent-color: #b22222;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --tile-bg: rgba(255, 255, 255, 0.92);
-            --tile-shadow: rgba(0, 0, 0, 0.06);
-            --bg-overlay: rgba(252, 252, 252, 0.75);
-            --overlay-color: rgba(255, 255, 255, 0.55);
-            --input-bg: rgba(0, 0, 0, 0.04);
-        }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
 
-        html::-webkit-scrollbar,
-        body::-webkit-scrollbar { display: none; }
-        html { -ms-overflow-style: none; scrollbar-width: none; }
+      html {
+        background: var(--bg-color);
+      }
+      body {
+        font-family:
+          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        color: var(--text-color);
+        min-height: 100vh;
+        position: relative;
+      }
 
-        html { background: var(--bg-color); }
-        body {
-            font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-            color: var(--text-color);
-            min-height: 100vh;
-            position: relative;
+      /* Background slideshow */
+      .bg-slideshow {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+      }
+      .bg-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transform: scale(1.03);
+        animation: crossfade 18s infinite ease-in-out;
+      }
+      .bg-slide:nth-child(1) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/q_auto/f_auto/v1776286873/Neo_Segola_tvcbhe.jpg");
+        animation-delay: 0s;
+      }
+      .bg-slide:nth-child(2) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png");
+        animation-delay: 6s;
+      }
+      .bg-slide:nth-child(3) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png");
+        animation-delay: 12s;
+      }
+      @keyframes crossfade {
+        0% {
+          opacity: 0;
+          transform: scale(1.03);
         }
+        10% {
+          opacity: 0.35;
+          transform: scale(1.06);
+        }
+        33% {
+          opacity: 0.35;
+          transform: scale(1.12);
+        }
+        43% {
+          opacity: 0;
+          transform: scale(1.15);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.03);
+        }
+      }
 
-        /* Background slideshow */
-        .bg-slideshow {
-            position: fixed; inset: 0; z-index: -2;
-            width: 100%; height: 100%;
-        }
-        .bg-slide {
-            position: absolute; inset: 0;
-            background-size: cover; background-position: center;
-            opacity: 0; transform: scale(1.03);
-            animation: crossfade 18s infinite ease-in-out;
-        }
-        .bg-slide:nth-child(1) { background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/q_auto/f_auto/v1776286873/Neo_Segola_tvcbhe.jpg"); animation-delay: 0s; }
-        .bg-slide:nth-child(2) { background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png"); animation-delay: 6s; }
-        .bg-slide:nth-child(3) { background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png"); animation-delay: 12s; }
-        @keyframes crossfade {
-            0% { opacity: 0; transform: scale(1.03); }
-            10% { opacity: 0.35; transform: scale(1.06); }
-            33% { opacity: 0.35; transform: scale(1.12); }
-            43% { opacity: 0; transform: scale(1.15); }
-            100% { opacity: 0; transform: scale(1.03); }
-        }
+      .bg-overlay-tint {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: var(--bg-overlay);
+      }
+      .overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        background: var(--overlay-color);
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+      }
 
-        .bg-overlay-tint {
-            position: fixed; inset: 0; z-index: -1;
-            background: var(--bg-overlay);
-        }
-        .overlay {
-            position: fixed; inset: 0; z-index: 1;
-            background: var(--overlay-color);
-            backdrop-filter: blur(1px);
-            -webkit-backdrop-filter: blur(1px);
-        }
+      /* Single modal — same element, two panels inside */
+      .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        background: var(--tile-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 2.5rem;
+        max-width: 400px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 24px 48px var(--tile-shadow);
+        text-align: center;
+      }
 
-        /* Single modal — same element, two panels inside */
+      /* Panels inside the modal */
+      .panel {
+        display: block;
+      }
+      .panel-hidden {
+        display: none;
+      }
+
+      .modal-icon {
+        width: 2rem;
+        height: 2rem;
+        margin: 0 auto 1rem;
+        color: var(--accent-color);
+        opacity: 0.8;
+        display: block;
+      }
+      .modal h2 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--text-strong);
+        letter-spacing: -0.3px;
+        margin-bottom: 0.4rem;
+      }
+      .modal-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+      .modal-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-family: inherit;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+        text-align: center;
+        letter-spacing: 0.1em;
+      }
+      .modal-input:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 2px rgba(180, 34, 34, 0.15);
+      }
+      body[data-theme="dark"] .modal-input:focus {
+        box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.2);
+      }
+      .modal-actions {
+        display: flex;
+        gap: 0.6rem;
+        justify-content: center;
+        margin-top: 0.75rem;
+      }
+      .modal-btn {
+        padding: 0.65rem 1.5rem;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition:
+          opacity 0.2s ease,
+          transform 0.15s ease;
+      }
+      .modal-btn-primary {
+        color: #fff;
+        background: var(--accent-color);
+      }
+      .modal-btn-secondary {
+        color: var(--text-muted);
+        background: transparent;
+        border: 1px solid var(--border-color);
+      }
+      .modal-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      .modal-btn:active {
+        transform: translateY(0);
+      }
+      .modal-error {
+        color: var(--accent-color);
+        font-size: 0.78rem;
+        margin-top: 0.75rem;
+        display: none;
+        font-weight: 500;
+      }
+      .modal-footer {
+        margin-top: 1.25rem;
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.45;
+      }
+
+      /* Picker panel */
+      .picker-tag {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+      .asset-slot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: inherit;
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 0.85rem 1.25rem;
+        margin-bottom: 0.85rem;
+        text-align: left;
+        cursor: pointer;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+      .asset-slot:hover {
+        border-color: rgba(180, 34, 34, 0.25);
+        box-shadow: 0 0 0 2px rgba(180, 34, 34, 0.06);
+        background: rgba(180, 34, 34, 0.02);
+      }
+      body[data-theme="dark"] .asset-slot:hover {
+        border-color: rgba(228, 77, 77, 0.25);
+        box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.07);
+        background: rgba(228, 77, 77, 0.03);
+      }
+      .asset-slot-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-strong);
+        letter-spacing: 0.02em;
+      }
+      .asset-slot-sub {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+      }
+      .asset-slot-framework {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.75;
+        margin-top: 0.15rem;
+      }
+      .asset-slot-badge {
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(80, 130, 80, 0.8);
+        background: rgba(80, 130, 80, 0.08);
+        border: 1px solid rgba(80, 130, 80, 0.18);
+        border-radius: 3px;
+        padding: 0.15rem 0.55rem;
+        line-height: 1.4;
+        white-space: nowrap;
+        transition: background 0.2s ease;
+        flex-shrink: 0;
+      }
+      body[data-theme="dark"] .asset-slot-badge {
+        color: rgba(120, 180, 120, 0.75);
+        background: rgba(120, 180, 120, 0.08);
+        border-color: rgba(120, 180, 120, 0.18);
+      }
+      .asset-slot:hover .asset-slot-badge {
+        background: rgba(80, 130, 80, 0.14);
+      }
+      body[data-theme="dark"] .asset-slot:hover .asset-slot-badge {
+        background: rgba(120, 180, 120, 0.14);
+      }
+      .asset-slot-badge-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        flex-shrink: 0;
+      }
+      .asset-slot-badge-rotate {
+        display: none;
+        color: rgba(180, 150, 30, 0.9);
+        background: rgba(180, 150, 30, 0.1);
+        border-color: rgba(180, 150, 30, 0.25);
+      }
+      body[data-theme="dark"] .asset-slot-badge-rotate {
+        color: rgba(220, 190, 50, 0.85);
+        background: rgba(220, 190, 50, 0.1);
+        border-color: rgba(220, 190, 50, 0.2);
+      }
+      .asset-slot-badge-container.show-rotate .asset-slot-badge-rotate {
+        display: inline-block;
+      }
+      .picker-actions {
+        display: flex;
+        gap: 0.6rem;
+        justify-content: center;
+        margin-top: 1.25rem;
+      }
+      .picker-footer {
+        margin-top: 1.25rem;
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.45;
+      }
+
+      @media (max-width: 480px) {
         .modal {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            background: var(--tile-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 2.5rem;
-            max-width: 400px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 24px 48px var(--tile-shadow);
-            text-align: center;
+          padding: 1.75rem;
         }
-
-        /* Panels inside the modal */
-        .panel { display: block; }
-        .panel-hidden { display: none; }
-
-        .modal-icon {
-            width: 2rem; height: 2rem;
-            margin: 0 auto 1rem;
-            color: var(--accent-color);
-            opacity: 0.8;
-            display: block;
-        }
-        .modal h2 {
-            font-family: Georgia, serif;
-            font-weight: 400;
-            font-size: 1.4rem;
-            color: var(--text-strong);
-            letter-spacing: -0.3px;
-            margin-bottom: 0.4rem;
-        }
-        .modal-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 0.04em;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        .modal-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            font-family: inherit;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 3px;
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-            text-align: center;
-            letter-spacing: 0.1em;
-        }
-        .modal-input:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(180, 34, 34, 0.15);
-        }
-        body[data-theme="dark"] .modal-input:focus {
-            box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.2);
-        }
-        .modal-actions {
-            display: flex; gap: 0.6rem;
-            justify-content: center;
-            margin-top: 0.75rem;
-        }
-        .modal-btn {
-            padding: 0.65rem 1.5rem;
-            font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: opacity 0.2s ease, transform 0.15s ease;
-        }
-        .modal-btn-primary { color: #fff; background: var(--accent-color); }
-        .modal-btn-secondary {
-            color: var(--text-muted);
-            background: transparent;
-            border: 1px solid var(--border-color);
-        }
-        .modal-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-        .modal-btn:active { transform: translateY(0); }
-        .modal-error {
-            color: var(--accent-color);
-            font-size: 0.78rem;
-            margin-top: 0.75rem;
-            display: none;
-            font-weight: 500;
-        }
-        .modal-footer {
-            margin-top: 1.25rem;
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            opacity: 0.45;
-        }
-
-        /* Picker panel */
-        .picker-tag {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            letter-spacing: 0.04em;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        .asset-slot {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            color: inherit;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 0.85rem 1.25rem;
-            margin-bottom: 0.85rem;
-            text-align: left;
-            cursor: pointer;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-        .asset-slot:hover {
-            border-color: rgba(180, 34, 34, 0.25);
-            box-shadow: 0 0 0 2px rgba(180, 34, 34, 0.06);
-            background: rgba(180, 34, 34, 0.02);
-        }
-        body[data-theme="dark"] .asset-slot:hover {
-            border-color: rgba(228, 77, 77, 0.25);
-            box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.07);
-            background: rgba(228, 77, 77, 0.03);
-        }
-        .asset-slot-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-strong);
-            letter-spacing: 0.02em;
-        }
-        .asset-slot-sub {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            letter-spacing: 0.04em;
-        }
-        .asset-slot-framework {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            opacity: 0.75;
-            margin-top: 0.15rem;
-        }
-        .asset-slot-badge {
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: rgba(80, 130, 80, 0.8);
-            background: rgba(80, 130, 80, 0.08);
-            border: 1px solid rgba(80, 130, 80, 0.18);
-            border-radius: 3px;
-            padding: 0.15rem 0.55rem;
-            line-height: 1.4;
-            white-space: nowrap;
-            transition: background 0.2s ease;
-            flex-shrink: 0;
-        }
-        body[data-theme="dark"] .asset-slot-badge {
-            color: rgba(120, 180, 120, 0.75);
-            background: rgba(120, 180, 120, 0.08);
-            border-color: rgba(120, 180, 120, 0.18);
-        }
-        .asset-slot:hover .asset-slot-badge { background: rgba(80, 130, 80, 0.14); }
-        body[data-theme="dark"] .asset-slot:hover .asset-slot-badge { background: rgba(120, 180, 120, 0.14); }
-        .asset-slot-badge-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.35rem;
-            flex-shrink: 0;
-        }
-        .asset-slot-badge-rotate {
-            display: none;
-            color: rgba(180, 150, 30, 0.9);
-            background: rgba(180, 150, 30, 0.1);
-            border-color: rgba(180, 150, 30, 0.25);
-        }
-        body[data-theme="dark"] .asset-slot-badge-rotate {
-            color: rgba(220, 190, 50, 0.85);
-            background: rgba(220, 190, 50, 0.1);
-            border-color: rgba(220, 190, 50, 0.2);
-        }
-        .asset-slot-badge-container.show-rotate .asset-slot-badge-rotate { display: inline-block; }
-        .picker-actions {
-            display: flex; gap: 0.6rem;
-            justify-content: center;
-            margin-top: 1.25rem;
-        }
-        .picker-footer {
-            margin-top: 1.25rem;
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            opacity: 0.45;
-        }
-
-        @media (max-width: 480px) {
-            .modal { padding: 1.75rem; }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="bg-slideshow">
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+    </div>
+    <div class="bg-overlay-tint"></div>
+    <div class="overlay"></div>
 
-<div class="bg-slideshow">
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-</div>
-<div class="bg-overlay-tint"></div>
-<div class="overlay"></div>
-
-<div class="modal" id="mainModal">
-
-    <!-- ── Login panel ── -->
-    <div class="panel" id="panelLogin">
-        <svg class="modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    <div class="modal" id="mainModal">
+      <!-- ── Login panel ── -->
+      <div class="panel" id="panelLogin">
+        <svg
+          class="modal-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
         <h2>Restricted Access</h2>
-        <p class="modal-desc">Enter your access key to clear the Asset Airlock</p>
-        <input class="modal-input" type="password" id="passKey" placeholder="Access key" autocomplete="off" />
+        <p class="modal-desc">
+          Enter your access key to clear the Asset Airlock
+        </p>
+        <input
+          class="modal-input"
+          type="password"
+          id="passKey"
+          placeholder="Access key"
+          autocomplete="off"
+        />
         <div class="modal-actions">
-            <button class="modal-btn modal-btn-primary" id="enter-btn">Enter</button>
-            <button class="modal-btn modal-btn-secondary" id="cancel-btn">Cancel</button>
+          <button class="modal-btn modal-btn-primary" id="enter-btn">
+            Enter
+          </button>
+          <button class="modal-btn modal-btn-secondary" id="cancel-btn">
+            Cancel
+          </button>
         </div>
         <p class="modal-error" id="error">Invalid access key</p>
         <div class="modal-footer">&copy; 2026 h·e·r collab</div>
-    </div>
+      </div>
 
-    <!-- ── Picker panel ── -->
-    <div class="panel panel-hidden" id="panelPicker">
-        <svg class="modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="8" height="8" rx="1"/>
-            <rect x="14" y="3" width="8" height="8" rx="1"/>
-            <rect x="2" y="13" width="8" height="8" rx="1"/>
-            <rect x="14" y="13" width="8" height="8" rx="1"/>
+      <!-- ── Picker panel ── -->
+      <div class="panel panel-hidden" id="panelPicker">
+        <svg
+          class="modal-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="2" y="3" width="8" height="8" rx="1" />
+          <rect x="14" y="3" width="8" height="8" rx="1" />
+          <rect x="2" y="13" width="8" height="8" rx="1" />
+          <rect x="14" y="13" width="8" height="8" rx="1" />
         </svg>
         <h2>Asset Airlock</h2>
         <p class="picker-tag">h·e·r Collab Interactive Growth Decks</p>
 
         <a class="asset-slot" href="assets/fractional_agency_deck_16x9.html">
-            <div>
-                <div class="asset-slot-title">The Fractional Agency</div>
-                <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
-                <span class="asset-slot-sub">16 x 9 Deck</span>
-            </div>
-            <div class="asset-slot-badge-container">
-                <span class="asset-slot-badge">Available</span>
-                <span class="asset-slot-badge asset-slot-badge-rotate">Rotate Screen</span>
-            </div>
+          <div>
+            <div class="asset-slot-title">The Fractional Agency</div>
+            <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
+            <span class="asset-slot-sub">16 x 9 Deck</span>
+          </div>
+          <div class="asset-slot-badge-container">
+            <span class="asset-slot-badge">Available</span>
+            <span class="asset-slot-badge asset-slot-badge-rotate"
+              >Rotate Screen</span
+            >
+          </div>
         </a>
         <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
-            <div>
-                <div class="asset-slot-title">The Fractional Agency</div>
-                <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
-                <span class="asset-slot-sub">9 x 16 Deck</span>
-            </div>
-            <span class="asset-slot-badge">Available</span>
+          <div>
+            <div class="asset-slot-title">The Fractional Agency</div>
+            <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
+            <span class="asset-slot-sub">9 x 16 Deck</span>
+          </div>
+          <span class="asset-slot-badge">Available</span>
         </a>
 
         <div class="picker-actions">
-            <button class="modal-btn modal-btn-secondary" id="picker-cancel">Cancel</button>
+          <button class="modal-btn modal-btn-secondary" id="picker-cancel">
+            Cancel
+          </button>
         </div>
         <div class="picker-footer">&copy; 2026 h·e·r collab</div>
+      </div>
     </div>
 
-</div>
-
-<script>
-    (function() {
+    <script>
+      (function () {
         var prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
         var saved = localStorage.getItem("theme-preference");
-        var theme = saved === "light" || saved === "dark" ? saved : (prefersDark.matches ? "dark" : "light");
+        var theme =
+          saved === "light" || saved === "dark"
+            ? saved
+            : prefersDark.matches
+              ? "dark"
+              : "light";
         document.body.dataset.theme = theme;
 
         var panelLogin = document.getElementById("panelLogin");
@@ -417,38 +531,52 @@
         var error = document.getElementById("error");
 
         function checkAccess() {
-            var key = document.getElementById("passKey").value;
-            var valid = ["AgencyGrowth2026", "joey_cco", "chaz_cgo", "tsholo_coo", "mkm_cfo"];
-            if (valid.indexOf(key) !== -1) {
-                panelLogin.classList.add("panel-hidden");
-                panelPicker.classList.remove("panel-hidden");
-                error.style.display = "none";
-            } else {
-                error.style.display = "block";
-            }
+          var key = document.getElementById("passKey").value;
+          var valid = [
+            "AgencyGrowth2026",
+            "joey_cco",
+            "chaz_cgo",
+            "tsholo_coo",
+            "mkm_cfo",
+          ];
+          if (valid.indexOf(key) !== -1) {
+            panelLogin.classList.add("panel-hidden");
+            panelPicker.classList.remove("panel-hidden");
+            error.style.display = "none";
+          } else {
+            error.style.display = "block";
+          }
         }
 
-        document.getElementById("enter-btn").addEventListener("click", checkAccess);
-        document.getElementById("passKey").addEventListener("keydown", function(e) {
+        document
+          .getElementById("enter-btn")
+          .addEventListener("click", checkAccess);
+        document
+          .getElementById("passKey")
+          .addEventListener("keydown", function (e) {
             if (e.key === "Enter") checkAccess();
-        });
+          });
 
         function goHome() {
-            document.body.style.transition = "opacity 0.25s ease";
-            document.body.style.opacity = "0";
-            setTimeout(function() { window.location.href = "index.html"; }, 250);
+          document.body.style.transition = "opacity 0.25s ease";
+          document.body.style.opacity = "0";
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 250);
         }
 
         document.getElementById("cancel-btn").addEventListener("click", goHome);
-        document.getElementById("picker-cancel").addEventListener("click", goHome);
+        document
+          .getElementById("picker-cancel")
+          .addEventListener("click", goHome);
         document.getElementById("passKey").focus();
 
         var isMobile = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
-            var container = document.querySelector(".asset-slot-badge-container");
-            if (container) container.classList.add("show-rotate");
+          var container = document.querySelector(".asset-slot-badge-container");
+          if (container) container.classList.add("show-rotate");
         }
-    })();
-</script>
-</body>
+      })();
+    </script>
+  </body>
 </html>
