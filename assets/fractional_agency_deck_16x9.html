@@ -180,17 +180,17 @@
 
     <!-- Presentation Control Matrix -->
     <div
-      class="w-full max-w-5xl mt-5 flex flex-col sm:flex-row justify-between items-center gap-4 px-2"
+      class="w-full max-w-5xl mt-4 flex flex-col sm:flex-row justify-between items-center gap-3 px-2"
     >
       <!-- Navigation Matrix Controls -->
-      <div class="flex items-center gap-2 order-2 sm:order-1">
+      <div class="flex items-center gap-1.5 order-2 sm:order-1">
         <button
           onclick="prevSlide()"
-          class="p-2.5 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
+          class="p-1.5 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
           title="Previous Slide (Left Arrow)"
         >
           <svg
-            class="w-4 h-4"
+            class="w-3.5 h-3.5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -205,15 +205,15 @@
         </button>
 
         <!-- Stretch Navigation Dots -->
-        <div class="flex items-center gap-1.5 mx-3" id="navigation-dots"></div>
+        <div class="flex items-center gap-1 mx-2" id="navigation-dots"></div>
 
         <button
           onclick="nextSlide()"
-          class="p-2.5 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
+          class="p-1.5 bg-brand-panel border border-brand-border rounded-lg hover:border-brand-accent transition text-brand-muted hover:text-white"
           title="Next Slide (Right Arrow)"
         >
           <svg
-            class="w-4 h-4"
+            class="w-3.5 h-3.5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -230,16 +230,16 @@
 
       <!-- Utility Matrix Panel -->
       <div class="order-1 sm:order-2 w-full sm:w-auto flex items-center gap-2">
-        <div class="text-[11px] text-brand-muted hidden md:block italic mr-2">
-          Press Left/Right arrow keys for navigation
+        <div class="text-[10px] text-brand-muted hidden md:block italic mr-1">
+          Arrow keys to navigate
         </div>
         <button
           id="copy-btn"
           onclick="copySlideText()"
-          class="w-full sm:w-auto px-5 py-2.5 bg-brand-panel border border-brand-border hover:border-brand-highlight text-xs tracking-wider text-brand-muted hover:text-white rounded-lg flex items-center justify-center gap-2 transition-all duration-200 font-medium"
+          class="w-full sm:w-auto px-4 py-1.5 bg-brand-panel border border-brand-border hover:border-brand-highlight text-[11px] tracking-wider text-brand-muted hover:text-white rounded-lg flex items-center justify-center gap-1.5 transition-all duration-200 font-medium"
         >
           <svg
-            class="w-4 h-4 text-brand-highlight"
+            class="w-3.5 h-3.5 text-brand-highlight"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -251,7 +251,7 @@
               d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
             ></path>
           </svg>
-          <span>Copy Slide Content</span>
+          <span>Copy Slide</span>
         </button>
       </div>
     </div>
@@ -549,7 +549,7 @@
                     <div class="bg-gradient-to-b from-brand-panel to-black border border-white/10 p-5 rounded-xl text-center space-y-1 shadow-md relative group hover:border-brand-accent transition-all duration-300">
                         <div class="text-[10px] tracking-widest text-brand-muted uppercase font-bold">${m.label}</div>
                         <div class="text-2xl md:text-3xl font-black text-white group-hover:text-brand-accent transition-colors">${m.value}</div>
-                        <div class="text-[10px] font-serif italic text-brand-accent">${m.sub}</div>
+                        <div class="text-xs font-serif italic text-brand-accent">${m.sub}</div>
                     </div>
                 `,
             )
@@ -599,12 +599,13 @@
           let cardsHtml = slide.cards
             .map(
               (c) => `
-                    <div class="bg-gradient-to-br from-brand-panel to-black border border-white/10 p-4 rounded-xl flex flex-col justify-between shadow-lg relative overflow-hidden group hover:border-brand-highlight transition-all">
+                    <div class="bg-gradient-to-br from-brand-panel to-black border border-white/10 p-4 rounded-xl flex flex-col shadow-lg relative overflow-hidden group hover:border-brand-highlight transition-all">
                         <div class="space-y-1">
                             <div class="text-[10px] font-bold tracking-widest text-brand-muted uppercase">${c.tier}</div>
                             <div class="text-xl font-extrabold text-white tracking-tight group-hover:text-brand-highlight transition-colors">${c.rate}</div>
                         </div>
-                        <div class="text-[11px] text-brand-muted font-light leading-relaxed border-t border-white/5 pt-2 mt-3">${c.target}</div>
+                        <div class="flex-1 min-h-[0.5rem]"></div>
+                        <div class="text-[11px] text-brand-muted font-light leading-relaxed border-t border-white/5 pt-2">${c.target}</div>
                     </div>
                 `,
             )
