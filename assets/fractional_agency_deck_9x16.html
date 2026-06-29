@@ -685,6 +685,19 @@ Lever: ${slide.driver}`;
         if (e.key === "ArrowLeft") prevSlide();
       });
 
+      // Touch swipe: right-to-left → next, left-to-right → prev
+      let touchStartX = 0;
+      document.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      document.addEventListener("touchend", (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+
       renderSlide(currentIndex);
     </script>
   </body>
