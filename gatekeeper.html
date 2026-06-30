@@ -373,28 +373,6 @@
       body[data-theme="dark"] .asset-slot:hover .asset-slot-badge {
         background: rgba(120, 180, 120, 0.14);
       }
-      .asset-slot-badge-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.35rem;
-        flex-shrink: 0;
-      }
-      .asset-slot-badge-rotate {
-        display: none;
-        color: rgba(180, 150, 30, 0.9);
-        background: rgba(180, 150, 30, 0.1);
-        border-color: rgba(180, 150, 30, 0.25);
-      }
-      body[data-theme="dark"] .asset-slot-badge-rotate {
-        color: rgba(220, 190, 50, 0.85);
-        background: rgba(220, 190, 50, 0.1);
-        border-color: rgba(220, 190, 50, 0.2);
-      }
-      .asset-slot-badge-container.show-rotate .asset-slot-badge-rotate {
-        display: inline-block;
-      }
       .picker-actions {
         display: flex;
         gap: 0.6rem;
@@ -489,10 +467,7 @@
             <span class="asset-slot-framework">PARTNERSHIP PROPOSITION</span>
             <span class="asset-slot-sub">16 x 9 Deck</span>
           </div>
-          <div class="asset-slot-badge-container">
-            <span class="asset-slot-badge asset-slot-badge-rotate">Rotate</span>
-            <span class="asset-slot-badge">Available</span>
-          </div>
+          <span class="asset-slot-badge">Available</span>
         </a>
         <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
           <div>
@@ -569,16 +544,7 @@
           .addEventListener("click", goHome);
         document.getElementById("passKey").focus();
 
-        function updateRotateBadge() {
-          var isMobile = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
-          var isPortrait = window.matchMedia("(orientation: portrait)").matches;
-          var container = document.querySelector(".asset-slot-badge-container");
-          if (container) {
-            container.classList.toggle("show-rotate", isMobile && isPortrait);
-          }
-        }
-        updateRotateBadge();
-        window.addEventListener("orientationchange", updateRotateBadge);
+
       })();
     </script>
   </body>
