@@ -231,6 +231,7 @@
       }
       .nav-toggle-about {
         right: 6.55rem;
+        display: none; /* hidden — reactivate by removing this line */
       }
 
       .theme-toggle:hover,
@@ -1770,15 +1771,16 @@
         }, 250);
       });
 
-      document
-        .getElementById("nav-toggle-about")
-        .addEventListener("click", () => {
-          document.body.style.transition = "opacity 0.25s ease";
-          document.body.style.opacity = "0";
-          setTimeout(() => {
-            window.location.href = "about.html";
-          }, 250);
-        });
+      // nav-toggle-about deactivated — uncomment to restore
+      // document
+      //   .getElementById("nav-toggle-about")
+      //   .addEventListener("click", () => {
+      //     document.body.style.transition = "opacity 0.25s ease";
+      //     document.body.style.opacity = "0";
+      //     setTimeout(() => {
+      //       window.location.href = "about.html";
+      //     }, 250);
+      //   });
 
       prefersDark.addEventListener("change", (event) => {
         if (!localStorage.getItem(themeKey)) {
