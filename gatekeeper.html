@@ -326,6 +326,16 @@
         box-shadow: 0 0 0 2px rgba(228, 77, 77, 0.07);
         background: rgba(228, 77, 77, 0.03);
       }
+      .asset-slot-label {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--text-muted);
+        opacity: 0.5;
+        margin-bottom: 0.15rem;
+        margin-left: -0.15rem;
+      }
       .asset-slot-title {
         font-size: 0.95rem;
         font-weight: 600;
@@ -347,31 +357,36 @@
         opacity: 0.75;
         margin-top: 0.15rem;
       }
+      .badge-icon {
+        width: 0.7rem;
+        height: 0.7rem;
+        color: var(--accent-color);
+        opacity: 0.8;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-right: 0.2rem;
+      }
+      .asset-slot-badge-amber,
       .asset-slot-badge {
         font-size: 0.6rem;
         font-weight: 600;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: rgba(80, 130, 80, 0.8);
-        background: rgba(80, 130, 80, 0.08);
-        border: 1px solid rgba(80, 130, 80, 0.18);
+        color: var(--text-muted);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
         border-radius: 3px;
         padding: 0.15rem 0.55rem;
         line-height: 1.4;
         white-space: nowrap;
         transition: background 0.2s ease;
+        width: 100%;
+        text-align: left;
         flex-shrink: 0;
       }
-      body[data-theme="dark"] .asset-slot-badge {
-        color: rgba(120, 180, 120, 0.75);
-        background: rgba(120, 180, 120, 0.08);
-        border-color: rgba(120, 180, 120, 0.18);
-      }
+      .asset-slot:hover .asset-slot-badge-amber,
       .asset-slot:hover .asset-slot-badge {
-        background: rgba(80, 130, 80, 0.14);
-      }
-      body[data-theme="dark"] .asset-slot:hover .asset-slot-badge {
-        background: rgba(120, 180, 120, 0.14);
+        background: var(--border-color);
       }
       .picker-actions {
         display: flex;
@@ -463,17 +478,102 @@
 
         <a class="asset-slot" href="assets/fractional_agency_deck_16x9.html">
           <div>
+            <div class="asset-slot-label">SLOT 1</div>
             <div class="asset-slot-title">The Fractional Agency</div>
             <span class="asset-slot-framework">THE PARTNERSHIP MODEL</span>
           </div>
-          <span class="asset-slot-badge">Available</span>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+              gap: 0.5rem;
+            "
+          >
+            <span class="asset-slot-badge-amber"
+              ><svg
+                class="badge-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Desktop</span
+            >
+            <span class="asset-slot-badge"
+              ><svg
+                class="badge-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M11 17a2 2 0 0 1-2-2" />
+                <path d="M13 17a2 2 0 0 0 2-2" />
+                <path d="M16.5 8.5l-2.3-2.3a2 2 0 0 0-2.8 0L9.1 8.5" />
+                <path d="M21 11v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5" />
+                <path d="M3 11c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2" />
+              </svg>
+              Partner</span
+            >
+          </div>
         </a>
         <a class="asset-slot" href="assets/fractional_agency_deck_9x16.html">
           <div>
+            <div class="asset-slot-label">SLOT 2</div>
             <div class="asset-slot-title">The Fractional Agency</div>
             <span class="asset-slot-framework">THE PARTNERSHIP MODEL</span>
           </div>
-          <span class="asset-slot-badge">Available</span>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+              gap: 0.5rem;
+            "
+          >
+            <span class="asset-slot-badge-amber"
+              ><svg
+                class="badge-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <line x1="12" y1="18" x2="12.01" y2="18" />
+              </svg>
+              Mobile</span
+            >
+            <span class="asset-slot-badge"
+              ><svg
+                class="badge-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M11 17a2 2 0 0 1-2-2" />
+                <path d="M13 17a2 2 0 0 0 2-2" />
+                <path d="M16.5 8.5l-2.3-2.3a2 2 0 0 0-2.8 0L9.1 8.5" />
+                <path d="M21 11v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5" />
+                <path d="M3 11c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2" />
+              </svg>
+              Partner</span
+            >
+          </div>
         </a>
 
         <div class="picker-actions">
