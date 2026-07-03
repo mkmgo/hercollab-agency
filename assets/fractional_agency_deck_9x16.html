@@ -111,7 +111,7 @@
   >
     <!-- Top Branding Anchor -->
     <div
-      class="w-full max-w-[390px] mb-2 flex justify-between items-center px-2 text-[10px] tracking-widest text-brand-muted uppercase font-medium"
+      class="w-full max-w-[390px] mb-2 flex justify-between items-center px-2 text-[12px] tracking-widest text-brand-muted uppercase font-medium"
     >
       <div class="flex items-center gap-1.5">
         <span
@@ -498,22 +498,22 @@
           html = `
                     <div class="text-center space-y-4 py-2">
                         <h1 class="text-2xl font-extrabold tracking-tight text-white uppercase leading-tight">${slide.title}</h1>
-                        <p class="text-lg font-serif italic text-brand-accent font-medium tracking-wide leading-snug px-1">${slide.subtitle}</p>
+                        <p class="text-xl font-serif italic text-brand-accent font-medium tracking-wide leading-snug px-1">${slide.subtitle}</p>
                         <div class="w-10 h-0.5 bg-brand-accent mx-auto"></div>
-                        <p class="text-brand-muted text-[11px] leading-relaxed font-light px-2">${slide.body}</p>
+                        <p class="text-brand-muted text-[13px] leading-relaxed font-light px-2">${slide.body}</p>
                     </div>
                 `;
         } else if (slide.type === "credentials-grid") {
           html = `
                     <div class="space-y-3">
                         <h2 class="text-xl font-bold tracking-tight text-white uppercase leading-tight">${slide.title}</h2>
-                        <p class="text-xs font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
-                        <p class="text-brand-muted text-[11px] leading-relaxed font-light">${slide.body}</p>
+                        <p class="text-sm font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        <p class="text-brand-muted text-[13px] leading-relaxed font-light">${slide.body}</p>
                         
                         <div class="bg-gradient-to-br from-brand-panel to-black border border-white/10 p-4 rounded-xl relative overflow-hidden mt-1">
-                            <div class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-0.5">Aggregated Footprint</div>
+                            <div class="text-sm font-bold uppercase tracking-widest text-brand-accent mb-0.5">Aggregated Footprint</div>
                             <div class="text-3xl font-black text-white">60 YEARS</div>
-                            <p class="text-[10px] text-brand-muted mt-1 leading-tight font-light">Of top-tier enterprise industry command deployed dynamically to your brand briefs.</p>
+                            <p class="text-[12px] text-brand-muted mt-1 leading-tight font-light">Of top-tier enterprise industry command deployed dynamically to your brand briefs.</p>
                         </div>
                     </div>
                 `;
@@ -521,17 +521,17 @@
           html = `
                     <div class="space-y-3">
                         <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
-                        <p class="text-xs font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
-                        <p class="text-brand-muted text-[11px] leading-relaxed font-light mb-1">${slide.body}</p>
+                        <p class="text-sm font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                        <p class="text-brand-muted text-[13px] leading-relaxed font-light mb-1">${slide.body}</p>
                         
                         <div class="space-y-2">
                             <div class="bg-brand-panel/80 border-l-3 border-brand-accent border border-white/5 p-2.5 rounded-r">
-                                <div class="text-[10px] font-bold uppercase text-white">The Market Loss</div>
-                                <div class="text-[10px] text-brand-muted leading-tight font-light">Agencies waste immense capital trying to study culture from the outer margins.</div>
+                                <div class="text-[12px] font-bold uppercase text-white">The Market Loss</div>
+                                <div class="text-[12px] text-brand-muted leading-tight font-light">Agencies waste immense capital trying to study culture from the outer margins.</div>
                             </div>
                             <div class="bg-brand-panel/80 border-l-3 border-brand-highlight border border-white/5 p-2.5 rounded-r">
-                                <div class="text-[10px] font-bold uppercase text-white">The Native Fix</div>
-                                <div class="text-[10px] text-brand-muted leading-tight font-light">We live directly inside the cultural matrix. Operational data design removes errors.</div>
+                                <div class="text-[12px] font-bold uppercase text-white">The Native Fix</div>
+                                <div class="text-[12px] text-brand-muted leading-tight font-light">We live directly inside the cultural matrix. Operational data design removes errors.</div>
                             </div>
                         </div>
                     </div>
@@ -541,10 +541,10 @@
             .map(
               (c) => `
                     <div class="advantage-card p-2.5 rounded-lg space-y-0.5">
-                        <div class="text-[10px] font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+                        <div class="text-[12px] font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
                             <span class="w-1 h-1 rounded-full bg-brand-accent"></span>${c.title}
                         </div>
-                        <div class="text-[10px] text-brand-muted leading-tight font-light">${c.desc}</div>
+                        <div class="text-[12px] text-brand-muted leading-tight font-light">${c.desc}</div>
                     </div>
                 `,
             )
@@ -552,8 +552,8 @@
           html = `
                     <div class="space-y-2.5">
                         <div>
-                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
-                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                            <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[12px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
                         </div>
                         <div class="grid grid-cols-1 gap-2">
                             ${cardsHtml}
@@ -565,9 +565,9 @@
             .map(
               (m) => `
                     <div class="bg-brand-panel border border-white/10 p-2.5 rounded-lg text-center shadow-sm">
-                        <div class="text-[8px] tracking-wider text-brand-muted uppercase font-bold">${m.label}</div>
+                        <div class="text-[10px] tracking-wider text-brand-muted uppercase font-bold">${m.label}</div>
                         <div class="text-xl font-black text-white my-0.5">${m.value}</div>
-                        <div class="text-[9px] font-serif italic text-brand-accent leading-none">${m.sub}</div>
+                        <div class="text-[11px] font-serif italic text-brand-accent leading-none">${m.sub}</div>
                     </div>
                 `,
             )
@@ -575,8 +575,8 @@
           html = `
                     <div class="space-y-3">
                         <div class="text-center">
-                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
-                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug mt-0.5">${slide.subtitle}</p>
+                            <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[12px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug mt-0.5">${slide.subtitle}</p>
                         </div>
                         <div class="grid grid-cols-1 gap-2 pt-1">
                             ${metricsHtml}
@@ -588,10 +588,10 @@
             .map(
               (b) => `
                     <div class="border border-white/10 bg-brand-panel/50 p-2 rounded-md">
-                        <div class="text-[10px] font-bold uppercase text-brand-highlight flex items-center gap-1">
+                        <div class="text-[12px] font-bold uppercase text-brand-highlight flex items-center gap-1">
                             <span>&bull;</span> ${b.lead}
                         </div>
-                        <div class="text-[9.5px] text-brand-muted leading-tight font-light mt-0.5">${b.text}</div>
+                        <div class="text-[11.5px] text-brand-muted leading-tight font-light mt-0.5">${b.text}</div>
                     </div>
                 `,
             )
@@ -599,8 +599,8 @@
           html = `
                     <div class="space-y-2.5">
                         <div>
-                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
-                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                            <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[12px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
                         </div>
                         <div class="grid grid-cols-1 gap-2">
                             ${blocksHtml}
@@ -613,10 +613,10 @@
               (c) => `
                     <div class="bg-brand-panel border border-white/10 p-2.5 rounded-lg flex justify-between items-center">
                         <div>
-                            <div class="text-[8px] font-bold tracking-wider text-brand-muted uppercase">${c.tier}</div>
-                            <div class="text-[10px] text-brand-muted font-light mt-0.5 leading-tight max-w-[180px]">${c.target}</div>
+                            <div class="text-[10px] font-bold tracking-wider text-brand-muted uppercase">${c.tier}</div>
+                            <div class="text-[12px] text-brand-muted font-light mt-0.5 leading-tight max-w-[180px]">${c.target}</div>
                         </div>
-                        <div class="text-xs font-black text-white bg-white/5 px-2 py-1 rounded text-right whitespace-nowrap">${c.rate}</div>
+                        <div class="text-sm font-black text-white bg-white/5 px-2 py-1 rounded text-right whitespace-nowrap">${c.rate}</div>
                     </div>
                 `,
             )
@@ -624,8 +624,8 @@
           html = `
                     <div class="space-y-2.5">
                         <div>
-                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
-                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                            <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[12px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
                         </div>
                         <div class="grid grid-cols-1 gap-2">
                             ${cardsHtml}
@@ -637,10 +637,10 @@
             .map(
               (item) => `
                     <div class="bg-white/[0.01] border border-white/5 p-2 rounded-md flex gap-2 items-center">
-                        <div class="text-xs bg-white/5 p-1 rounded">${item.icon}</div>
+                        <div class="text-sm bg-white/5 p-1 rounded">${item.icon}</div>
                         <div>
-                            <div class="text-[10px] font-bold text-white uppercase">${item.title}</div>
-                            <div class="text-[9px] text-brand-muted leading-tight font-light">${item.desc}</div>
+                            <div class="text-[12px] font-bold text-white uppercase">${item.title}</div>
+                            <div class="text-[11px] text-brand-muted leading-tight font-light">${item.desc}</div>
                         </div>
                     </div>
                 `,
@@ -649,8 +649,8 @@
           html = `
                     <div class="space-y-2.5">
                         <div>
-                            <h2 class="text-lg font-bold tracking-tight text-white uppercase">${slide.title}</h2>
-                            <p class="text-[10px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
+                            <h2 class="text-xl font-bold tracking-tight text-white uppercase">${slide.title}</h2>
+                            <p class="text-[12px] font-serif italic text-brand-accent font-medium tracking-wide leading-snug">${slide.subtitle}</p>
                         </div>
                         <div class="grid grid-cols-1 gap-1.5">
                             ${itemsHtml}
