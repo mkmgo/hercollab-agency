@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Bigger Picture</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background-color: #0d0d0d;
+        color: #f8f9fa;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* 1. Deepest Background Layer */
+      .bg-container {
+        position: fixed;
+        inset: 0;
+        z-index: -3;
+        overflow: hidden;
+      }
+
+      .bg-slide {
+        position: absolute;
+        inset: -3%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #0d0d0d;
+        opacity: 0.32;
+        transform: translateX(-2%) scale(1.04);
+        will-change: transform, opacity;
+      }
+
+      .bg-slide-1 {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1783360902/mot1_fqpkjp.png");
+        animation: drift-right-left 18s ease-in-out infinite alternate;
+      }
+
+      .bg-slide-2 {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1783360902/mot2_acbop5.png");
+        animation: drift-left-right 20s ease-in-out infinite alternate;
+        opacity: 0.22;
+      }
+
+      @keyframes drift-right-left {
+        0% {
+          transform: translateX(4%) scale(1.04);
+          opacity: 0.32;
+        }
+        100% {
+          transform: translateX(-4%) scale(1.08);
+          opacity: 0.48;
+        }
+      }
+
+      @keyframes drift-left-right {
+        0% {
+          transform: translateX(-3%) scale(1.05);
+          opacity: 0.2;
+        }
+        100% {
+          transform: translateX(3%) scale(1.08);
+          opacity: 0.34;
+        }
+      }
+
+      /* 2. Middle Tint Layer */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(13, 13, 13, 0.6) 0%,
+          rgba(13, 13, 13, 0.78) 100%
+        );
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      /* 3. Top Foreground Layer */
+      .container {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 760px);
+        padding: clamp(1.4rem, 3vw, 2.6rem);
+        margin: 0 auto;
+      }
+
+      .lead {
+        font-size: clamp(1.24rem, 2.2vw, 1.7rem);
+        font-weight: 400;
+        color: #ececf1;
+        margin-bottom: 1.8rem;
+        letter-spacing: -0.01em;
+        line-height: 1.45;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+        max-width: 64ch;
+      }
+
+      p {
+        font-size: clamp(1rem, 1.8vw, 1.15rem);
+        font-weight: 300;
+        margin-bottom: 1.2rem;
+        letter-spacing: -0.01em;
+        line-height: 1.75;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+        max-width: 64ch;
+      }
+
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .highlight {
+        color: #ffffff;
+        font-weight: 500;
+      }
+
+      /* Mobile-first text scaling & background centering */
+      @media (max-width: 768px) {
+        body {
+          align-items: flex-start;
+          padding-top: 0.5rem;
+        }
+
+        .container {
+          padding: 1.25rem 1rem 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .bg-slide {
+          background-size: cover;
+        }
+
+        .lead {
+          font-size: 1.18rem;
+          line-height: 1.5;
+          margin-bottom: 1.3rem;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <div class="bg-slide bg-slide-1"></div>
+      <div class="bg-slide bg-slide-2"></div>
+    </div>
+
+    <div class="container">
+      <div class="lead">
+        It might be the right time to share my vision, my bigger picture...
+      </div>
+
+      <p>
+        A bright future for <span class="highlight">h·e·r Collab</span> which
+        emerges from energy of the founders whenever they craft something
+        together. It is the picture-perfect combination of professional vita,
+        experience and superpowers.
+      </p>
+
+      <p>
+        The beginning is always hard. And h·e·r Collab has attention from first
+        clients, potential partnerships and inner circle investors in
+        Switzerland. Private investors whose focus lies on values, governance
+        and a vision that connects people.
+      </p>
+
+      <p>
+        What might await you three is nothing less than an extraordinary future
+        career path that does not only provide a good living; it comes with the
+        pride of
+        <span class="highlight">never having to deal with the devil again</span
+        >. It means independence from your employer and their henchmen.
+      </p>
+
+      <p>
+        Living your own values means working hard, serving clients and partners,
+        and treating your staff with respect and appreciation.
+      </p>
+
+      <p>
+        It could even sky-rocket, receiving honours and those incentives none of
+        you three have ever dreamt about. All that it takes is already there in
+        you. Slumbering but about to fly.
+      </p>
+
+      <p>
+        There is a joker right by your side: me. I am truthful, passionate,
+        engaged, and you can all be assured that no one will ever play unfairly.
+        You will get the share you own.
+      </p>
+
+      <p>
+        The danger: losing momentum in this blurry phase is the only obstacle,
+        though.
+        <span class="highlight">You three have to keep the ball rolling</span>,
+        and I will do whatever it takes to remind you.
+      </p>
+    </div>
+  </body>
+</html>
