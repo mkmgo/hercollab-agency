@@ -117,6 +117,14 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
+      /* ── Gesture Hint Dimming ── */
+      .slide-frame-portrait {
+        transition: filter 0.4s ease;
+      }
+      .slide-frame-portrait.gesture-dim {
+        filter: grayscale(1) brightness(0.15) saturate(0.2);
+      }
+
       /* ── Gesture Hint Overlay ── */
       #gesture-hint-overlay {
         position: fixed;
@@ -124,7 +132,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.25);
+        background: rgba(0, 0, 0, 0.45);
         z-index: 10000;
         display: flex;
         flex-direction: column;
@@ -819,12 +827,16 @@ Lever: ${slide.driver}`;
           '<p id="gesture-text">Swipe to navigate</p>';
         document.body.appendChild(overlay);
 
+        var slideFrame = document.querySelector(".slide-frame-portrait");
+        if (slideFrame) slideFrame.classList.add("gesture-dim");
+
         var gestureText = document.getElementById("gesture-text");
         setTimeout(function () {
           if (gestureText) gestureText.innerText = "Long press to lock screen";
         }, 2500);
         setTimeout(function () {
           if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+          if (slideFrame) slideFrame.classList.remove("gesture-dim");
         }, 6000);
       })();
 
