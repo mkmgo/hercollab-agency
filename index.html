@@ -161,7 +161,7 @@
 
       .nav-toggle-about {
         right: 6.55rem;
-        display: none; /* hidden — reactivate by removing this line */
+        /* display: none; */
       }
 
       .asset-toggle {
@@ -590,14 +590,13 @@
         }, 250);
       });
 
-      // navToggleAbout deactivated — uncomment to restore
-      // navToggleAbout.addEventListener("click", () => {
-      //   document.body.style.transition = "opacity 0.25s ease";
-      //   document.body.style.opacity = "0";
-      //   setTimeout(() => {
-      //     window.location.href = "about.html";
-      //   }, 250);
-      // });
+      navToggleAbout.addEventListener("click", () => {
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "about.html";
+        }, 250);
+      });
 
       // Asset toggle -> gatekeeper
       document.getElementById("asset-toggle").addEventListener("click", () => {
