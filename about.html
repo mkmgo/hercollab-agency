@@ -387,6 +387,28 @@
         letter-spacing: 0.08em;
         color: var(--text-muted);
       }
+
+      .lead-text {
+        font-size: calc(0.9rem + 0.25vw);
+        font-weight: 300;
+        letter-spacing: 0.14em;
+        line-height: 1.8;
+        margin-bottom: 0;
+      }
+
+      .lead-text strong {
+        font-weight: 700;
+        color: var(--text-strong);
+        letter-spacing: 0.12em;
+      }
+
+      .caps-sentiment {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        font-size: 0.85rem;
+        line-height: 1.7;
+      }
     </style>
   </head>
 
@@ -458,178 +480,62 @@
         <div class="col-12">
           <article class="showcase-tile">
             <!-- Header Segment -->
-            <header
-              class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4"
-            >
-              <div>
-                <h1 class="logo m-0">h·e·r collab</h1>
-                <div class="subtitle">Nothing is borrowed.</div>
-              </div>
-              <div class="text-md-end header-meta-tagline pt-1">
-                Founder-led creative agency | South Africa
-              </div>
+            <header class="text-start mb-4 pb-2">
+              <span class="logo d-block">h·e·r collab</span>
+              <h3 class="subtitle">Nothing is borrowed.</h3>
             </header>
 
-            <hr />
+            <hr class="mb-4" />
 
-            <!-- Positioning System Statement -->
-            <section class="mb-5">
-              <div class="positioning-box">
-                <strong>Positioning:</strong> A founder-led creative agency for
-                brands brave enough to want work that lives in culture. The
-                insight is native. The craft is senior. The delivery
-                infrastructure is engineered for precision.
-              </div>
-            </section>
-
-            <!-- Two-Column Functional Grid Split -->
-            <main class="row g-5">
-              <!-- Left Data Stream: Founders & Experience Matrix -->
-              <div class="col-12 col-lg-7">
-                <section class="mb-5">
-                  <span class="caps-label">The Founders</span>
-                  <div class="row g-3">
-                    <div class="col-12 col-sm-4 founder-card">
-                      <div class="founder-name">Neo Segola</div>
-                      <div class="founder-title">Chief Creative Officer</div>
-                      <div class="founder-desc">
-                        20+ years in creative leadership. D&AD Jury President,
-                        Cannes Lions Film Jury.
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-4 founder-card">
-                      <div class="founder-name">Tsholofelo Müller</div>
-                      <div class="founder-title">Chief Operating Officer</div>
-                      <div class="founder-desc">
-                        20+ years in broadcast & integrated production. Former
-                        Head of Broadcast at M&C Saatchi Abel.
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-4 founder-card">
-                      <div class="founder-name">Chaz Pigou</div>
-                      <div class="founder-title">Chief Growth Officer</div>
-                      <div class="founder-desc">
-                        Nearly two decades in integrated marketing, brand
-                        strategy, and client growth. Built marketing departments
-                        from the ground up.
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <section>
-                  <span class="caps-label">Client Experience</span>
-                  <div class="small mb-3">
-                    <strong
-                      class="d-block mb-1"
-                      style="color: var(--text-color); opacity: 0.85"
-                      >Combined 60 years across South Africa's major agency
-                      networks:</strong
-                    >
-                    <span style="color: var(--text-muted)"
-                      >Ogilvy &bull; Joe Public &bull; M&C Saatchi Abel &bull;
-                      Wunderman Thompson</span
-                    >
-                  </div>
-                  <div class="small">
-                    <strong
-                      class="d-block mb-1"
-                      style="color: var(--text-color); opacity: 0.85"
-                      >Track record includes:</strong
-                    >
-                    <span style="color: var(--text-muted)"
-                      >Standard Bank &bull; BMW &bull; Microsoft &bull;
-                      Coca-Cola &bull; MTN &bull; Unilever &bull; FNB &bull;
-                      Nando's &bull; Nedbank &bull; Pepsi &bull; AB InBev &bull;
-                      Tiger Brands &bull; Absa &bull; Old Mutual &bull; And 10+
-                      others</span
-                    >
-                  </div>
-                </section>
-              </div>
-
-              <!-- Right Data Stream: Values, Philosophy and Engagement Modes -->
-              <div class="col-12 col-lg-5 border-start-lg">
-                <section class="mb-4">
-                  <span class="caps-label">Core Values</span>
-                  <div class="value-item">
-                    <span class="value-title">Human Truth</span> -
-                    <span class="value-desc"
-                      >Structural cultural understanding.</span
-                    >
-                  </div>
-                  <div class="value-item">
-                    <span class="value-title">Exacting Craft</span> -
-                    <span class="value-desc"
-                      >Strategic discipline before delivery.</span
-                    >
-                  </div>
-                  <div class="value-item">
-                    <span class="value-title">Real-World Impact</span> -
-                    <span class="value-desc"
-                      >Measuring change, not applause.</span
-                    >
-                  </div>
-                </section>
-
-                <section class="mb-4">
-                  <span class="caps-label">The Bravery Code</span>
-                  <div class="code-box">
-                    Chase truth over trends &bull; Choose courage over comfort
-                    &bull; Respect the audience &bull; Make ideas that travel
-                    &bull; Finish the job
-                  </div>
-                </section>
-
-                <section>
-                  <span class="caps-label">How We Work</span>
-                  <div class="row g-2">
-                    <div class="col-4 d-flex">
-                      <div
-                        class="p-2 border border-secondary border-opacity-10 rounded w-100"
-                      >
-                        <div class="work-mode-title">Retainer</div>
-                        <div class="work-mode-desc">Creative partnership.</div>
-                      </div>
-                    </div>
-                    <div class="col-4 d-flex">
-                      <div
-                        class="p-2 border border-secondary border-opacity-10 rounded w-100"
-                      >
-                        <div class="work-mode-title">Project</div>
-                        <div class="work-mode-desc">Intensive sprints.</div>
-                      </div>
-                    </div>
-                    <div class="col-4 d-flex">
-                      <div
-                        class="p-2 border border-secondary border-opacity-10 rounded w-100"
-                      >
-                        <div class="work-mode-title">Advisory</div>
-                        <div class="work-mode-desc">Cultural intelligence.</div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
+            <main>
+              <h1
+                class="display-4 fw-light mb-3"
+                style="letter-spacing: 0.08em"
+              >
+                The Agency Story
+              </h1>
+              <hr class="my-3" />
+              <p class="lead-text caps-sentiment text-start">
+                When Neo, Chaz, and Tsholo founded h·e·r Collab, they set out to
+                build something far removed from a run-of-the-mill agency,
+                drawing on a combined <strong>60 years of experience</strong>
+                across South Africa's leading networks — including Ogilvy, Joe
+                Public, M&C Saatchi Abel, and Wunderman Thompson — and a track
+                record with major brands such as Standard Bank, BMW, Microsoft,
+                Coca-Cola, MTN, Unilever, FNB, Nando's, Nedbank, Pepsi,
+                AB InBev, Tiger Brands, Absa, and Old Mutual, among others; this
+                depth of experience underpins their commitment to
+                <strong>human truth</strong>, grounded in genuine cultural
+                understanding, <strong>exacting craft</strong>, built on
+                strategic discipline before delivery, and
+                <strong>real-world impact</strong>, measured through actual
+                change rather than applause, all guided by a bravery code that
+                chases truth over trends, chooses courage over comfort, respects
+                the audience, creates ideas built to travel, and always finishes
+                the job — principles brought to life through flexible engagement
+                models spanning retainer partnerships with the founders,
+                intensive project-based creative sprints, and advisory work
+                rooted in strategic cultural intelligence, and reinforced by a
+                lean, highly efficient operational setup across infrastructure,
+                process, and finance that together forge a rare combination:
+                <strong
+                  >creative brilliance meeting surgical precision</strong
+                >
+                to deliver lasting value for clients, partners, and contributors
+                alike. Nothing is borrowed.
+              </p>
             </main>
 
-            <div
-              class="text-end fst-italic mb-2"
-              style="color: var(--subheadline-color); font-size: 0.9rem"
-            >
-              Nothing is borrowed. Nothing is approximated. Nothing is filtered.
-            </div>
+            <hr class="mt-4 mb-3" />
 
-            <hr />
-
-            <!-- Footer Ecosystem Segment -->
             <footer
-              class="tile-footer d-flex flex-column flex-md-row justify-content-between gap-3 text-start"
+              class="text-start tile-footer caps-sentiment"
+              style="font-size: 0.7rem"
             >
-              <div>
-                &copy; 2026 h·e·r collab. Strategic Architecture & Venture
-                Development. | Agency Profile.
-              </div>
+              <span
+                >&copy; 2026 h·e·r collab. Strategic Architecture & Venture
+                Development. | Agency Profile.</span
+              >
             </footer>
           </article>
         </div>
