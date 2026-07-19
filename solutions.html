@@ -3,14 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>h·e·r Collab</title>
-    <meta name="description" content="Nothing is borrowed." />
+    <title>Solutions | h·e·r Collab</title>
+    <meta
+      name="description"
+      content="Solutions for brands and strategic partners."
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_ZA" />
     <meta property="og:site_name" content="h.e.r collab" />
-    <meta property="og:title" content="h·e·r collab [agency]" />
-    <meta property="og:description" content="Nothing is borrowed." />
+    <meta property="og:title" content="h·e·r collab | solutions" />
+    <meta
+      property="og:description"
+      content="Solutions for brands and strategic partners."
+    />
     <meta
       property="og:image"
       content="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1783388156/h_e_r_collab1605_gsgqm2.png"
@@ -22,14 +28,14 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="h.e.r collab brand statement preview"
-    />
+    <meta property="og:image:alt" content="h.e.r collab solutions preview" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="h.e.r collab" />
-    <meta name="twitter:description" content="Nothing is borrowed." />
+    <meta
+      name="twitter:description"
+      content="Solutions for brands and strategic partners."
+    />
     <meta
       name="twitter:image"
       content="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1783388156/h_e_r_collab1605_gsgqm2.png"
@@ -73,7 +79,6 @@
         scroll-behavior: smooth;
       }
 
-      /* Color variables supporting Light and Dark modes */
       :root {
         --bg-color: #fcfcfc;
         --text-color: #212529;
@@ -128,7 +133,6 @@
         --tile-shadow: rgba(0, 0, 0, 0.03);
       }
 
-      /* Shared Utility Class for Sleek Controls Styling */
       .control-btn {
         position: fixed;
         top: 0.85rem;
@@ -169,7 +173,6 @@
         top: auto;
       }
 
-      /* Ensure visibility on light/mobile backgrounds */
       body[data-theme="light"] .asset-toggle {
         background: rgba(0, 0, 0, 0.07);
         border-color: rgba(0, 0, 0, 0.12);
@@ -236,7 +239,6 @@
         transition: font-size 0.2s ease;
       }
 
-      /* Smooth Background Slideshow */
       .bg-slideshow {
         position: fixed;
         top: 0;
@@ -320,7 +322,7 @@
         box-shadow: 0 20px 40px var(--tile-shadow);
         border-radius: 4px;
         padding: 3rem;
-        max-width: 860px;
+        max-width: 960px;
         width: 100%;
         margin: auto;
         transition: all 0.3s ease;
@@ -374,6 +376,57 @@
         font-weight: 700;
         color: var(--text-strong);
         letter-spacing: 0.12em;
+      }
+
+      .solutions-intro {
+        margin-top: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .solution-card {
+        border: 1px solid var(--border-color);
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 4px;
+      }
+
+      .section-title {
+        font-family: Georgia, serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-strong);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
+      }
+
+      .section-copy {
+        font-size: calc(0.8rem + 0.15vw);
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        line-height: 1.8;
+        margin-bottom: 0;
+      }
+
+      .section-copy strong {
+        font-weight: 700;
+        color: var(--text-strong);
+        letter-spacing: 0.12em;
+      }
+
+      @media (max-width: 768px) {
+        .solutions-grid {
+          grid-template-columns: 1fr;
+        }
+        .solution-card {
+          padding: 1.25rem;
+        }
       }
 
       hr {
@@ -463,31 +516,53 @@
             <hr class="mb-3" />
 
             <main>
-              <p class="lead-text caps-sentiment text-start">
-                A founder-led creative agency for brands seeking work that lives
-                in culture. The insight is native. The craft is senior. The
-                delivery platform is engineered for precision.
+              <p class="lead-text caps-sentiment text-start solutions-intro">
+                A platform for clients and strategic allies who want growth that
+                is both cultural and commercial.
               </p>
-              <p
-                class="lead-text caps-sentiment text-start"
-                style="
-                  color: var(--subheadline-color);
-                  font-weight: 700;
-                  margin-top: 1rem;
-                  margin-bottom: 1rem;
-                "
-              >
-                Welcome to the perspective you’ve been paying to approximate
-              </p>
-              <p class="lead-text caps-sentiment text-start">
-                We are Driving the future of Black women's entrepreneurship.
-                Backed by decades of major South African agency experience and
-                masterful execution.<br />
-                <strong style="display: block; margin-top: 0.75rem"
-                  >We shape the industry. We process genuine emotion. We build
-                  brands.</strong
-                >
-              </p>
+
+              <div class="solutions-grid">
+                <section class="solution-card">
+                  <h2 class="section-title caps-sentiment">For Brands</h2>
+                  <p class="section-copy">
+                    h·e·r Collab delivers a solution that transforms marketing
+                    from a cost center into a growth engine. By applying its
+                    <strong>Diamond Governance</strong> framework, the team
+                    integrates strategy, creative IP, and operational precision
+                    from the very first engagement. This eliminates the common
+                    disconnect between ideas and execution, ensuring that every
+                    campaign is both commercially sound and creatively inspired.
+                    Brands benefit from
+                    <strong>architectural insight</strong> that addresses core
+                    business challenges, not just surface-level briefs, while
+                    agile AI‑driven production pipelines accelerate
+                    speed‑to‑market. The result is frictionless growth:
+                    campaigns that build long‑term brand equity, create ownable
+                    intellectual property, and maximize ROI by putting more of
+                    the budget directly onto the screen.
+                  </p>
+                </section>
+
+                <section class="solution-card">
+                  <h2 class="section-title caps-sentiment">For Partners</h2>
+                  <p class="section-copy">
+                    For investors and strategic allies, h·e·r Collab represents
+                    a <strong>de‑risked commercial engine</strong> rather than a
+                    traditional labor‑intensive agency. Its systems‑led
+                    governance model ensures scalability beyond founder
+                    dependency, while equity‑based growth strategies focus on
+                    lifetime value expansion and predictable revenue streams.
+                    Creativity is treated as a strategic asset, increasing
+                    client brand equity and driving higher valuation multiples.
+                    AI‑integrated operations decouple growth from headcount,
+                    delivering margin improvements and exit‑ready financial
+                    structures. Partners gain confidence in a model engineered
+                    for efficiency, stability, and cultural impact—an
+                    infrastructure designed not just to sell ads, but to produce
+                    enduring, market‑shaping results.
+                  </p>
+                </section>
+              </div>
             </main>
 
             <hr class="mt-4 mb-3" />
@@ -498,7 +573,8 @@
             >
               <span
                 >&copy; 2026 h·e·r collab. Strategic Architecture & Venture
-                Development. | Welcome & Brand Statement.</span
+                Development. | Our Services for Clients and other
+                Agencies.</span
               >
             </footer>
           </article>
@@ -547,10 +623,8 @@
         return prefersDark.matches ? "dark" : "light";
       }
 
-      // Initialize themes immediately
       applyTheme(resolveInitialTheme());
 
-      // Event Listeners for Theme
       themeToggle.addEventListener("click", () => {
         const nextTheme =
           document.body.dataset.theme === "dark" ? "light" : "dark";
@@ -563,7 +637,6 @@
         }
       });
 
-      // Smooth page navigation
       navToggle.addEventListener("click", () => {
         document.body.style.transition = "opacity 0.25s ease";
         document.body.style.opacity = "0";
@@ -572,7 +645,6 @@
         }, 250);
       });
 
-      // Asset toggle -> gatekeeper
       document.getElementById("asset-toggle").addEventListener("click", () => {
         document.body.style.transition = "opacity 0.25s ease";
         document.body.style.opacity = "0";
