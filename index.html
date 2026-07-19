@@ -222,6 +222,97 @@
         opacity: 0.82;
       }
 
+      .top-nav-panel {
+        position: fixed;
+        top: 0.95rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.15rem;
+        z-index: 12;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 1.2rem;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      body[data-theme="dark"] .top-nav-panel {
+        background: rgba(18, 18, 18, 0.7);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      body[data-theme="light"] .top-nav-panel {
+        background: rgba(255, 255, 255, 0.82);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+
+      .frame-nav-btn {
+        width: 2.55rem;
+        height: 2.55rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 0.9rem;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--text-color);
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease,
+          color 0.18s ease;
+      }
+
+      .frame-nav-btn svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        stroke: currentColor;
+        fill: none;
+      }
+
+      .frame-nav-btn.active {
+        background: rgba(255, 255, 255, 0.35);
+        border-color: rgba(255, 255, 255, 0.36);
+        color: var(--text-strong);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      body[data-theme="dark"] .frame-nav-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      body[data-theme="dark"] .frame-nav-btn.active {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .frame-nav-btn:hover,
+      .frame-nav-btn:focus-visible {
+        opacity: 1;
+        transform: scale(1.06);
+        outline: none;
+      }
+
+      @media (max-width: 768px) {
+        .top-nav-panel {
+          top: 0.75rem;
+          gap: 0.35rem;
+          padding: 0.1rem;
+        }
+
+        .frame-nav-btn {
+          width: 2.3rem;
+          height: 2.3rem;
+        }
+      }
+
       body {
         font-family:
           Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
@@ -388,6 +479,69 @@
   </head>
 
   <body>
+    <div class="top-nav-panel" aria-label="Primary site navigation">
+      <button
+        class="frame-nav-btn"
+        type="button"
+        data-target="index.html"
+        aria-label="Home"
+        title="Home"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 12l9-8 9 8v8a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z" />
+        </svg>
+      </button>
+      <button
+        class="frame-nav-btn"
+        type="button"
+        data-target="partners.html"
+        aria-label="Partners"
+        title="Partners"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </button>
+      <button
+        class="frame-nav-btn"
+        type="button"
+        data-target="solutions.html"
+        aria-label="Solutions"
+        title="Solutions"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2 3 7l9 5 9-5-9-5z" />
+          <path d="M3 12l9 5 9-5" />
+          <path d="M3 17l9 5 9-5" />
+        </svg>
+      </button>
+    </div>
+
     <button
       class="control-btn theme-toggle"
       id="theme-toggle"
@@ -395,29 +549,6 @@
       aria-label="Toggle theme"
       title="Toggle theme"
     ></button>
-
-    <button
-      class="control-btn nav-toggle"
-      id="nav-toggle"
-      type="button"
-      aria-label="Partners"
-      title="Partners"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M18 21a8 8 0 0 0-16 0" />
-        <circle cx="10" cy="8" r="5" />
-        <path d="M22 20c0-3.37-2-6.5-4-8" />
-        <path d="M16 5.13A4 4 0 0 1 18 9c0 1.42-.78 2.57-1.88 3.17" />
-      </svg>
-    </button>
 
     <button
       class="control-btn asset-toggle"
@@ -509,7 +640,8 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
     <script>
       const themeToggle = document.getElementById("theme-toggle");
-      const navToggle = document.getElementById("nav-toggle");
+      const pageNavButtons = document.querySelectorAll(".frame-nav-btn");
+      const pageOrder = ["index.html", "partners.html", "solutions.html"];
       const themeKey = "theme-preference";
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -557,19 +689,77 @@
         applyTheme(nextTheme, true);
       });
 
+      function resolveCurrentPage() {
+        const filename = window.location.pathname.split("/").pop();
+        return filename === "" ? "index.html" : filename;
+      }
+
+      function navigateToPage(target) {
+        if (resolveCurrentPage() === target) return;
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = target;
+        }, 250);
+      }
+
+      pageNavButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          navigateToPage(button.dataset.target);
+        });
+      });
+
+      function updatePageNavState() {
+        const current = resolveCurrentPage();
+        pageNavButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.target === current);
+        });
+      }
+
+      function enableSwipeNavigation() {
+        let startX = 0;
+        let startY = 0;
+        const threshold = 60;
+        const restraint = 80;
+
+        document.body.addEventListener(
+          "touchstart",
+          (event) => {
+            const touch = event.changedTouches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+          },
+          { passive: true },
+        );
+
+        document.body.addEventListener(
+          "touchend",
+          (event) => {
+            if (window.innerWidth > 900) return;
+            const touch = event.changedTouches[0];
+            const deltaX = touch.clientX - startX;
+            const deltaY = touch.clientY - startY;
+
+            if (Math.abs(deltaX) > threshold && Math.abs(deltaY) < restraint) {
+              const currentIndex = pageOrder.indexOf(resolveCurrentPage());
+              if (deltaX < 0 && currentIndex < pageOrder.length - 1) {
+                navigateToPage(pageOrder[currentIndex + 1]);
+              } else if (deltaX > 0 && currentIndex > 0) {
+                navigateToPage(pageOrder[currentIndex - 1]);
+              }
+            }
+          },
+          { passive: true },
+        );
+      }
+
+      updatePageNavState();
+      enableSwipeNavigation();
+
       prefersDark.addEventListener("change", (event) => {
         if (!localStorage.getItem(themeKey)) {
           applyTheme(event.matches ? "dark" : "light");
         }
-      });
-
-      // Smooth page navigation
-      navToggle.addEventListener("click", () => {
-        document.body.style.transition = "opacity 0.25s ease";
-        document.body.style.opacity = "0";
-        setTimeout(() => {
-          window.location.href = "partners.html";
-        }, 250);
       });
 
       // Asset toggle -> gatekeeper
