@@ -69,6 +69,10 @@
       rel="stylesheet"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
       /* Color variables supporting Light and Dark modes */
       :root {
         --bg-color: #fcfcfc;
@@ -226,6 +230,7 @@
         min-height: 100vh;
         position: relative;
         overflow-x: hidden;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         transition: font-size 0.2s ease;
@@ -443,7 +448,7 @@
     </div>
     <div class="bg-overlay-tint"></div>
 
-    <div class="container my-auto py-5" style="padding-top: 12vh !important; padding-bottom: 8vh !important;">
+    <div class="container py-5" style="padding-top: 12vh !important; padding-bottom: 8vh !important;">
       <div class="row justify-content-center">
         <div class="col-12 px-3">
           <article class="showcase-tile">
