@@ -917,69 +917,6 @@
   </head>
 
   <body>
-    <div class="top-nav-panel" aria-label="Primary site navigation">
-      <button
-        class="frame-nav-btn"
-        type="button"
-        data-target="index.html"
-        aria-label="Home"
-        title="Home"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M3 12l9-8 9 8v8a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z" />
-        </svg>
-      </button>
-      <button
-        class="frame-nav-btn"
-        type="button"
-        data-target="partners.html"
-        aria-label="Partners"
-        title="Partners"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-          <circle cx="12" cy="7" r="4" />
-        </svg>
-      </button>
-      <button
-        class="frame-nav-btn"
-        type="button"
-        data-target="solutions.html"
-        aria-label="Solutions"
-        title="Solutions"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M12 2 3 7l9 5 9-5-9-5z" />
-          <path d="M3 12l9 5 9-5" />
-          <path d="M3 17l9 5 9-5" />
-        </svg>
-      </button>
-    </div>
-
     <button
       class="theme-toggle"
       id="theme-toggle"
@@ -987,6 +924,28 @@
       aria-label="Toggle system interface mode"
       title="Toggle System Mode"
     ></button>
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Home"
+      title="Home"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+        />
+      </svg>
+    </button>
 
     <div class="bg-slideshow">
       <div class="bg-slide"></div>
@@ -1402,9 +1361,9 @@
                       Co-Founder & Chief Operating Officer
                     </div>
                     <p class="lead-text partner-quote mb-3">
-                      "Tsholofelo transforms 20+ of agency leadership into a
-                      high-efficiency engine that bridges world-class creativity
-                      with elite financial governance."
+                      "Tsholofelo transforms 20+ of agency leadership into
+                      a high-efficiency engine that bridges world-class
+                      creativity with elite financial governance."
                     </p>
                     <div class="tech-tags">
                       <span class="tag tag-edge">H·E·R Edge</span>
@@ -1873,83 +1832,12 @@
 
       globalThemeToggle.addEventListener("click", handleStateToggleTransition);
 
-      const primaryNavButtons = document.querySelectorAll(
-        ".top-nav-panel .frame-nav-btn",
-      );
-      const pageOrder = ["index.html", "partners.html", "solutions.html"];
-
-      function resolveCurrentPage() {
-        const filename = window.location.pathname.split("/").pop();
-        return filename === "" ? "index.html" : filename;
-      }
-
-      function navigateToPage(target) {
-        if (resolveCurrentPage() === target) return;
+      // Smooth page navigation
+      document.getElementById("nav-toggle").addEventListener("click", () => {
         document.body.style.transition = "opacity 0.25s ease";
         document.body.style.opacity = "0";
         setTimeout(() => {
-          window.location.href = target;
-        }, 250);
-      }
-
-      primaryNavButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          navigateToPage(button.dataset.target);
-        });
-      });
-
-      function updatePageNavState() {
-        const current = resolveCurrentPage();
-        primaryNavButtons.forEach((button) => {
-          button.classList.toggle("active", button.dataset.target === current);
-        });
-      }
-
-      function enableSwipeNavigation() {
-        let startX = 0;
-        let startY = 0;
-        const threshold = 60;
-        const restraint = 80;
-
-        document.body.addEventListener(
-          "touchstart",
-          (event) => {
-            const touch = event.changedTouches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
-          },
-          { passive: true },
-        );
-
-        document.body.addEventListener(
-          "touchend",
-          (event) => {
-            if (window.innerWidth > 900) return;
-            const touch = event.changedTouches[0];
-            const deltaX = touch.clientX - startX;
-            const deltaY = touch.clientY - startY;
-
-            if (Math.abs(deltaX) > threshold && Math.abs(deltaY) < restraint) {
-              const currentIndex = pageOrder.indexOf(resolveCurrentPage());
-              if (deltaX < 0 && currentIndex < pageOrder.length - 1) {
-                navigateToPage(pageOrder[currentIndex + 1]);
-              } else if (deltaX > 0 && currentIndex > 0) {
-                navigateToPage(pageOrder[currentIndex - 1]);
-              }
-            }
-          },
-          { passive: true },
-        );
-      }
-
-      updatePageNavState();
-      enableSwipeNavigation();
-
-      document.getElementById("asset-toggle").addEventListener("click", () => {
-        document.body.style.transition = "opacity 0.25s ease";
-        document.body.style.opacity = "0";
-        setTimeout(() => {
-          window.location.href = "gatekeeper.html";
+          window.location.href = "index.html";
         }, 250);
       });
 
