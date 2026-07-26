@@ -161,6 +161,7 @@
 
       .theme-toggle {
         right: 0.85rem;
+        opacity: 1;
       }
 
       .nav-toggle {
@@ -571,6 +572,9 @@
       .page-nav-icons a.active::before {
         content: "";
         position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 2.35rem;
         height: 2.35rem;
         border: 1px solid rgba(255, 255, 255, 0.18);
