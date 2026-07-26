@@ -384,6 +384,132 @@
       .tile-footer {
         color: var(--text-muted);
       }
+      /* Page Navigation Carousel */
+      .page-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.65rem 0 0;
+        pointer-events: none;
+      }
+
+      .page-nav-arrow {
+        width: 1.75rem;
+        height: 1.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--text-color);
+        cursor: pointer;
+        opacity: 0.5;
+        pointer-events: auto;
+        transition:
+          opacity 0.2s ease,
+          transform 0.15s ease,
+          background 0.2s ease;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        flex-shrink: 0;
+      }
+
+      body[data-theme="dark"] .page-nav-arrow {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: #f8f9fa;
+      }
+
+      .page-nav-arrow:hover {
+        opacity: 0.85;
+        transform: scale(1.05);
+      }
+
+      .page-nav-arrow svg {
+        width: 0.85rem;
+        height: 0.85rem;
+        stroke-width: 1.8;
+        fill: none;
+        stroke: currentColor;
+        pointer-events: none;
+      }
+
+      @media (min-width: 769px) {
+        .page-nav-arrow {
+          opacity: 0.3;
+        }
+        .page-nav-arrow:hover {
+          opacity: 0.8;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-nav-arrow {
+          display: none;
+        }
+      }
+
+      .page-nav-track {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        pointer-events: auto;
+        touch-action: pan-y;
+        width: 11.5rem;
+        position: relative;
+      }
+
+      .page-nav-icons {
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+      }
+
+      .page-nav-icons.no-transition {
+        transition: none !important;
+      }
+
+      .page-nav-icons a {
+        flex: 0 0 33.333%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem;
+        border-radius: 6px;
+        text-decoration: none;
+        color: var(--text-color);
+        opacity: 0.3;
+        transition:
+          opacity 0.2s ease,
+          transform 0.15s ease;
+        pointer-events: auto;
+      }
+
+      .page-nav-icons a.active {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+
+      .page-nav-icons a:not(.active):hover {
+        opacity: 0.6;
+      }
+
+      .page-nav-icons a svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        stroke-width: 1.8;
+        fill: none;
+        stroke: currentColor;
+        pointer-events: none;
+      }
     </style>
   </head>
 
@@ -440,6 +566,31 @@
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     </button>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <button class="page-nav-arrow" data-dir="-1" aria-label="Previous page" title="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="page-nav-track">
+        <div class="page-nav-icons">
+          <a href="index.html" class="active" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </a>
+          <a href="partners.html" aria-label="Partners">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8"/><path d="M16 5.13A4 4 0 0 1 18 9c0 1.42-.78 2.57-1.88 3.17"/></svg>
+          </a>
+          <a href="solutions.html" aria-label="Solutions">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+          </a>
+          <a href="investors.html" aria-label="Investors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </a>
+        </div>
+      </div>
+      <button class="page-nav-arrow" data-dir="1" aria-label="Next page" title="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </nav>
 
     <div class="bg-slideshow">
       <div class="bg-slide"></div>
@@ -582,5 +733,50 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        var pages = ['index.html', 'partners.html', 'solutions.html', 'investors.html'];
+        var active = 0;
+        var icons = document.querySelector('.page-nav-icons');
+        var links = icons.querySelectorAll('a');
+        var arrows = document.querySelectorAll('.page-nav-arrow');
+
+        function setActive(i) {
+          links.forEach(function (l, idx) { l.classList.toggle('active', idx === i); });
+          var tx = -(i - 1) * 33.333;
+          icons.classList.add('no-transition');
+          icons.style.transform = 'translateX(' + tx + '%)';
+          void icons.offsetHeight;
+          icons.classList.remove('no-transition');
+        }
+
+        arrows.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var dir = parseInt(btn.dataset.dir);
+            var next = (active + dir + pages.length) % pages.length;
+            var tx = -(next - 1) * 33.333;
+            icons.style.transform = 'translateX(' + tx + '%)';
+            active = next;
+            setTimeout(function () { setActive(active); }, 300);
+          });
+        });
+
+        var track = document.querySelector('.page-nav-track');
+        var sx = 0;
+        track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', function (e) {
+          var dx = sx - e.changedTouches[0].clientX;
+          if (Math.abs(dx) < 30) return;
+          var dir = dx > 0 ? 1 : -1;
+          var next = (active + dir + pages.length) % pages.length;
+          var tx = -(next - 1) * 33.333;
+          icons.style.transform = 'translateX(' + tx + '%)';
+          active = next;
+          setTimeout(function () { setActive(active); }, 300);
+        }, { passive: true });
+
+        setActive(active);
+      })();
+    </script>
   </body>
 </html>
