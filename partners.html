@@ -1067,10 +1067,12 @@
         position: absolute;
         width: 2.35rem;
         height: 2.35rem;
-        border: 1px solid rgba(33, 37, 41, 0.36);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 6px;
-        background: rgba(33, 37, 41, 0.1);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
       }
 
       .page-nav-icons a.active svg {
@@ -1080,8 +1082,8 @@
       }
 
       body[data-theme="dark"] .page-nav-icons a.active::before {
-        background: rgba(255, 255, 255, 0.14);
-        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
       }
 
       .page-nav-icons a:not(.active):hover {
@@ -1101,11 +1103,11 @@
 
   <body>
     <button
-      class="theme-toggle"
+      class="control-btn theme-toggle"
       id="theme-toggle"
       type="button"
-      aria-label="Toggle system interface mode"
-      title="Toggle System Mode"
+      aria-label="Toggle theme"
+      title="Toggle theme"
     ></button>
     <button
       class="nav-toggle"
