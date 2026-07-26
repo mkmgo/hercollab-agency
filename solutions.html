@@ -544,6 +544,11 @@
           padding-top: 0;
         }
 
+        .page-nav-track {
+          width: 100%;
+          padding: 0 1rem;
+        }
+
         .page-nav-icons a {
           padding: 0.5rem;
         }
@@ -555,6 +560,29 @@
         .page-nav-icons a.active svg {
           transform: scale(1.25);
         }
+
+        .page-nav-swipe-hint {
+          display: block;
+          position: absolute;
+          bottom: -0.4rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 2rem;
+          height: 2px;
+          border-radius: 1px;
+          background: var(--text-muted);
+          opacity: 0;
+          animation: swipeHint 2.5s ease-out 0.8s forwards;
+          pointer-events: none;
+        }
+
+        @keyframes swipeHint {
+          0% { opacity: 0; transform: translateX(-50%) scaleX(0.5); }
+          15% { opacity: 0.5; transform: translateX(-60%) scaleX(1); }
+          30% { opacity: 0.5; transform: translateX(-40%) scaleX(1); }
+          50% { opacity: 0.3; transform: translateX(-50%) scaleX(0.8); }
+          100% { opacity: 0; transform: translateX(-50%) scaleX(0.5); }
+        }
       }
 
       .page-nav-track {
@@ -562,7 +590,7 @@
         align-items: center;
         overflow: hidden;
         pointer-events: auto;
-        touch-action: pan-y;
+        touch-action: none;
         width: 11.5rem;
         position: relative;
       }
@@ -731,6 +759,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-6 6-4-4-7 7"/><path d="M4 14v7"/></svg>
           </a>
         </div>
+        <div class="page-nav-swipe-hint" aria-hidden="true"></div>
       </div>
       <button class="page-nav-arrow" data-dir="1" aria-label="Next page" title="Next">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>

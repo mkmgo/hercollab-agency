@@ -335,6 +335,30 @@
         opacity: 1;
       }
 
+      .asset-toggle {
+        right: 0.85rem;
+        bottom: 0.85rem;
+        top: auto;
+      }
+
+      body[data-theme="light"] .asset-toggle {
+        background: rgba(0, 0, 0, 0.07);
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+      body[data-theme="light"] .asset-toggle svg {
+        color: rgba(33, 37, 41, 0.7);
+        opacity: 0.9;
+      }
+      @media (max-width: 768px) {
+        .asset-toggle {
+          width: 2.5rem;
+          height: 2.5rem;
+          opacity: 0.85;
+          bottom: 1rem;
+          right: 1rem;
+        }
+      }
+
       .frame-nav-btn svg {
         width: 1rem;
         height: 1rem;
@@ -1015,6 +1039,11 @@
           padding-top: 0;
         }
 
+        .page-nav-track {
+          width: 100%;
+          padding: 0 1rem;
+        }
+
         .page-nav-icons a {
           padding: 0.5rem;
         }
@@ -1026,6 +1055,29 @@
         .page-nav-icons a.active svg {
           transform: scale(1.25);
         }
+
+        .page-nav-swipe-hint {
+          display: block;
+          position: absolute;
+          bottom: -0.4rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 2rem;
+          height: 2px;
+          border-radius: 1px;
+          background: var(--text-muted);
+          opacity: 0;
+          animation: swipeHint 2.5s ease-out 0.8s forwards;
+          pointer-events: none;
+        }
+
+        @keyframes swipeHint {
+          0% { opacity: 0; transform: translateX(-50%) scaleX(0.5); }
+          15% { opacity: 0.5; transform: translateX(-60%) scaleX(1); }
+          30% { opacity: 0.5; transform: translateX(-40%) scaleX(1); }
+          50% { opacity: 0.3; transform: translateX(-50%) scaleX(0.8); }
+          100% { opacity: 0; transform: translateX(-50%) scaleX(0.5); }
+        }
       }
 
       .page-nav-track {
@@ -1033,7 +1085,7 @@
         align-items: center;
         overflow: hidden;
         pointer-events: auto;
-        touch-action: pan-y;
+        touch-action: none;
         width: 11.5rem;
         position: relative;
       }
@@ -1137,7 +1189,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
     </button>
     <button
-      class="nav-toggle"
+      class="control-btn nav-toggle"
       id="nav-toggle"
       type="button"
       aria-label="Solutions"
@@ -1155,6 +1207,28 @@
         <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
         <path d="M9 18h6" />
         <path d="M10 22h4" />
+      </svg>
+    </button>
+
+    <button
+      class="control-btn asset-toggle"
+      id="asset-toggle"
+      type="button"
+      aria-label="Asset Airlock (restricted)"
+      title="Asset Airlock (restricted)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="16" r="1" />
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     </button>
 
@@ -1177,6 +1251,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-6 6-4-4-7 7"/><path d="M4 14v7"/></svg>
           </a>
         </div>
+        <div class="page-nav-swipe-hint" aria-hidden="true"></div>
       </div>
       <button class="page-nav-arrow" data-dir="1" aria-label="Next page" title="Next">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -2101,6 +2176,15 @@
         document.body.style.opacity = "0";
         setTimeout(() => {
           window.location.href = "solutions.html";
+        }, 250);
+      });
+
+      // Asset toggle -> gatekeeper
+      document.getElementById("asset-toggle").addEventListener("click", () => {
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "gatekeeper.html";
         }, 250);
       });
 
