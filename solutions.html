@@ -584,6 +584,14 @@
       .page-nav-icons a.active {
         opacity: 1;
         transform: scale(1.15);
+        background: rgba(33, 37, 41, 0.1);
+        border: 1px solid rgba(33, 37, 41, 0.36);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      }
+
+      body[data-theme="dark"] .page-nav-icons a.active {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.5);
       }
 
       .page-nav-icons a:not(.active):hover {
