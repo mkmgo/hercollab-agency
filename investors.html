@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solutions | h·e·r Collab</title>
+    <title>Investors | h·e·r Collab</title>
     <meta
       name="description"
-      content="Solutions for brands and strategic partners."
+      content="Investment opportunity with h·e·r Collab — scalable, de‑risked growth."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_ZA" />
     <meta property="og:site_name" content="h.e.r collab" />
-    <meta property="og:title" content="h·e·r collab | solutions" />
+    <meta property="og:title" content="h·e·r collab | investors" />
     <meta
       property="og:description"
-      content="Solutions for brands and strategic partners."
+      content="Investment opportunity with h·e·r Collab — scalable, de‑risked growth."
     />
     <meta
       property="og:image"
@@ -28,13 +28,13 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="h.e.r collab solutions preview" />
+    <meta property="og:image:alt" content="h.e.r collab investors preview" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="h.e.r collab" />
     <meta
       name="twitter:description"
-      content="Solutions for brands and strategic partners."
+      content="Investment opportunity with h·e·r Collab — scalable, de‑risked growth."
     />
     <meta
       name="twitter:image"
@@ -378,28 +378,14 @@
         letter-spacing: 0.12em;
       }
 
-      .solutions-intro {
+      .investor-lead {
         margin-top: 1.25rem;
         margin-bottom: 1.5rem;
-      }
-
-      .solutions-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-        margin-top: 1.25rem;
-      }
-
-      .solution-card {
-        border: 1px solid var(--border-color);
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.04);
-        border-radius: 4px;
-      }
-
-      .solution-card.full-width {
-        grid-column: 1 / -1;
-        margin-top: 0.25rem;
+        font-size: calc(0.85rem + 0.2vw);
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        line-height: 1.8;
+        color: var(--text-muted);
       }
 
       .section-title {
@@ -423,15 +409,6 @@
         font-weight: 700;
         color: var(--text-strong);
         letter-spacing: 0.12em;
-      }
-
-      @media (max-width: 768px) {
-        .solutions-grid {
-          grid-template-columns: 1fr;
-        }
-        .solution-card {
-          padding: 1.25rem;
-        }
       }
 
       hr {
@@ -458,8 +435,8 @@
       class="control-btn nav-toggle"
       id="nav-toggle"
       type="button"
-      aria-label="Partners"
-      title="Partners"
+      aria-label="Solutions"
+      title="Solutions"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -521,83 +498,39 @@
             <hr class="mb-3" />
 
             <main>
-              <p class="lead-text caps-sentiment text-start solutions-intro">
-                A platform for clients and strategic allies who want growth that
-                is both cultural and commercial.
+              <p class="investor-lead caps-sentiment text-start">
+                As a financial contributer we are set to reward your
+                engagement with a steady yet respectable performance
+                &mdash; on level higher&hellip;
               </p>
 
-              <div class="solutions-grid">
-                <section class="solution-card">
-                  <h2 class="section-title caps-sentiment">For Brands</h2>
-                  <p class="section-copy">
-                    h·e·r Collab delivers a solution that transforms marketing
-                    from a cost center into a growth engine. By applying its
-                    <strong>Diamond Governance</strong> framework, the team
-                    integrates strategy, creative IP, and operational precision
-                    from the very first engagement. This eliminates the common
-                    disconnect between ideas and execution, ensuring that every
-                    campaign is both commercially sound and creatively inspired.
-                    Brands benefit from
-                    <strong>architectural insight</strong> that addresses core
-                    business challenges, not just surface-level briefs, while
-                    agile AI‑driven production pipelines accelerate
-                    speed‑to‑market. The result is frictionless growth:
-                    campaigns that build long‑term brand equity, create ownable
-                    intellectual property, and maximize ROI by putting more of
-                    the budget directly onto the screen.
-                  </p>
-                </section>
-
-                <section class="solution-card">
-                  <h2 class="section-title caps-sentiment">For Partners</h2>
-                  <p class="section-copy">
-                    For investors and strategic allies, h·e·r Collab represents
-                    a <strong>de‑risked commercial engine</strong> rather than a
-                    traditional labor‑intensive agency. Its systems‑led
-                    governance model ensures scalability beyond founder
-                    dependency, while equity‑based growth strategies focus on
-                    lifetime value expansion and predictable revenue streams.
-                    Creativity is treated as a strategic asset, increasing
-                    client brand equity and driving higher valuation multiples.
-                    AI‑integrated operations decouple growth from headcount,
-                    delivering margin improvements and exit‑ready financial
-                    structures. Partners gain confidence in a model engineered
-                    for efficiency, stability, and cultural impact—an
-                    infrastructure designed not just to sell ads, but to produce
-                    enduring, market‑shaping results.
-                  </p>
-                </section>
-
-                <section class="solution-card full-width" id="investor-link">
-                  <h2 class="section-title caps-sentiment">For Investors</h2>
-                  <p class="section-copy">
-                    As a financial contributer we are set to reward your
-                    engagement with a steady yet respectable performance
-                    &mdash; on level higher&hellip;
-                  </p>
-                  <a
-                    href="investors.html"
-                    class="investor-cta"
-                    style="
-                      display: inline-block;
-                      margin-top: 0.9rem;
-                      font-size: 0.75rem;
-                      font-weight: 300;
-                      letter-spacing: 0.12em;
-                      text-transform: uppercase;
-                      color: var(--subheadline-color);
-                      text-decoration: none;
-                      border-bottom: 1px solid var(--subheadline-color);
-                      padding-bottom: 2px;
-                      transition: opacity 0.2s ease;
-                    "
-                    onmouseover="this.style.opacity='0.7'"
-                    onmouseout="this.style.opacity='1'"
-                  >
-                    View Full Investment Case &rarr;
-                  </a>
-                </section>
-              </div>
+              <h2 class="section-title caps-sentiment">For Investors</h2>
+              <p class="section-copy">
+                h·e·r Collab offers investors a solution engineered for
+                <strong>scalable, de‑risked growth</strong> in a sector
+                traditionally plagued by volatility. Unlike
+                personality‑driven agencies that depend on founder charisma,
+                h·e·r Collab operates on a
+                <strong>systems‑led Diamond Governance model</strong>,
+                ensuring the business can expand without micromanagement.
+                Its equity‑based growth strategy prioritizes lifetime value
+                and strategic farming of high‑value partners, creating
+                predictable revenue streams and stable EBITDA. Creativity is
+                treated as <strong>strategic intellectual property</strong>,
+                not billable hours, which translates into higher valuation
+                multiples and long‑term asset creation. Operationally,
+                AI‑integrated workflows decouple growth from headcount,
+                delivering a measurable 10% margin improvement and
+                protecting profitability. Financial oversight is elevated
+                through a <strong>CFOO guardrail</strong>, aligning every
+                scope of work with investable outcomes and maintaining an
+                exit‑ready infrastructure that supports premium valuations.
+                For investors, this is not a labor pool but a
+                <strong>commercial engine</strong>&mdash;a model that fuses
+                efficiency, scalability, and cultural impact into a
+                high‑growth opportunity designed to outperform the classic
+                agency paradigm.
+              </p>
             </main>
 
             <hr class="mt-4 mb-3" />
@@ -676,7 +609,7 @@
         document.body.style.transition = "opacity 0.25s ease";
         document.body.style.opacity = "0";
         setTimeout(() => {
-          window.location.href = "partners.html";
+          window.location.href = "solutions.html";
         }, 250);
       });
 
