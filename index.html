@@ -908,7 +908,7 @@
         });
 
         var sx = 0, sy = 0, swiping = false, pageSwipe = false;
-        var navTrack = document.querySelector('.page-nav-track');
+        var navTrack = document.body;
         navTrack.addEventListener('touchstart', function (e) {
           pageSwipe = window.matchMedia('(max-width: 768px)').matches;
           if (!pageSwipe) return;
