@@ -390,13 +390,13 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: 10;
+        z-index: 20;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
         padding: 0.65rem 0 0;
-        pointer-events: none;
+        pointer-events: auto;
       }
 
       .page-nav-arrow {
@@ -798,6 +798,15 @@
           btn.addEventListener('click', function () {
             navigateTo(active + parseInt(btn.dataset.dir));
           });
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (!window.matchMedia('(min-width: 769px)').matches) return;
+          if (event.target.matches('input, textarea, select, [contenteditable="true"]')) return;
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            navigateTo(active + (event.key === 'ArrowRight' ? 1 : -1));
+          }
         });
 
         links.forEach(function (link, linkIndex) {
