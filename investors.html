@@ -496,7 +496,7 @@
         align-items: center;
         overflow: hidden;
         pointer-events: auto;
-        touch-action: pan-x;
+        touch-action: pan-y;
         width: 11.5rem;
         position: relative;
       }
@@ -504,6 +504,8 @@
       .page-nav-icons {
         display: flex;
         align-items: center;
+        flex: 0 0 calc(100% * var(--page-nav-item-count, 4) / 3);
+        width: calc(100% * var(--page-nav-item-count, 4) / 3);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         will-change: transform;
       }
@@ -513,7 +515,7 @@
       }
 
       .page-nav-icons a {
-        flex: 0 0 33.333%;
+        flex: 0 0 calc(100% / var(--page-nav-item-count, 4));
         display: flex;
         align-items: center;
         justify-content: center;
@@ -704,6 +706,14 @@
     <script>
       const themeToggle = document.getElementById("theme-toggle");
       const navToggle = document.getElementById("nav-toggle");
+      const currentPage = location.pathname.split("/").pop() || "index.html";
+      const pageNames = { "index.html": "Home", "partners.html": "Partners", "solutions.html": "Solutions", "investors.html": "Investors" };
+      const activePageLink = document.querySelector(`.page-nav-icons a[href="${currentPage}"]`);
+      if (activePageLink) {
+        navToggle.innerHTML = activePageLink.innerHTML;
+        navToggle.setAttribute("aria-label", `Current page: ${pageNames[currentPage]}`);
+        navToggle.setAttribute("title", `Current page: ${pageNames[currentPage]}`);
+      }
       const themeKey = "theme-preference";
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -780,25 +790,46 @@
         if (active < 0) active = 0;
 
         var icons = document.querySelector('.page-nav-icons');
+        var originalLinks = Array.prototype.slice.call(icons.querySelectorAll('a'));
+        var cloneCount = 2;
+        var leadingClones = document.createDocumentFragment();
+        originalLinks.slice(-cloneCount).forEach(function (link) {
+          leadingClones.appendChild(link.cloneNode(true));
+        });
+        icons.insertBefore(leadingClones, icons.firstChild);
+        originalLinks.slice(0, cloneCount).forEach(function (link) {
+          icons.appendChild(link.cloneNode(true));
+        });
         var links = icons.querySelectorAll('a');
+        icons.style.setProperty('--page-nav-item-count', links.length);
         var arrows = document.querySelectorAll('.page-nav-arrow');
         var track = document.querySelector('.page-nav-track');
         var navigating = false;
 
         function centerActive(animate) {
           icons.classList.toggle('no-transition', !animate);
-          links.forEach(function (l, i) { l.classList.toggle('active', i === active); });
-          icons.style.transform = 'translateX(' + (-(active * 33.333)) + '%)';
+          links.forEach(function (l) {
+            l.classList.toggle('active', pages.indexOf(l.getAttribute('href')) === active);
+          });
+          var slide = active + cloneCount - 1;
+          icons.style.transform = 'translateX(' + (-(slide * 100 / links.length)) + '%)';
           if (!animate) void icons.offsetHeight;
         }
 
-        function navigateTo(i) {
+        function navigateTo(i, visualSlide) {
           if (navigating) return;
           navigating = true;
-          var target = (i + pages.length) % pages.length;
+          var target = ((i % pages.length) + pages.length) % pages.length;
+          var direction = i > active ? 1 : -1;
+          var slide = target + cloneCount - 1;
+          if (active === pages.length - 1 && target === 0 && direction > 0) slide = links.length - 3;
+          if (active === 0 && target === pages.length - 1 && direction < 0) slide = 0;
+          if (typeof visualSlide === 'number') slide = visualSlide;
           icons.classList.remove('no-transition');
-          icons.style.transform = 'translateX(' + (-(target * 33.333)) + '%)';
-          links.forEach(function (l, idx) { l.classList.toggle('active', idx === target); });
+          icons.style.transform = 'translateX(' + (-(slide * 100 / links.length)) + '%)';
+          links.forEach(function (l) {
+            l.classList.toggle('active', pages.indexOf(l.getAttribute('href')) === target);
+          });
           document.body.style.transition = 'opacity 0.2s ease';
           document.body.style.opacity = '0';
           setTimeout(function () { window.location.href = pages[target]; }, 200);
@@ -807,6 +838,15 @@
         arrows.forEach(function (btn) {
           btn.addEventListener('click', function () {
             navigateTo(active + parseInt(btn.dataset.dir));
+          });
+        });
+
+        links.forEach(function (link, linkIndex) {
+          link.addEventListener('click', function (event) {
+            var target = pages.indexOf(link.getAttribute('href'));
+            if (target < 0 || target === active) return;
+            event.preventDefault();
+            navigateTo(target, linkIndex - 1);
           });
         });
 
