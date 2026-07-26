@@ -515,7 +515,11 @@
         }
 
         .page-nav-icons a.active {
-          transform: scale(1.3);
+          transform: none;
+        }
+
+        .page-nav-icons a.active svg {
+          transform: scale(1.25);
         }
       }
 
@@ -545,6 +549,7 @@
       .page-nav-icons a {
         flex: 0 0 calc(100% / var(--page-nav-item-count, 4));
         display: flex;
+        position: relative;
         align-items: center;
         justify-content: center;
         padding: 0.4rem;
@@ -560,13 +565,27 @@
 
       .page-nav-icons a.active {
         opacity: 1;
-        transform: scale(1.15);
-        background: rgba(33, 37, 41, 0.1);
+        transform: none;
+      }
+
+      .page-nav-icons a.active::before {
+        content: "";
+        position: absolute;
+        width: 2.35rem;
+        height: 2.35rem;
         border: 1px solid rgba(33, 37, 41, 0.36);
+        border-radius: 6px;
+        background: rgba(33, 37, 41, 0.1);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
       }
 
-      body[data-theme="dark"] .page-nav-icons a.active {
+      .page-nav-icons a.active svg {
+        position: relative;
+        z-index: 1;
+        transform: scale(1.15);
+      }
+
+      body[data-theme="dark"] .page-nav-icons a.active::before {
         background: rgba(255, 255, 255, 0.14);
         border-color: rgba(255, 255, 255, 0.5);
       }
