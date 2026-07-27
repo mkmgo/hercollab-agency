@@ -62,77 +62,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/global.css" />
     <style>
-      /* Strict Semantic Design Token Framework Mapping both System Preferences & Custom States */
-      :root {
-        --bg-color: #fcfcfc;
-        --text-color: #212529;
-        --text-strong: #000000;
-        --text-muted: #6c757d;
-        --brand-color: #000000;
-        --subheadline-color: #b22222;
-        --brand-red: #b22222;
-        --subtitle-grey: #7b7f86;
-        /* Crimson Brick Accent */
-        --border-color: rgba(0, 0, 0, 0.1);
-        --bg-overlay: rgba(252, 252, 252, 0.75);
-        --tile-bg: rgba(255, 255, 255, 0.85);
-        --tile-shadow: rgba(0, 0, 0, 0.03);
-        --active-tab-bg: rgba(0, 0, 0, 0.05);
-      }
-
-      /* Enforce Dark Theme tokens under system prefers-color-scheme rule default */
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg-color: #121212;
-          --text-color: #f8f9fa;
-          --text-strong: #ffffff;
-          --text-muted: #a7a9be;
-          --brand-color: #ffffff;
-          --subheadline-color: #e44d4d;
-          --brand-red: #e44d4d;
-          --subtitle-grey: #b6bac2;
-          --border-color: rgba(255, 255, 255, 0.1);
-          --bg-overlay: rgba(18, 18, 18, 0.75);
-          --tile-bg: rgba(26, 26, 26, 0.85);
-          --tile-shadow: rgba(0, 0, 0, 0.2);
-          --active-tab-bg: rgba(255, 255, 255, 0.08);
-        }
-      }
-
-      /* Explict Overrides when explicit manual toggle modifications are executed */
-      body[data-theme="light"] {
-        --bg-color: #fcfcfc;
-        --text-color: #212529;
-        --text-strong: #000000;
-        --text-muted: #6c757d;
-        --brand-color: #000000;
-        --subheadline-color: #b22222;
-        --brand-red: #b22222;
-        --subtitle-grey: #7b7f86;
-        --border-color: rgba(0, 0, 0, 0.1);
-        --bg-overlay: rgba(252, 252, 252, 0.75);
-        --tile-bg: rgba(255, 255, 255, 0.85);
-        --tile-shadow: rgba(0, 0, 0, 0.03);
-        --active-tab-bg: rgba(0, 0, 0, 0.05);
-      }
-
-      body[data-theme="dark"] {
-        --bg-color: #121212;
-        --text-color: #f8f9fa;
-        --text-strong: #ffffff;
-        --text-muted: #a7a9be;
-        --brand-color: #ffffff;
-        --subheadline-color: #e44d4d;
-        --brand-red: #e44d4d;
-        --subtitle-grey: #b6bac2;
-        --border-color: rgba(255, 255, 255, 0.1);
-        --bg-overlay: rgba(18, 18, 18, 0.75);
-        --tile-bg: rgba(26, 26, 26, 0.85);
-        --tile-shadow: rgba(0, 0, 0, 0.2);
-        --active-tab-bg: rgba(255, 255, 255, 0.08);
-      }
-
       html {
         scrollbar-width: none;
       }
@@ -142,64 +73,19 @@
       }
 
       body {
-        font-family:
-          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-        color: var(--text-color);
-        background-color: var(--bg-color);
-        margin: 0;
-        min-height: 100vh;
-        position: relative;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
         justify-content: center;
         transition:
           background-color 0.1s ease,
           color 0.1s ease;
       }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
+      .bg-overlay-tint {
+        transition: background 0.1s ease;
       }
 
-      /* Ambient Dynamic Profile Slideshow */
+      /* Background slideshow overrides for partners */
       .bg-slideshow {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-      }
-
-      .bg-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        opacity: 0;
-        transform: scale(1.03);
-        animation: crossfade 18s infinite ease-in-out;
-      }
-
-      .bg-slide:nth-child(1) {
-        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/q_auto/f_auto/v1776286873/Neo_Segola_tvcbhe.jpg");
-        animation-delay: 0s;
-      }
-
-      .bg-slide:nth-child(2) {
-        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png");
-        animation-delay: 6s;
-      }
-
-      .bg-slide:nth-child(3) {
-        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png");
-        animation-delay: 12s;
+        overflow: visible;
       }
 
       @keyframes crossfade {
@@ -229,112 +115,6 @@
         }
       }
 
-      .bg-overlay-tint {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--bg-overlay);
-        z-index: -1;
-        transition: background 0.1s ease;
-      }
-
-      /* Directional ambient sweep — holds at outer edge, then cuts instantly */
-      /* Corner Ambient Control Linkage */
-      .theme-toggle,
-      .nav-toggle {
-        position: fixed;
-        top: 0.85rem;
-        z-index: 21;
-        width: 2.35rem;
-        height: 2.35rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.14);
-        color: var(--text-color);
-        cursor: pointer;
-        opacity: 0.72;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease,
-          background 0.2s ease,
-          color 0.2s ease,
-          border-color 0.2s ease;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-      }
-
-      .theme-toggle {
-        right: 0.85rem;
-        opacity: 1;
-      }
-      .nav-toggle {
-        right: 3.7rem;
-        opacity: 1;
-      }
-
-      .nav-toggle svg {
-        color: rgba(33, 37, 41, 0.95);
-        opacity: 1;
-      }
-
-      body[data-theme="dark"] .nav-toggle svg {
-        color: #fff;
-        opacity: 1;
-      }
-
-      .theme-toggle:hover,
-      .nav-toggle:hover {
-        opacity: 1;
-        transform: scale(1.05);
-      }
-
-      body[data-theme="dark"] .theme-toggle,
-      body[data-theme="dark"] .nav-toggle {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.14);
-        color: #f8f9fa;
-      }
-
-      .theme-toggle svg,
-      .nav-toggle svg {
-        width: 1rem;
-        height: 1rem;
-        stroke-width: 1.8;
-        fill: none;
-        stroke: currentColor;
-        color: rgba(33, 37, 41, 0.46);
-        filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
-        opacity: 0.78;
-        pointer-events: none;
-        transition:
-          color 0.2s ease,
-          opacity 0.2s ease,
-          filter 0.2s ease;
-      }
-
-      body[data-theme="dark"] .theme-toggle svg,
-      body[data-theme="dark"] .nav-toggle svg {
-        color: rgba(255, 255, 255, 0.64);
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
-        opacity: 0.82;
-      }
-
-      .theme-toggle svg {
-        color: rgba(33, 37, 41, 0.95);
-        opacity: 1;
-      }
-
-      body[data-theme="dark"] .theme-toggle svg {
-        color: #fff;
-        opacity: 1;
-      }
-
       .frame-nav-btn svg {
         width: 1rem;
         height: 1rem;
@@ -355,20 +135,7 @@
         transform: translateX(3px);
       }
 
-      /* Showcase Interface Core Framework */
       .showcase-tile {
-        background: var(--tile-bg);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid var(--border-color);
-        box-shadow: 0 20px 40px var(--tile-shadow);
-        border-radius: 4px;
-        padding: 3rem;
-        max-width: 860px;
-        width: 100%;
-        min-width: 0;
-        margin: auto;
-        position: relative;
         transition:
           background-color 0.1s ease,
           border-color 0.1s ease;
@@ -416,7 +183,6 @@
         }
       }
 
-      /* Top Horizontal Multi-Partner Tab Track */
       .partner-nav {
         display: flex;
         flex-wrap: wrap;
@@ -476,7 +242,6 @@
         border-radius: 2px;
       }
 
-      /* Level 2 Block Switcher Rail */
       .bio-block-switcher {
         justify-content: flex-start !important;
         width: 100%;
@@ -529,30 +294,14 @@
         display: block;
       }
 
-      /* Typography Mapping Framework */
       .brand-header {
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 1.5rem;
         padding-bottom: 1.25rem;
       }
 
-      .logo {
-        font-family: Georgia, serif;
-        font-weight: 400;
-        font-size: calc(1.75rem + 1.1vw);
-        color: var(--brand-color);
-        letter-spacing: -0.5px;
-        line-height: 1.1;
-      }
-
       .subtitle {
-        font-style: italic;
-        color: var(--subheadline-color);
         font-size: calc(1.15rem + 0.2vw);
-        letter-spacing: 0.05em;
-        margin-top: 0.4rem;
-        margin-bottom: 0;
-        font-weight: 400;
       }
 
       .profile-intro {
@@ -740,7 +489,6 @@
         border-color: rgba(255, 255, 255, 0.28);
       }
 
-      /* Multi-Block Carousel Node Engine Container */
       .bio-slider-container {
         position: relative;
         margin-bottom: 1.5rem;
@@ -760,7 +508,6 @@
         z-index: 1;
       }
 
-      /* Surgical Precision Brand Rule: Instant Hard Cut */
       .bio-block.active {
         position: relative;
         opacity: 1;
@@ -794,26 +541,24 @@
 
       .lead-text {
         font-size: calc(0.9rem + 0.15vw);
-        font-weight: 300;
         letter-spacing: 0.06em;
         line-height: 1.7;
-        margin-bottom: 0;
       }
 
       .lead-text strong {
-        font-weight: 700;
-        color: var(--text-strong);
+        letter-spacing: 0;
       }
+
       .core-expertise strong {
         display: block;
         padding-left: 1.2em;
         text-indent: -1.2em;
       }
+
       .core-expertise br {
         display: none;
       }
 
-      /* Frame Integrated Navigation and System Swapper Control Base */
       .frame-nav-menu {
         display: inline-flex;
         align-items: stretch;
@@ -914,379 +659,12 @@
       }
 
       hr {
-        border-top: 1px solid var(--border-color);
-        opacity: 1;
         transition: border-color 0.1s ease;
-      }
-
-      .caps-sentiment {
-        text-transform: uppercase;
-        font-weight: 300;
-        letter-spacing: 0.12em;
-        font-size: 0.85rem;
-      }
-
-      .tile-footer {
-        color: var(--text-muted);
-      }
-      /* Page Navigation Carousel */
-      .page-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.65rem 0 0;
-        pointer-events: auto;
-      }
-
-      .page-nav-arrow {
-        width: 1.75rem;
-        height: 1.75rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.14);
-        color: var(--text-color);
-        cursor: pointer;
-        opacity: 0.5;
-        pointer-events: auto;
-        transition:
-          opacity 0.2s ease,
-          transform 0.15s ease,
-          background 0.2s ease;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        flex-shrink: 0;
-      }
-
-      body[data-theme="dark"] .page-nav-arrow {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.14);
-        color: #f8f9fa;
-      }
-
-      .page-nav-arrow:hover {
-        opacity: 0.85;
-        transform: scale(1.05);
-      }
-
-      .page-nav-arrow svg {
-        width: 0.85rem;
-        height: 0.85rem;
-        stroke-width: 1.8;
-        fill: none;
-        stroke: currentColor;
-        pointer-events: none;
-      }
-
-      @media (min-width: 769px) {
-        .page-nav-arrow {
-          opacity: 0.3;
-        }
-        .page-nav-arrow:hover {
-          opacity: 0.8;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .page-nav-arrow {
-          display: none;
-        }
-
-        .nav-toggle {
-          display: none;
-        }
-
-        .page-nav {
-          top: 0.85rem;
-          padding-top: 0;
-        }
-
-        .page-nav-icons a {
-          padding: 0.5rem;
-        }
-
-        .page-nav-icons a.active {
-          transform: none;
-        }
-
-        .page-nav-icons a.active svg {
-          transform: scale(1.25);
-        }
-      }
-
-      .page-nav-track {
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        pointer-events: auto;
-        touch-action: pan-y;
-        width: 11.5rem;
-        position: relative;
-      }
-
-      .page-nav-icons {
-        display: flex;
-        align-items: center;
-        flex: 0 0 calc(100% * var(--page-nav-item-count, 4) / 3);
-        width: calc(100% * var(--page-nav-item-count, 4) / 3);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .page-nav-icons.no-transition {
-        transition: none !important;
-      }
-
-      .page-nav-icons a {
-        flex: 0 0 calc(100% / var(--page-nav-item-count, 4));
-        display: flex;
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        padding: 0.4rem;
-        border-radius: 6px;
-        text-decoration: none;
-        color: var(--text-color);
-        opacity: 0.3;
-        transition:
-          opacity 0.2s ease,
-          transform 0.15s ease;
-        pointer-events: auto;
-      }
-
-      .page-nav-icons a.active {
-        opacity: 1;
-        transform: none;
-      }
-
-      .page-nav-icons a.active::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 2.35rem;
-        height: 2.35rem;
-        border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(255, 255, 255, 0.14);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-      }
-
-      .page-nav-icons a.active svg {
-        position: relative;
-        z-index: 1;
-        transform: scale(1.15);
-      }
-
-      body[data-theme="light"] .page-nav-icons a.active::before {
-        background: rgba(0, 0, 0, 0.07);
-        border-color: rgba(0, 0, 0, 0.16);
-      }
-
-      body[data-theme="dark"] .page-nav-icons a.active::before {
-        background: rgba(255, 255, 255, 0.16);
-        border-color: rgba(255, 255, 255, 0.26);
-      }
-
-      .page-nav-icons a:not(.active):hover {
-        opacity: 0.6;
-      }
-
-      .page-nav-icons a svg {
-        width: 1.25rem;
-        height: 1.25rem;
-        stroke-width: 1.8;
-        fill: none;
-        stroke: currentColor;
-        pointer-events: none;
-      }
-
-      .page-nav--scrolled {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      body[data-theme="dark"] .page-nav--scrolled {
-        background: rgba(18, 18, 18, 0.35);
-        border-bottom-color: rgba(255, 255, 255, 0.06);
-      }
-
-      .asset-toggle {
-        position: fixed;
-        right: 0.85rem;
-        bottom: 0.85rem;
-        top: auto;
-        z-index: 21;
-        width: 2.35rem;
-        height: 2.35rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.14);
-        color: var(--text-color);
-        cursor: pointer;
-        opacity: 0.72;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease,
-          background 0.2s ease,
-          color 0.2s ease,
-          border-color 0.2s ease;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-      }
-      .asset-toggle svg {
-        width: 1rem;
-        height: 1rem;
-        stroke-width: 1.8;
-        fill: none;
-        stroke: currentColor;
-        color: rgba(33, 37, 41, 0.46);
-        filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
-        opacity: 0.78;
-        pointer-events: none;
-        transition:
-          color 0.2s ease,
-          opacity 0.2s ease,
-          filter 0.2s ease;
-      }
-      .asset-toggle:hover,
-      .asset-toggle:focus-visible {
-        opacity: 1;
-        transform: scale(1.05);
-        outline: none;
-      }
-      body[data-theme="dark"] .asset-toggle {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.14);
-        color: #f8f9fa;
-      }
-      body[data-theme="dark"] .asset-toggle svg {
-        color: rgba(255, 255, 255, 0.64);
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
-        opacity: 0.82;
-      }
-      body[data-theme="light"] .asset-toggle {
-        background: rgba(0, 0, 0, 0.07);
-        border-color: rgba(0, 0, 0, 0.12);
-      }
-      body[data-theme="light"] .asset-toggle svg {
-        color: rgba(33, 37, 41, 0.7);
-        opacity: 0.9;
-      }
-      @media (max-width: 768px) {
-        .asset-toggle {
-          width: 2.5rem;
-          height: 2.5rem;
-          opacity: 0.85;
-          bottom: 1rem;
-          right: 1rem;
-        }
       }
     </style>
   </head>
 
-  <body>
-    <button
-      class="control-btn theme-toggle"
-      id="theme-toggle"
-      type="button"
-      aria-label="Toggle theme"
-      title="Toggle theme"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-    </button>
-    <button
-      class="nav-toggle"
-      id="nav-toggle"
-      type="button"
-      aria-label="Solutions"
-      title="Solutions"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-        <path d="M9 18h6" />
-        <path d="M10 22h4" />
-      </svg>
-    </button>
-
-    <button
-      class="control-btn asset-toggle"
-      id="asset-toggle"
-      type="button"
-      aria-label="Asset Airlock (restricted)"
-      title="Asset Airlock (restricted)"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <circle cx="12" cy="16" r="1" />
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-      </svg>
-    </button>
-
-    <nav class="page-nav" aria-label="Page navigation">
-      <button class="page-nav-arrow" data-dir="-1" aria-label="Previous page" title="Previous">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-      </button>
-      <div class="page-nav-track">
-        <div class="page-nav-icons">
-          <a href="index.html" aria-label="Home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-          </a>
-          <a href="partners.html" class="active" aria-label="Partners">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8"/><path d="M16 5.13A4 4 0 0 1 18 9c0 1.42-.78 2.57-1.88 3.17"/></svg>
-          </a>
-          <a href="solutions.html" aria-label="Solutions">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
-          </a>
-          <a href="investors.html" aria-label="Investors">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-6 6-4-4-7 7"/><path d="M4 14v7"/></svg>
-          </a>
-        </div>
-      </div>
-      <button class="page-nav-arrow" data-dir="1" aria-label="Next page" title="Next">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-      </button>
-    </nav>
-
-    <div class="bg-slideshow">
-      <div class="bg-slide"></div>
-      <div class="bg-slide"></div>
-      <div class="bg-slide"></div>
-    </div>
-    <div class="bg-overlay-tint"></div>
-
+  <body data-page="partners" data-next-page="solutions.html">
     <div
       class="container py-5"
       style="padding-top: 12vh !important; padding-bottom: 8vh !important"
@@ -1398,7 +776,6 @@
                             aria-hidden="true"
                           >
                             <path d="m12 19-7-7 7-7"></path>
-
                             <path d="M19 12H5"></path>
                           </svg>
                         </button>
@@ -1423,7 +800,6 @@
                             aria-hidden="true"
                           >
                             <path d="M5 12h14"></path>
-
                             <path d="m12 5 7 7-7 7"></path>
                           </svg>
                         </button>
@@ -1552,7 +928,6 @@
                             aria-hidden="true"
                           >
                             <path d="m12 19-7-7 7-7"></path>
-
                             <path d="M19 12H5"></path>
                           </svg>
                         </button>
@@ -1577,7 +952,6 @@
                             aria-hidden="true"
                           >
                             <path d="M5 12h14"></path>
-
                             <path d="m12 5 7 7-7 7"></path>
                           </svg>
                         </button>
@@ -1729,7 +1103,6 @@
                             aria-hidden="true"
                           >
                             <path d="m12 19-7-7 7-7"></path>
-
                             <path d="M19 12H5"></path>
                           </svg>
                         </button>
@@ -1754,7 +1127,6 @@
                             aria-hidden="true"
                           >
                             <path d="M5 12h14"></path>
-
                             <path d="m12 5 7 7-7 7"></path>
                           </svg>
                         </button>
@@ -1872,496 +1244,9 @@
       </div>
     </div>
 
-    <script>
-      function haptic() {
-        if (navigator.vibrate) navigator.vibrate(10);
-      }
-
-      // 1. Partner Switcher
-      const partnerData = [
-        { id: "neo", label: "The Visionary" },
-        { id: "chaz", label: "The Multiplier" },
-        { id: "tsholo", label: "The Engine" },
-      ];
-      let currentPartner = 0;
-      const allContents = document.querySelectorAll(".partner-content");
-      const partnerRail = document.getElementById("partner-rail");
-      const labels = partnerData.map((d) => d.label);
-      const RAIL_N = 3;
-      // translateX to center index 1 (middle) of 3 items at 100% each: -(1*100)/300*100 = -33.33%
-      const RAIL_CENTER = -((1 * 100) / (RAIL_N * 100)) * 100;
-      const RAIL_TX = [0, -33.333333, -66.666667]; // center index 0,1,2
-
-      function rebuildRail(centerIdx, labelArr) {
-        const frag = [];
-        for (let i = -1; i <= 1; i++) {
-          const idx = (centerIdx + i + labelArr.length) % labelArr.length;
-          const span = document.createElement("span");
-          span.className = "partner-rail-item";
-          span.textContent = labelArr[idx];
-          frag.push(span);
-        }
-        partnerRail.replaceChildren(...frag);
-      }
-
-      function showPartner(index) {
-        allContents.forEach((c) => c.classList.remove("active"));
-        const target = document.querySelector(
-          `.partner-content[data-partner="${partnerData[index].id}"]`,
-        );
-        if (target) target.classList.add("active");
-        if (target && target._resetBlocks) target._resetBlocks();
-
-        const old = currentPartner;
-        if (old !== index) {
-          const dir = index === (old + 1) % partnerData.length ? 1 : -1;
-          const targetIdx = 1 + dir; // 0 for prev, 2 for next
-          partnerRail.style.transition =
-            "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-          partnerRail.style.transform =
-            "translateX(" + RAIL_TX[targetIdx] + "%)";
-          const onEnd = function () {
-            clearTimeout(safetyTimer);
-            partnerRail.removeEventListener("transitionend", onEnd);
-            rebuildRail(index, labels);
-            partnerRail.style.transition = "none";
-            partnerRail.style.transform = "translateX(" + RAIL_CENTER + "%)";
-            void partnerRail.offsetHeight;
-            partnerRail.style.transition = "";
-          };
-          partnerRail.addEventListener("transitionend", onEnd);
-          var safetyTimer = setTimeout(function () {
-            partnerRail.removeEventListener("transitionend", onEnd);
-            rebuildRail(index, labels);
-            partnerRail.style.transition = "none";
-            partnerRail.style.transform = "translateX(" + RAIL_CENTER + "%)";
-            void partnerRail.offsetHeight;
-            partnerRail.style.transition = "";
-          }, 400);
-        } else {
-          rebuildRail(index, labels);
-          partnerRail.style.transition = "none";
-          partnerRail.style.transform = "translateX(" + RAIL_CENTER + "%)";
-          void partnerRail.offsetHeight;
-          partnerRail.style.transition = "";
-        }
-
-        currentPartner = index;
-      }
-
-      document.querySelector(".switcher-prev").addEventListener("click", () => {
-        haptic();
-        const prev =
-          (currentPartner - 1 + partnerData.length) % partnerData.length;
-        showPartner(prev);
-      });
-
-      document.querySelector(".switcher-next").addEventListener("click", () => {
-        haptic();
-        const next = (currentPartner + 1) % partnerData.length;
-        showPartner(next);
-      });
-
-      // 2. Scoped Bio Block Carousel per Partner
-      const syncHeightFns = [];
-      document.querySelectorAll(".partner-content").forEach((content) => {
-        const container = content.querySelector(".bio-slider-container");
-        if (!container) return;
-        const blocks = container.querySelectorAll(".bio-block");
-        const total = blocks.length;
-        const prevBtn = content.querySelector(".prev-block-btn");
-        const nextBtn = content.querySelector(".next-block-btn");
-        let current = 1;
-
-        function syncContainerHeight() {
-          const activeBlock = container.querySelector(".bio-block.active") || blocks[0];
-          container.style.height = activeBlock.scrollHeight + "px";
-        }
-        syncHeightFns.push(syncContainerHeight);
-
-        // Build switching rail from block labels
-        const oldIndicator = content.querySelector(".block-indicator");
-        const blockRailWrap = document.createElement("div");
-        blockRailWrap.className = "block-rail-wrap";
-        const blockRail = document.createElement("div");
-        blockRail.className = "block-rail";
-        const blockLabels = [];
-        blocks.forEach((b) => {
-          const lbl =
-            b.querySelector(".block-label")?.textContent?.trim() || "";
-          blockLabels.push(lbl);
-        });
-        // Create exactly 3 items for the slide rail
-        for (let i = 0; i < 3; i++) {
-          const span = document.createElement("span");
-          span.className = "block-rail-item";
-          blockRail.appendChild(span);
-        }
-        blockRailWrap.appendChild(blockRail);
-        if (oldIndicator) oldIndicator.replaceWith(blockRailWrap);
-
-        const railItems = blockRail.children;
-        // translateX to center index 1 of 3 items at 100%: -33.33%
-        const B_CTR = -33.333333;
-        const B_TX = [0, B_CTR, -66.666667];
-
-        function rebuildBlockRail(currIdx) {
-          const prevIdx = currIdx === 0 ? total - 1 : currIdx - 1;
-          const nextIdx = currIdx === total - 1 ? 0 : currIdx + 1;
-          const order = [prevIdx, currIdx, nextIdx];
-          for (let i = 0; i < 3; i++) {
-            railItems[i].textContent = blockLabels[order[i]];
-          }
-        }
-
-        function updateBlock(target) {
-          container
-            .querySelector(".bio-block.active")
-            ?.classList.remove("active");
-          const oldIdx = current - 1;
-          const newIdx = target - 1;
-          current = target;
-          blocks[newIdx].classList.add("active");
-          syncContainerHeight();
-
-          if (oldIdx !== newIdx) {
-            const dir = newIdx === (oldIdx + 1) % total ? 1 : -1;
-            const tgt = 1 + dir;
-            blockRail.style.transition =
-              "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-            blockRail.style.transform = "translateX(" + B_TX[tgt] + "%)";
-            const onEnd = function () {
-              clearTimeout(safetyTimer);
-              blockRail.removeEventListener("transitionend", onEnd);
-              rebuildBlockRail(newIdx);
-              blockRail.style.transition = "none";
-              blockRail.style.transform = "translateX(" + B_CTR + "%)";
-              void blockRail.offsetHeight;
-              blockRail.style.transition = "";
-            };
-            blockRail.addEventListener("transitionend", onEnd);
-            var safetyTimer = setTimeout(function () {
-              blockRail.removeEventListener("transitionend", onEnd);
-              rebuildBlockRail(newIdx);
-              blockRail.style.transition = "none";
-              blockRail.style.transform = "translateX(" + B_CTR + "%)";
-              void blockRail.offsetHeight;
-              blockRail.style.transition = "";
-            }, 400);
-          }
-        }
-
-        // Expose reset so Level 1 can reset when switching partners
-        content._resetBlocks = function () {
-          container
-            .querySelector(".bio-block.active")
-            ?.classList.remove("active");
-          blocks[0].classList.add("active");
-          current = 1;
-          rebuildBlockRail(0);
-          blockRail.style.transition = "none";
-          blockRail.style.transform = "translateX(" + B_CTR + "%)";
-          void blockRail.offsetHeight;
-          blockRail.style.transition = "";
-          syncContainerHeight();
-        };
-
-        // Initial: build and set without animation
-        content._resetBlocks();
-
-        if (prevBtn) {
-          prevBtn.addEventListener("click", () => {
-            haptic();
-            let target = current - 1;
-            if (target < 1) target = total;
-            updateBlock(target);
-          });
-        }
-        if (nextBtn) {
-          nextBtn.addEventListener("click", () => {
-            haptic();
-            let target = current + 1;
-            if (target > total) target = 1;
-            updateBlock(target);
-          });
-        }
-      });
-
-      // Initial: show first partner (after Level 1 + Level 2 setup)
-      showPartner(0);
-      syncHeightFns.forEach((fn) => fn());
-
-      // Keep bio-block heights accurate when the viewport (and text wrapping) changes
-      let resizeTimer;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          syncHeightFns.forEach((fn) => fn());
-        }, 150);
-      });
-
-      // 3. Swipe Detection for Touch Devices
-      function enableSwipe(container, prevBtn, nextBtn, threshold) {
-        threshold = threshold || 30;
-        let startX = 0;
-        container.addEventListener(
-          "touchstart",
-          function (e) {
-            startX = e.touches[0].clientX;
-          },
-          { passive: true },
-        );
-        container.addEventListener(
-          "touchend",
-          function (e) {
-            const endX = e.changedTouches[0].clientX;
-            const delta = startX - endX;
-            if (delta > threshold) {
-              haptic();
-              if (nextBtn) nextBtn.click();
-            } else if (delta < -threshold) {
-              haptic();
-              if (prevBtn) prevBtn.click();
-            }
-          },
-          { passive: true },
-        );
-      }
-
-      // Level 1 swipe
-      enableSwipe(
-        document.querySelector(".partner-switcher"),
-        document.querySelector(".switcher-prev"),
-        document.querySelector(".switcher-next"),
-      );
-
-      // Level 2 swipe (one per partner content)
-      document
-        .querySelectorAll(".bio-block-switcher .frame-nav-menu")
-        .forEach(function (menu) {
-          const prev = menu.querySelector(".prev-block-btn");
-          const next = menu.querySelector(".next-block-btn");
-          enableSwipe(menu, prev, next);
-        });
-
-      // 4. Bidirectional System Preference + Switch UI State Routing Sync Engine
-      const globalThemeToggle = document.getElementById("theme-toggle");
-      const navToggle = document.getElementById("nav-toggle");
-      const currentPage = location.pathname.split("/").pop() || "index.html";
-      const pageNames = { "index.html": "Home", "partners.html": "Partners", "solutions.html": "Solutions", "investors.html": "Investors" };
-      const activePageLink = document.querySelector(`.page-nav-icons a[href="${currentPage}"]`);
-      if (activePageLink) {
-        navToggle.innerHTML = activePageLink.innerHTML;
-        navToggle.setAttribute("aria-label", `Current page: ${pageNames[currentPage]}`);
-        navToggle.setAttribute("title", `Current page: ${pageNames[currentPage]}`);
-      }
-      const themeKey = "theme-preference";
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-      const vectorIcons = {
-        moon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>',
-        sun: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>',
-      };
-
-      function updateInterfaceControls(resolvedTheme) {
-        const isTargetDark = resolvedTheme === "dark";
-
-        globalThemeToggle.innerHTML = isTargetDark
-          ? vectorIcons.sun
-          : vectorIcons.moon;
-        globalThemeToggle.setAttribute(
-          "aria-label",
-          isTargetDark ? "Light Mode" : "Dark Mode",
-        );
-        globalThemeToggle.setAttribute(
-          "title",
-          isTargetDark ? "Light Mode" : "Dark Mode",
-        );
-      }
-
-      function applyTheme(targetTheme, persistConfig = false) {
-        document.body.dataset.theme = targetTheme;
-        updateInterfaceControls(targetTheme);
-        if (persistConfig) {
-          localStorage.setItem(themeKey, targetTheme);
-        }
-      }
-
-      function handleStateToggleTransition() {
-        const activeStateMode =
-          document.body.dataset.theme || resolveSystemDefaultState();
-        const alternateStateMode =
-          activeStateMode === "dark" ? "light" : "dark";
-        applyTheme(alternateStateMode, true);
-      }
-
-      function resolveSystemDefaultState() {
-        return prefersDark.matches ? "dark" : "light";
-      }
-
-      function resolveInitialStateRules() {
-        const explicitUserPreference = localStorage.getItem(themeKey);
-        if (
-          explicitUserPreference === "light" ||
-          explicitUserPreference === "dark"
-        ) {
-          return explicitUserPreference;
-        }
-        return resolveSystemDefaultState();
-      }
-
-      applyTheme(resolveInitialStateRules());
-
-      globalThemeToggle.addEventListener("click", handleStateToggleTransition);
-
-      // Smooth page navigation
-      document.getElementById("nav-toggle").addEventListener("click", () => {
-        document.body.style.transition = "opacity 0.25s ease";
-        document.body.style.opacity = "0";
-        setTimeout(() => {
-          window.location.href = "solutions.html";
-        }, 250);
-      });
-
-      // Asset toggle -> gatekeeper
-      document.getElementById("asset-toggle").addEventListener("click", () => {
-        document.body.style.transition = "opacity 0.25s ease";
-        document.body.style.opacity = "0";
-        setTimeout(() => {
-          window.location.href = "gatekeeper.html";
-        }, 250);
-      });
-
-      prefersDark.addEventListener("change", (event) => {
-        if (!localStorage.getItem(themeKey)) {
-          applyTheme(event.matches ? "dark" : "light");
-        }
-      });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      (function () {
-        var pages = ['index.html', 'partners.html', 'solutions.html', 'investors.html'];
-        var file = location.pathname.split('/').pop() || 'index.html';
-        var active = pages.indexOf(file);
-        if (active < 0) active = 0;
-
-        var icons = document.querySelector('.page-nav-icons');
-        var originalLinks = Array.prototype.slice.call(icons.querySelectorAll('a'));
-        var cloneCount = 2;
-        var leadingClones = document.createDocumentFragment();
-        originalLinks.slice(-cloneCount).forEach(function (link) {
-          leadingClones.appendChild(link.cloneNode(true));
-        });
-        icons.insertBefore(leadingClones, icons.firstChild);
-        originalLinks.slice(0, cloneCount).forEach(function (link) {
-          icons.appendChild(link.cloneNode(true));
-        });
-        var links = icons.querySelectorAll('a');
-        icons.style.setProperty('--page-nav-item-count', links.length);
-        var arrows = document.querySelectorAll('.page-nav-arrow');
-        var track = document.querySelector('.page-nav-track');
-        var navigating = false;
-
-        function centerActive(animate) {
-          icons.classList.toggle('no-transition', !animate);
-          links.forEach(function (l) {
-            l.classList.toggle('active', pages.indexOf(l.getAttribute('href')) === active);
-          });
-          var slide = active + cloneCount - 1;
-          icons.style.transform = 'translateX(' + (-(slide * 100 / links.length)) + '%)';
-          if (!animate) void icons.offsetHeight;
-        }
-
-        function navigateTo(i, visualSlide) {
-          if (navigating) return;
-          navigating = true;
-          try {
-            var target = ((i % pages.length) + pages.length) % pages.length;
-            var direction = i > active ? 1 : -1;
-            var slide = target + cloneCount - 1;
-            if (active === pages.length - 1 && target === 0 && direction > 0) slide = links.length - 3;
-            if (active === 0 && target === pages.length - 1 && direction < 0) slide = 0;
-            if (typeof visualSlide === 'number') slide = visualSlide;
-            icons.classList.remove('no-transition');
-            icons.style.transform = 'translateX(' + (-(slide * 100 / links.length)) + '%)';
-            links.forEach(function (l) {
-              l.classList.toggle('active', pages.indexOf(l.getAttribute('href')) === target);
-            });
-            document.body.style.transition = 'opacity 0.2s ease';
-            document.body.style.opacity = '0';
-            setTimeout(function () { window.location.href = pages[target]; }, 200);
-          } catch (e) {
-            navigating = false;
-          }
-          setTimeout(function () { navigating = false; }, 500);
-        }
-
-        arrows.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            navigateTo(active + parseInt(btn.dataset.dir));
-          });
-        });
-
-        document.addEventListener('keydown', function (event) {
-          if (!window.matchMedia('(min-width: 769px)').matches) return;
-          if (event.target.matches('input, textarea, select, [contenteditable="true"]')) return;
-          if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-            event.preventDefault();
-            navigateTo(active + (event.key === 'ArrowRight' ? 1 : -1));
-          }
-        });
-
-        links.forEach(function (link, linkIndex) {
-          link.addEventListener('click', function (event) {
-            var target = pages.indexOf(link.getAttribute('href'));
-            if (target < 0 || target === active) return;
-            event.preventDefault();
-            navigateTo(target, linkIndex - 1);
-          });
-        });
-
-        var sx = 0, sy = 0, swiping = false, pageSwipe = false;
-        var navTrack = document.body;
-        navTrack.addEventListener('touchstart', function (e) {
-          pageSwipe = window.matchMedia('(max-width: 768px)').matches && !e.target.closest('.partner-switcher, .bio-slider-container, .frame-nav-menu');
-          if (!pageSwipe) return;
-          sx = e.touches[0].clientX;
-          sy = e.touches[0].clientY;
-          swiping = false;
-        }, { passive: true });
-        navTrack.addEventListener('touchmove', function (e) {
-          if (!pageSwipe) return;
-          var dx = e.touches[0].clientX - sx;
-          var dy = e.touches[0].clientY - sy;
-          if (!swiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
-            swiping = true;
-          }
-          if (swiping) e.preventDefault();
-        }, { passive: false });
-        navTrack.addEventListener('touchend', function (e) {
-          if (!pageSwipe || !swiping) return;
-          var dx = e.changedTouches[0].clientX - sx;
-          if (Math.abs(dx) > 30) {
-            navigateTo(active + (dx < 0 ? 1 : -1));
-          }
-          pageSwipe = false;
-        }, { passive: true });
-
-        var pageNav = document.querySelector('.page-nav');
-        var scrollTicking = false;
-        window.addEventListener('scroll', function () {
-          if (!scrollTicking) {
-            requestAnimationFrame(function () {
-              pageNav.classList.toggle('page-nav--scrolled', window.scrollY > 10);
-              scrollTicking = false;
-            });
-            scrollTicking = true;
-          }
-        }, { passive: true });
-
-        centerActive(false);
-      })();
-    </script>
+    <script src="js/shell.js"></script>
+    <script src="js/partners.js"></script>
   </body>
 </html>
