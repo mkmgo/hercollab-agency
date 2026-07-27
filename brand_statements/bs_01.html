@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>h·e·r collab</title>
+    <meta
+      name="description"
+      content="h.e.r collab: Creative Brilliance. Surgical Precision. Strategic architecture and venture development for Black women-led entrepreneurship."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_ZA" />
+    <meta property="og:site_name" content="h.e.r collab" />
+    <meta property="og:title" content="h.e.r collab | We build Brands." />
+    <meta
+      property="og:description"
+      content="Creative Brilliance. Surgical Precision."
+    />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dmkhsyfzf/image/upload/c_pad,b_white,w_1200,h_630,q_auto:good,f_jpg/v1781358154/her_favicon_2_ckbdpd.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://res.cloudinary.com/dmkhsyfzf/image/upload/c_pad,b_white,w_1200,h_630,q_auto:good,f_jpg/v1781358154/her_favicon_2_ckbdpd.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="h.e.r collab brand statement preview"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="h.e.r collab | Creative Brilliance. Surgical Precision."
+    />
+    <meta
+      name="twitter:description"
+      content="Creative Brilliance. Surgical Precision. Strategic architecture and venture development for Black women-led entrepreneurship."
+    />
+    <meta
+      name="twitter:image"
+      content="https://res.cloudinary.com/dmkhsyfzf/image/upload/c_pad,b_white,w_1200,h_630,q_auto:good,f_jpg/v1781358154/her_favicon_2_ckbdpd.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="h.e.r collab brand statement preview"
+    />
+    <meta
+      name="theme-color"
+      content="#fcfcfc"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#121212"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png?v=2"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png.png?v=2"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://res.cloudinary.com/dmkhsyfzf/image/upload/v1781358154/her_favicon_2_ckbdpd.png?v=2"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Color variables supporting Light and Dark modes */
+      :root {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --subheadline-color: #b22222;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --tile-bg: rgba(255, 255, 255, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.03);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-color: #121212;
+          --text-color: #f8f9fa;
+          --text-strong: #ffffff;
+          --text-muted: #a7a9be;
+          --brand-color: #ffffff;
+          --subheadline-color: #e44d4d;
+          --border-color: rgba(255, 255, 255, 0.1);
+          --bg-overlay: rgba(18, 18, 18, 0.75);
+          --tile-bg: rgba(26, 26, 26, 0.85);
+          --tile-shadow: rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      body[data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #f8f9fa;
+        --text-strong: #ffffff;
+        --text-muted: #a7a9be;
+        --brand-color: #ffffff;
+        --subheadline-color: #e44d4d;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --bg-overlay: rgba(18, 18, 18, 0.75);
+        --tile-bg: rgba(26, 26, 26, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.2);
+      }
+
+      body[data-theme="light"] {
+        --bg-color: #fcfcfc;
+        --text-color: #212529;
+        --text-strong: #000000;
+        --text-muted: #6c757d;
+        --brand-color: #000000;
+        --subheadline-color: #b22222;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --bg-overlay: rgba(252, 252, 252, 0.75);
+        --tile-bg: rgba(255, 255, 255, 0.85);
+        --tile-shadow: rgba(0, 0, 0, 0.03);
+      }
+
+      /* Shared Utility Class for Sleek Controls Styling */
+      .control-btn {
+        position: fixed;
+        top: 0.85rem;
+        z-index: 11;
+        width: 2.35rem;
+        height: 2.35rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--text-color);
+        cursor: pointer;
+        opacity: 0.72;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      }
+
+      .theme-toggle {
+        right: 0.85rem;
+      }
+
+      body[data-theme="dark"] .control-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: #f8f9fa;
+      }
+
+      .control-btn:hover,
+      .control-btn:focus-visible {
+        opacity: 1;
+        transform: scale(1.05);
+        outline: none;
+      }
+
+      .control-btn svg {
+        width: 1rem;
+        height: 1rem;
+        stroke-width: 1.8;
+        fill: none;
+        stroke: currentColor;
+        color: rgba(33, 37, 41, 0.46);
+        filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
+        opacity: 0.78;
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease,
+          filter 0.2s ease;
+      }
+
+      body[data-theme="dark"] .control-btn svg {
+        color: rgba(255, 255, 255, 0.64);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+        opacity: 0.82;
+      }
+
+      /* Carousel Navigation Arrows */
+      .carousel-arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 11;
+        width: 2.8rem;
+        height: 2.8rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--text-color);
+        cursor: pointer;
+        opacity: 0.5;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          background 0.25s ease,
+          border-color 0.25s ease;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      }
+
+      .carousel-arrow:hover,
+      .carousel-arrow:focus-visible {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.08);
+        outline: none;
+      }
+
+      .carousel-arrow svg {
+        width: 1.15rem;
+        height: 1.15rem;
+        stroke-width: 1.8;
+        fill: none;
+        stroke: currentColor;
+        color: rgba(33, 37, 41, 0.46);
+        filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
+        opacity: 0.78;
+        transition: color 0.2s ease, opacity 0.2s ease;
+      }
+
+      body[data-theme="dark"] .carousel-arrow {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: #f8f9fa;
+      }
+
+      body[data-theme="dark"] .carousel-arrow svg {
+        color: rgba(255, 255, 255, 0.64);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+        opacity: 0.82;
+      }
+
+      .carousel-arrow--left {
+        left: 1.2rem;
+      }
+
+      .carousel-arrow--right {
+        right: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
+        .carousel-arrow {
+          opacity: 0.3;
+          width: 2.2rem;
+          height: 2.2rem;
+        }
+        .carousel-arrow--left {
+          left: 0.4rem;
+        }
+        .carousel-arrow--right {
+          right: 0.4rem;
+        }
+      }
+
+      body {
+        font-family:
+          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: font-size 0.2s ease;
+      }
+
+      /* Smooth Background Slideshow */
+      .bg-slideshow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      .bg-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transform: scale(1.03);
+        animation: crossfade 18s infinite ease-in-out;
+      }
+
+      .bg-slide:nth-child(1) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/q_auto/f_auto/v1776286873/Neo_Segola_tvcbhe.jpg");
+        animation-delay: 0s;
+      }
+
+      .bg-slide:nth-child(2) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279518/Chaz_Pigou_ejulac.png");
+        animation-delay: 6s;
+      }
+
+      .bg-slide:nth-child(3) {
+        background-image: url("https://res.cloudinary.com/dmkhsyfzf/image/upload/v1774279520/Tsholofelo_M%C3%BCller_rbqonz.png");
+        animation-delay: 12s;
+      }
+
+      @keyframes crossfade {
+        0% {
+          opacity: 0;
+          transform: scale(1.03);
+        }
+
+        10% {
+          opacity: 0.35;
+          transform: scale(1.06);
+        }
+
+        33% {
+          opacity: 0.35;
+          transform: scale(1.12);
+        }
+
+        43% {
+          opacity: 0;
+          transform: scale(1.15);
+        }
+
+        100% {
+          opacity: 0;
+          transform: scale(1.03);
+        }
+      }
+
+      .bg-overlay-tint {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-overlay);
+        z-index: -1;
+      }
+
+      .showcase-tile {
+        background: var(--tile-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--border-color);
+        box-shadow: 0 20px 40px var(--tile-shadow);
+        border-radius: 4px;
+        padding: 3rem;
+        max-width: 860px;
+        width: 100%;
+        margin: auto;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .showcase-tile {
+          padding: 2rem 1.5rem;
+          margin: 1.5rem auto;
+        }
+      }
+
+      .logo {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: calc(1.75rem + 1.1vw);
+        color: var(--brand-color);
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        font-family:
+          Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-style: italic;
+        color: var(--subheadline-color);
+        font-size: calc(1.25rem + 0.3vw);
+        letter-spacing: 0.05em;
+        margin-top: 0.4rem;
+        margin-bottom: 0;
+        font-weight: 400;
+      }
+
+      .caps-sentiment {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        font-size: 0.85rem;
+        line-height: 1.7;
+      }
+
+      .lead-text {
+        font-size: calc(0.9rem + 0.25vw);
+        font-weight: 300;
+        letter-spacing: 0.14em;
+        line-height: 1.8;
+        margin-bottom: 0;
+      }
+
+      .lead-text strong {
+        font-weight: 700;
+        color: var(--text-strong);
+        letter-spacing: 0.12em;
+      }
+
+      hr {
+        border-top: 1px solid var(--border-color);
+        opacity: 1;
+      }
+
+      .tile-footer {
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <button
+      class="control-btn theme-toggle"
+      id="theme-toggle"
+      type="button"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+    ></button>
+
+    <button
+      class="carousel-arrow carousel-arrow--left"
+      id="arrow-left"
+      type="button"
+      aria-label="Previous statement"
+      title="Previous"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+
+    <button
+      class="carousel-arrow carousel-arrow--right"
+      id="arrow-right"
+      type="button"
+      aria-label="Next statement"
+      title="Next"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <div class="bg-slideshow">
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+      <div class="bg-slide"></div>
+    </div>
+    <div class="bg-overlay-tint"></div>
+
+    <div class="container my-auto py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 px-3">
+          <article class="showcase-tile">
+            <header class="text-start mb-3 pb-2">
+              <span class="logo d-block">h·e·r collab</span>
+              <h3 class="subtitle">Creative Brilliance. Surgical Precision.</h3>
+            </header>
+
+            <hr class="mb-4" />
+
+            <main>
+              <p class="lead-text caps-sentiment text-start">
+                We are Driving the future of Black women's entrepreneurship.
+                Backed by decades of major South African agency experience and
+                masterful execution.<br />
+                <strong style="display: block; margin-top: 0.75rem"
+                  >We shape the industry. We process genuine emotion. We build
+                  brands.</strong
+                >
+              </p>
+            </main>
+
+            <hr class="mt-4 mb-3" />
+
+            <footer
+              class="text-start tile-footer caps-sentiment"
+              style="font-size: 0.7rem"
+            >
+              <span
+                >&copy; 2026 h·e·r collab. Strategic Architecture & Venture
+                Development. | Brand Statement #1</span
+              >
+            </footer>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeKey = "theme-preference";
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const themeIcons = {
+        moon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>',
+        sun: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>',
+      };
+
+      function renderToggleIcon(theme) {
+        const iconName = theme === "dark" ? "sun" : "moon";
+        themeToggle.innerHTML = themeIcons[iconName];
+        themeToggle.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Activate light mode" : "Activate dark mode",
+        );
+        themeToggle.setAttribute(
+          "title",
+          theme === "dark" ? "Activate light mode" : "Activate dark mode",
+        );
+      }
+
+      function applyTheme(theme, persist = false) {
+        document.body.dataset.theme = theme;
+        renderToggleIcon(theme);
+        if (persist) {
+          localStorage.setItem(themeKey, theme);
+        }
+      }
+
+      function resolveInitialTheme() {
+        const saved = localStorage.getItem(themeKey);
+        if (saved === "light" || saved === "dark") {
+          return saved;
+        }
+        return prefersDark.matches ? "dark" : "light";
+      }
+
+      applyTheme(resolveInitialTheme());
+
+      themeToggle.addEventListener("click", () => {
+        const nextTheme =
+          document.body.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme, true);
+      });
+
+      prefersDark.addEventListener("change", (event) => {
+        if (!localStorage.getItem(themeKey)) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      /* Carousel Navigation */
+      const pages = [
+        "bs_01.html",
+        "bs_02.html",
+        "bs_03.html",
+        "bs_04.html",
+        "bs_05.html",
+        "bs_06.html",
+        "bs_07.html",
+        "bs_08.html",
+      ];
+      const currentIndex = 0;
+
+      function navigate(direction) {
+        const nextIndex =
+          direction === "next"
+            ? (currentIndex + 1) % pages.length
+            : (currentIndex - 1 + pages.length) % pages.length;
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = pages[nextIndex];
+        }, 250);
+      }
+
+      document.getElementById("arrow-left").addEventListener("click", () => navigate("prev"));
+      document.getElementById("arrow-right").addEventListener("click", () => navigate("next"));
+
+      /* Keyboard navigation */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") navigate("prev");
+        if (e.key === "ArrowRight") navigate("next");
+      });
+
+      /* Touch/swipe navigation */
+      let touchStartX = 0;
+      let touchEndX = 0;
+      document.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      document.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          navigate(diff > 0 ? "next" : "prev");
+        }
+      }, { passive: true });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
