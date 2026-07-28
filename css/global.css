@@ -110,21 +110,15 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.14);
   color: var(--text-color);
   cursor: pointer;
-  opacity: 0.72;
+  opacity: 0.6;
   transition:
     opacity 0.2s ease,
     transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    color 0.2s ease;
+  background: none;
+  border: none;
 }
 
 .theme-toggle {
@@ -153,11 +147,6 @@ body[data-theme="dark"] .control-btn.nav-toggle svg {
   top: auto;
 }
 
-body[data-theme="light"] .asset-toggle {
-  background: rgba(0, 0, 0, 0.07);
-  border-color: rgba(0, 0, 0, 0.12);
-}
-
 body[data-theme="light"] .asset-toggle svg {
   color: rgba(33, 37, 41, 0.7);
   opacity: 0.9;
@@ -171,12 +160,6 @@ body[data-theme="light"] .asset-toggle svg {
     bottom: 1rem;
     right: 1rem;
   }
-}
-
-body[data-theme="dark"] .control-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.14);
-  color: #f8f9fa;
 }
 
 .control-btn:hover,
@@ -193,18 +176,15 @@ body[data-theme="dark"] .control-btn {
   fill: none;
   stroke: currentColor;
   color: rgba(33, 37, 41, 0.46);
-  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55));
   opacity: 0.78;
   pointer-events: none;
   transition:
     color 0.2s ease,
-    opacity 0.2s ease,
-    filter 0.2s ease;
+    opacity 0.2s ease;
 }
 
 body[data-theme="dark"] .control-btn svg {
   color: rgba(255, 255, 255, 0.64);
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
   opacity: 0.82;
 }
 
@@ -384,47 +364,52 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.65rem 0 0;
+  gap: 0.35rem;
+  padding: 0.5rem 0;
   pointer-events: auto;
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+body[data-theme="light"] .page-nav {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+body[data-theme="dark"] .page-nav {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .page-nav-arrow {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.14);
   color: var(--text-color);
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.3;
   pointer-events: auto;
   transition:
     opacity 0.2s ease,
-    transform 0.15s ease,
-    background 0.2s ease;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+    transform 0.15s ease;
   flex-shrink: 0;
+  background: none;
+  border: none;
 }
 
 body[data-theme="dark"] .page-nav-arrow {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.14);
   color: #f8f9fa;
 }
 
 .page-nav-arrow:hover {
-  opacity: 0.85;
-  transform: scale(1.05);
+  opacity: 0.7;
+  transform: scale(1.1);
 }
 
 .page-nav-arrow svg {
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.7rem;
+  height: 0.7rem;
   stroke-width: 1.8;
   fill: none;
   stroke: currentColor;
@@ -450,20 +435,16 @@ body[data-theme="dark"] .page-nav-arrow {
   }
 
   .page-nav {
-    top: 0.85rem;
-    padding-top: 0;
+    top: 0.5rem;
+    padding: 0.35rem 0;
   }
 
   .page-nav-icons a {
-    padding: 0.5rem;
-  }
-
-  .page-nav-icons a.active {
-    transform: none;
+    padding: 0.4rem;
   }
 
   .page-nav-icons a.active svg {
-    transform: scale(1.25);
+    transform: scale(1.15);
   }
 }
 
@@ -473,7 +454,7 @@ body[data-theme="dark"] .page-nav-arrow {
   overflow: hidden;
   pointer-events: auto;
   touch-action: pan-y;
-  width: 11.5rem;
+  width: 9.5rem;
   position: relative;
 }
 
@@ -495,8 +476,7 @@ body[data-theme="dark"] .page-nav-arrow {
   position: relative;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem;
-  border-radius: 6px;
+  padding: 0.3rem;
   text-decoration: none;
   color: var(--text-color);
   opacity: 0.3;
@@ -508,44 +488,10 @@ body[data-theme="dark"] .page-nav-arrow {
 
 .page-nav-icons a.active {
   opacity: 1;
-  transform: none;
-}
-
-.page-nav-icons a.active::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2.35rem;
-  height: 2.35rem;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.18),
-    0 6px 14px rgba(0, 0, 0, 0.06);
 }
 
 .page-nav-icons a.active svg {
-  position: relative;
-  z-index: 1;
-  transform: scale(1.15);
-}
-
-body[data-theme="light"] .page-nav-icons a.active::before {
-  background: rgba(0, 0, 0, 0.07);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.16),
-    0 6px 14px rgba(0, 0, 0, 0.06);
-}
-
-body[data-theme="dark"] .page-nav-icons a.active::before {
-  background: rgba(255, 255, 255, 0.16);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.26),
-    0 6px 14px rgba(0, 0, 0, 0.06);
+  transform: scale(1.1);
 }
 
 .page-nav-icons a:not(.active):hover {
@@ -553,24 +499,12 @@ body[data-theme="dark"] .page-nav-icons a.active::before {
 }
 
 .page-nav-icons a svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
   stroke-width: 1.8;
   fill: none;
   stroke: currentColor;
   pointer-events: none;
-}
-
-.page-nav--scrolled {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-body[data-theme="dark"] .page-nav--scrolled {
-  background: rgba(18, 18, 18, 0.35);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 /* ── Section Title / Section Copy ────────────────────────────────── */

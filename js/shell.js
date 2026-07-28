@@ -337,19 +337,6 @@
       pageSwipe = false;
     }, { passive: true });
 
-    /* ── Scroll Detection ────────────────────────────────────────── */
-
-    var scrollTicking = false;
-    window.addEventListener("scroll", function () {
-      if (!scrollTicking) {
-        requestAnimationFrame(function () {
-          nav.classList.toggle("page-nav--scrolled", window.scrollY > 10);
-          scrollTicking = false;
-        });
-        scrollTicking = true;
-      }
-    }, { passive: true });
-
     centerActive(false);
   })();
 })();
