@@ -458,7 +458,8 @@ body[data-theme="light"] .page-nav-arrow {
   }
 
   .page-nav-icons a {
-    padding: 0.4rem;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
   }
 
   .page-nav-icons a.active {
@@ -509,6 +510,8 @@ body[data-theme="light"] .page-nav-arrow {
   position: relative;
   align-items: center;
   justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
   padding: 0.3rem;
   text-decoration: none;
   color: var(--text-color);
@@ -525,8 +528,8 @@ body[data-theme="light"] .page-nav-arrow {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
