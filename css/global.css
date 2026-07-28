@@ -460,6 +460,11 @@ body[data-theme="light"] .page-nav-arrow {
   .page-nav-icons a {
     padding: 0.4rem;
   }
+
+  .page-nav-icons a.active svg {
+    color: var(--brand-red);
+    stroke: var(--brand-red);
+  }
 }
 
 .page-nav-track {
