@@ -599,7 +599,7 @@ body[data-theme="dark"] .page-nav-icons a.active::before {
 
 .solution-card {
   border: 1px solid var(--border-color);
-  padding: 1.5rem;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.04);
   border-radius: 4px;
 }
@@ -607,12 +607,6 @@ body[data-theme="dark"] .page-nav-icons a.active::before {
 .solution-card.full-width {
   grid-column: 1 / -1;
   margin-top: 0.25rem;
-}
-
-@media (max-width: 768px) {
-  .solution-card {
-    padding: 1.25rem;
-  }
 }
 
 /* ── Investor Lead ───────────────────────────────────────────────── */
