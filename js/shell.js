@@ -338,5 +338,26 @@
     }, { passive: true });
 
     centerActive(false);
+
+    /* ── Auto-Hide ──────────────────────────────────────────────── */
+
+    var hideTimer;
+    var HIDE_DELAY = 3000;
+
+    function showNav() {
+      nav.style.opacity = "1";
+      nav.style.pointerEvents = "auto";
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        nav.style.opacity = "0";
+        nav.style.pointerEvents = "none";
+      }, HIDE_DELAY);
+    }
+
+    document.addEventListener("scroll", showNav, { passive: true });
+    document.addEventListener("mousemove", showNav, { passive: true });
+    document.addEventListener("touchstart", showNav, { passive: true });
+
+    showNav();
   })();
 })();
