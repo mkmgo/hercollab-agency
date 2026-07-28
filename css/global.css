@@ -461,9 +461,23 @@ body[data-theme="light"] .page-nav-arrow {
     padding: 0.4rem;
   }
 
-  .page-nav-icons a.active svg {
+  .page-nav-icons a.active {
     color: var(--brand-red);
-    stroke: var(--brand-red);
+  }
+  .page-nav-icons a.active::before {
+    border-color: var(--brand-red);
+    background: rgba(178, 34, 34, 0.10);
+  }
+  body[data-theme="light"] .page-nav-icons a.active::before {
+    background: rgba(178, 34, 34, 0.08);
+    border-color: var(--brand-red);
+  }
+  body[data-theme="dark"] .page-nav-icons a.active::before {
+    background: rgba(228, 77, 77, 0.12);
+    border-color: var(--brand-red);
+  }
+  .container.py-5 {
+    padding-top: 5vh !important;
   }
 }
 
