@@ -138,12 +138,12 @@ body {
 }
 
 .nav-toggle svg {
-  color: rgba(33, 37, 41, 0.95);
+  color: var(--brand-red);
   opacity: 1;
 }
 
 body[data-theme="dark"] .nav-toggle svg {
-  color: #fff;
+  color: var(--brand-red);
   opacity: 1;
 }
 
