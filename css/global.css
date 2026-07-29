@@ -99,7 +99,8 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 1rem;
   transition: font-size 0.2s ease;
 }
 
@@ -510,7 +511,7 @@ body[data-theme="light"] .page-nav-arrow {
     border-color: var(--brand-red);
   }
       .container.py-5 {
-        padding-top: 3vh !important;
+        padding-top: 4.5vh !important;
       }
 }
 
