@@ -509,9 +509,9 @@ body[data-theme="light"] .page-nav-arrow {
     background: rgba(228, 77, 77, 0.12);
     border-color: var(--brand-red);
   }
-  .container.py-5 {
-    padding-top: 5vh !important;
-  }
+      .container.py-5 {
+        padding-top: 3vh !important;
+      }
 }
 
 .page-nav-track {
