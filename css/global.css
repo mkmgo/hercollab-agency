@@ -295,6 +295,34 @@ body[data-theme="dark"] .theme-toggle svg {
   z-index: -1;
 }
 
+/* ── Card Background Slideshow ────────────────────────────────────── */
+
+.card-bg-slideshow {
+  overflow: hidden;
+}
+
+.card-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  filter: grayscale(100%);
+  animation: cardCrossfade 18s infinite ease-in-out;
+}
+
+.card-bg-slide:nth-child(1) { animation-delay: 0s; }
+.card-bg-slide:nth-child(2) { animation-delay: 6s; }
+.card-bg-slide:nth-child(3) { animation-delay: 12s; }
+
+@keyframes cardCrossfade {
+  0%   { opacity: 0; transform: scale(1.02); }
+  10%  { opacity: 0.30; transform: scale(1.05); }
+  33%  { opacity: 0.30; transform: scale(1.08); }
+  43%  { opacity: 0; transform: scale(1.10); }
+  100% { opacity: 0; transform: scale(1.02); }
+}
+
 /* ── Showcase Tile ────────────────────────────────────────────────── */
 
 .showcase-tile {
