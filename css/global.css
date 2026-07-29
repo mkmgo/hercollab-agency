@@ -654,6 +654,31 @@ body[data-theme="dark"] .page-nav-icons a.active::before {
   margin-top: 0.25rem;
 }
 
+/* ── Card Block Zones (index.html split layout) ─────────────────── */
+
+.card-block--top {
+  background: var(--bg-color);
+  padding: 20px 15px;
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.card-block--bottom {
+  padding: 20px 15px;
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  margin-bottom: 1.5rem;
+}
+
+.card-divider {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  opacity: 1;
+}
+
 /* ── Frame Nav Menu ──────────────────────────────────────────────── */
 
 .frame-nav-menu {
