@@ -519,9 +519,12 @@ body[data-theme="light"] .page-nav-arrow {
     background: rgba(228, 77, 77, 0.12);
     border-color: var(--brand-red);
   }
-      .container.py-5 {
-        padding-top: 4.5vh !important;
-      }
+}
+
+@media (max-width: 768px) {
+  .container.py-5 {
+    padding-top: 4.5vh !important;
+  }
 }
 
 .page-nav-track {
@@ -649,18 +652,6 @@ body[data-theme="dark"] .page-nav-icons a.active::before {
 .solution-card.full-width {
   grid-column: 1 / -1;
   margin-top: 0.25rem;
-}
-
-/* ── Investor Lead ───────────────────────────────────────────────── */
-
-.investor-lead {
-  margin-top: 1.25rem;
-  margin-bottom: 1.5rem;
-  font-size: calc(0.85rem + 0.2vw);
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  line-height: 1.8;
-  color: var(--text-muted);
 }
 
 /* ── Frame Nav Menu ──────────────────────────────────────────────── */
@@ -981,11 +972,29 @@ body[data-theme="dark"] .profile-portrait img {
   white-space: nowrap;
 }
 
-.tag-edge {
+.tag--edge {
   color: #fff;
   background: var(--brand-red);
   border-color: var(--brand-red);
   border-width: 1px;
+}
+
+/* ── Text Link ───────────────────────────────────────────────────── */
+
+.text-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--subheadline-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.text-link:hover {
+  opacity: 0.7;
 }
 
 body[data-theme="dark"] .tag {
