@@ -657,7 +657,9 @@ body[data-theme="dark"] .page-nav-icons a.active::before {
 /* ── Card Block Zones (index.html split layout) ─────────────────── */
 
 .card-block--top {
-  background: var(--bg-color);
+  background: var(--tile-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 20px 15px;
   border: 1px solid var(--border-color);
   border-bottom: none;
