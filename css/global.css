@@ -409,12 +409,17 @@ hr {
 /* ── Page Navigation Carousel ─────────────────────────────────────── */
 
 .page-nav {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 21;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 0.5rem 0;
-  margin-top: 0.75rem;
+  padding: 0;
+  margin-top: 0;
   pointer-events: auto;
   transition: opacity 0.5s ease;
 }
@@ -487,12 +492,12 @@ body[data-theme="light"] .page-nav-arrow {
   }
 
   .page-nav {
-    padding: 0.35rem 0;
+    padding: 0;
   }
 
   .page-nav-icons a {
-    min-width: 2.2rem;
-    min-height: 2.2rem;
+    min-width: 2rem;
+    min-height: 2rem;
   }
 
   .page-nav-icons a.active {
@@ -543,9 +548,9 @@ body[data-theme="light"] .page-nav-arrow {
   position: relative;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  min-height: 2rem;
-  padding: 0.3rem;
+  min-width: 1.85rem;
+  min-height: 1.85rem;
+  padding: 0.2rem;
   text-decoration: none;
   color: var(--text-color);
   opacity: 0.3;
@@ -561,8 +566,8 @@ body[data-theme="light"] .page-nav-arrow {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 2rem;
-  height: 2rem;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
