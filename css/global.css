@@ -2,7 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -24,7 +26,7 @@ html {
   --input-bg: rgba(0, 0, 0, 0.04);
   --overlay-color: rgba(255, 255, 255, 0.55);
   --card-overlay: rgba(252, 252, 252, 0.82);
-  --headline-shadow: 0 2px 12px rgba(0,0,0,0);
+  --headline-shadow: 0 2px 12px rgba(0, 0, 0, 0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,7 +48,7 @@ html {
     --input-bg: rgba(255, 255, 255, 0.06);
     --overlay-color: rgba(0, 0, 0, 0.55);
     --card-overlay: rgba(18, 18, 18, 0.82);
-    --headline-shadow: 0 2px 12px rgba(0,0,0,0.55);
+    --headline-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
   }
 }
 
@@ -68,7 +70,7 @@ body[data-theme="dark"] {
   --input-bg: rgba(255, 255, 255, 0.06);
   --overlay-color: rgba(0, 0, 0, 0.55);
   --card-overlay: rgba(18, 18, 18, 0.82);
-  --headline-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  --headline-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 body[data-theme="light"] {
@@ -89,7 +91,7 @@ body[data-theme="light"] {
   --input-bg: rgba(0, 0, 0, 0.04);
   --overlay-color: rgba(255, 255, 255, 0.55);
   --card-overlay: rgba(252, 252, 252, 0.82);
-  --headline-shadow: 0 2px 12px rgba(0,0,0,0);
+  --headline-shadow: 0 2px 12px rgba(0, 0, 0, 0);
 }
 
 body {
@@ -320,16 +322,37 @@ body[data-theme="dark"] .theme-toggle svg {
   animation: cardCrossfade 18s infinite ease-in-out;
 }
 
-.card-bg-slide:nth-child(1) { animation-delay: 0s; }
-.card-bg-slide:nth-child(2) { animation-delay: 6s; }
-.card-bg-slide:nth-child(3) { animation-delay: 12s; }
+.card-bg-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+.card-bg-slide:nth-child(2) {
+  animation-delay: 6s;
+}
+.card-bg-slide:nth-child(3) {
+  animation-delay: 12s;
+}
 
 @keyframes cardCrossfade {
-  0%   { opacity: 0; transform: scale(1.02); }
-  10%  { opacity: 0.30; transform: scale(1.05); }
-  33%  { opacity: 0.30; transform: scale(1.08); }
-  43%  { opacity: 0; transform: scale(1.10); }
-  100% { opacity: 0; transform: scale(1.02); }
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  10% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+  33% {
+    opacity: 0.3;
+    transform: scale(1.08);
+  }
+  43% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
 }
 
 /* ── Showcase Tile ────────────────────────────────────────────────── */
@@ -509,7 +532,7 @@ body[data-theme="light"] .page-nav-arrow {
   }
   .page-nav-icons a.active::before {
     border-color: var(--brand-red);
-    background: rgba(178, 34, 34, 0.10);
+    background: rgba(178, 34, 34, 0.1);
   }
   body[data-theme="light"] .page-nav-icons a.active::before {
     background: rgba(178, 34, 34, 0.08);
@@ -995,7 +1018,7 @@ body[data-theme="dark"] .profile-portrait img {
   color: var(--text-strong);
   font-weight: 700;
   opacity: 0.86;
-  border-radius: 4px;
+  border-radius: 2px;
   white-space: nowrap;
 }
 
