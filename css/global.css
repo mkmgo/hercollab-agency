@@ -1003,9 +1003,11 @@ body[data-theme="dark"] .profile-portrait img {
 /* ── Tags ─────────────────────────────────────────────────────────── */
 
 .tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 0.75rem;
+  width: 100%;
+  max-width: 100%;
   margin: 0.5rem 0 0.75rem;
 }
 
@@ -1014,12 +1016,17 @@ body[data-theme="dark"] .profile-portrait img {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border: 0.5px solid var(--border-color);
-  padding: 0.2rem 0.45rem;
+  padding: 0.25rem 0.35rem;
   color: var(--text-strong);
   font-weight: 700;
   opacity: 0.86;
   border-radius: 2px;
   white-space: nowrap;
+  text-align: center;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tag--edge {
